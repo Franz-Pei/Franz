@@ -1,0 +1,9 @@
+Distance Covered: 8
+Moves Made: 8
+Outcome: The Vehicle has been broken, Game Over!!
+Distance Covered: 10
+Moves Made: 10
+Outcome: You got it, Win!!
+Distance Covered: 15
+Moves Made: 15
+Outcome: You got it, Win!!
