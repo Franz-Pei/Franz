@@ -1,0 +1,6 @@
+colony surivival rates: 
+family group survival rate: 0.0%
+penguin survival rate: 6.25%
+egg survival rate: 5.734767025089606%
+Chick surivival rate: 0.0%
+conlony surivival: 6.25%
