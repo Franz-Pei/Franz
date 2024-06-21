@@ -1,0 +1,206 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "1cd45ee083afd9af138c818e26f5f07f",
+    "entities": [
+      {
+        "tableName": "customer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`customer_id` TEXT, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `password` TEXT NOT NULL, `email` TEXT NOT NULL, `state` TEXT NOT NULL, `date_of_birth` TEXT NOT NULL, PRIMARY KEY(`email`))",
+        "fields": [
+          {
+            "fieldPath": "customerId",
+            "columnName": "customer_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateOfBirth",
+            "columnName": "date_of_birth",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "email"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "booking",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`booking_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `customer_id` TEXT NOT NULL, `movie_id` INTEGER NOT NULL, `booking_date_time` TEXT NOT NULL, `adult_seat` TEXT NOT NULL, `concession_seat` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "bookingId",
+            "columnName": "booking_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "customerId",
+            "columnName": "customer_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieId",
+            "columnName": "movie_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingDateTime",
+            "columnName": "booking_date_time",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "adultSeat",
+            "columnName": "adult_seat",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "concessionSeat",
+            "columnName": "concession_seat",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "booking_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "movie",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`movie_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `movie_name` TEXT NOT NULL, `movie_esrb_rating` TEXT NOT NULL, `movie_genre` TEXT NOT NULL, `movie_runtime_hour` INTEGER NOT NULL, `movie_runtime_minute` INTEGER NOT NULL, `movie_user_rating` REAL NOT NULL, `movie_image_path` TEXT NOT NULL, `movie_summary` TEXT NOT NULL, `movie_start_date` TEXT NOT NULL, `movie_end_date` TEXT NOT NULL, `movie_screenings` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "movieId",
+            "columnName": "movie_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieName",
+            "columnName": "movie_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "esrbRating",
+            "columnName": "movie_esrb_rating",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieGenre",
+            "columnName": "movie_genre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieRuntimeHour",
+            "columnName": "movie_runtime_hour",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieRuntimeMinute",
+            "columnName": "movie_runtime_minute",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieUserRating",
+            "columnName": "movie_user_rating",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieImagePath",
+            "columnName": "movie_image_path",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieSummary",
+            "columnName": "movie_summary",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieStartDate",
+            "columnName": "movie_start_date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieEndDate",
+            "columnName": "movie_end_date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movieScreenings",
+            "columnName": "movie_screenings",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "movie_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1cd45ee083afd9af138c818e26f5f07f')"
+    ]
+  }
+}
