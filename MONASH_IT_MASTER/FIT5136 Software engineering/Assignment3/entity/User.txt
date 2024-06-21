@@ -1,0 +1,2 @@
+member@student.monash.edu,Monash1234,0
+admin@merchant.monash.edu,12345678,1
