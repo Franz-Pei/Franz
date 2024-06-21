@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Image Tags</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            justify-content: space-between;
+        }
+
+        .image-container img {
+            max-width: 150px;
+            max-height: 150px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 5px;
+        }
+
+        .info-item label {
+            font-weight: bold;
+        }
+
+        .update-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .update-container input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .update-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .update-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Update Image Tags</h1>
+        <div id="imageList"></div>
+    </div>
+
+    <script>
+        const username = sessionStorage.getItem('username');
+        const idToken = sessionStorage.getItem('idToken');
+
+        document.addEventListener('DOMContentLoaded', async function () {
+            if (!username) {
+                alert('Username is missing.');
+                return;
+            }
+
+            const apiUrl = "https://npcu2l61j8.execute-api.us-east-1.amazonaws.com/port/images/view";
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${idToken}`
+                    },
+                    body: JSON.stringify({ username: username })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch images.');
+                }
+
+                const result = await response.json();
+
+                const imageListDiv = document.getElementById('imageList');
+                imageListDiv.innerHTML = '';
+
+                if (result.length === 0) {
+                    imageListDiv.textContent = 'No images found for the given username.';
+                } else {
+                    result.forEach(image => {
+                        const imageContainer = document.createElement('div');
+                        imageContainer.classList.add('image-container');
+
+                        const s3Url = `https://fit5225a3-group77.s3.amazonaws.com/${image.key}`;
+
+                        const img = document.createElement('img');
+                        img.src = s3Url;
+                        img.alt = image.key.split('/').pop();
+
+                        const infoContainer = document.createElement('div');
+                        infoContainer.classList.add('info-container');
+
+                        const imageName = document.createElement('div');
+                        imageName.classList.add('info-item');
+                        imageName.innerHTML = `<label>Image Name:</label><span>${img.alt}</span>`;
+
+                        const s3UrlDiv = document.createElement('div');
+                        s3UrlDiv.classList.add('info-item');
+                        s3UrlDiv.innerHTML = `<label>Image S3 URL:</label><span>${s3Url}</span>`;
+
+                        const tags = JSON.parse(image.tags);
+                        const tagsDiv = document.createElement('div');
+                        tagsDiv.classList.add('info-item');
+                        tagsDiv.innerHTML = `<label>Image Tags:</label><span>${tags.label} (Accuracy: ${tags.accuracy})</span>`;
+
+                        const updateContainer = document.createElement('div');
+                        updateContainer.classList.add('update-container');
+
+                        const newTagInput = document.createElement('input');
+                        newTagInput.type = 'text';
+                        newTagInput.placeholder = 'New Tag';
+
+                        const updateButton = document.createElement('button');
+                        updateButton.textContent = 'Update Tag';
+                        updateButton.addEventListener('click', async function () {
+                            const newTag = newTagInput.value;
+                            if (!newTag) {
+                                alert('Please enter a new tag.');
+                                return;
+                            }
+
+                            const updateApiUrl = "https://npcu2l61j8.execute-api.us-east-1.amazonaws.com/port/images/updateTag";
+
+                            try {
+                                const updateResponse = await fetch(updateApiUrl, {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': `Bearer ${idToken}`
+                                    },
+                                    body: JSON.stringify({ username: username, key: image.key, newTag: newTag })
+                                });
+
+                                if (!updateResponse.ok) {
+                                    throw new Error('Failed to update tag.');
+                                }
+
+                                alert('Tag updated successfully.');
+                                window.location.reload();
+                            } catch (error) {
+                                console.error(error);
+                                alert('Failed to update tag. Please try again.');
+                            }
+                        });
+
+                        updateContainer.appendChild(newTagInput);
+                        updateContainer.appendChild(updateButton);
+
+                        infoContainer.appendChild(imageName);
+                        infoContainer.appendChild(s3UrlDiv);
+                        infoContainer.appendChild(tagsDiv);
+                        infoContainer.appendChild(updateContainer);
+
+                        imageContainer.appendChild(img);
+                        imageContainer.appendChild(infoContainer);
+
+                        imageListDiv.appendChild(imageContainer);
+                    });
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Failed to fetch images. Please try again.');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Tag and JWT Storage</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #tagForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            color: #28a745;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #message.error {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Input Tag and Post</h1>
+    <!-- Form for entering and submitting a tag -->
+    <form id="tagForm">
+        <label for="tagInput"> Enter Tag: </label>
+        <input type="text" id="tagInput" name="tag">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="message"></div>
+
+    <script>
+        // API endpoint URL for posting the tag
+        const apiUrl = "https://npcu2l61j8.execute-api.us-east-1.amazonaws.com/port/subscribe";
+
+        $(document).ready(function() {
+            // Event listener for form submission
+            $('#tagForm').submit(async function(event) {
+                event.preventDefault(); // Prevent default form submission
+                
+                const tagValue = $('#tagInput').val(); // Get the value of the input field
+                if (!tagValue) {
+                    alert('Please enter a tag.'); // Alert if the input is empty
+                    return;
+                }
+
+                // Prepare the payload with tag, email, and username
+                const payload = {
+                    tag: tagValue,
+                    email: sessionStorage.getItem('email'), // Get email from session storage
+                    username: sessionStorage.getItem('username') // Get username from session storage
+                };
+
+                try {
+                    // Make a POST request to the API
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json', // Set content type to JSON
+                            'Authorization': `Bearer ${sessionStorage.getItem("idToken")}` // Include JWT token for authorization
+                        },
+                        body: JSON.stringify(payload) // Send the payload as JSON
+                    });
+                    
+                    const result = await response.json(); // Parse the JSON response
+                    console.log(result);
+                    
+                    // Display appropriate messages based on the response status
+                    let message = '';
+                    if (response.ok) {
+                        message = 'Subscription successful!';
+                    } else if (response.status === 400 && result === 'Subscription already exists') {
+                        message = 'Subscription already exists for this tag.';
+                    } else {
+                        message = 'Error in subscription. Please try again!';
+                    }
+                    $('#message').text(message);
+                    $('#message').removeClass('error');
+                } catch (error) {
+                    console.error(error);
+                    $('#message').text('Error when posting the tag, please try again!');
+                    $('#message').addClass('error');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

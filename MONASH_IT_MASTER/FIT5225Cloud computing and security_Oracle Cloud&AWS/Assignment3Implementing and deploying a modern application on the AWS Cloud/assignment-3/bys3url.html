@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Original Image by S3 URL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #imageResult {
+            margin-top: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            max-width: 150px;
+            max-height: 150px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-item label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .info-item span {
+            flex-grow: 1;
+            text-align: left;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Query Original Image by S3 URL</h1>
+        <label for="s3UrlInput">Enter S3 URL:</label>
+        <input type="text" id="s3UrlInput" placeholder="Enter S3 URL...">
+        <button id="queryBtn">Query</button>
+        <div id="imageResult"></div>
+    </div>
+
+    <script>
+        const username = sessionStorage.getItem('username');
+        const email = sessionStorage.getItem('email');
+        const idToken = sessionStorage.getItem('idToken');
+
+        document.getElementById('queryBtn').addEventListener('click', async function () {
+            const s3Url = document.getElementById('s3UrlInput').value;
+
+            if (!s3Url) {
+                alert('Please enter an S3 URL.');
+                return;
+            }
+
+            if (!username) {
+                alert('Username is missing.');
+                return;
+            }
+
+            const apiUrl = "https://npcu2l61j8.execute-api.us-east-1.amazonaws.com/port/images/queryBys3url";
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${idToken}`
+                    },
+                    body: JSON.stringify({ username: username, s3url: s3Url })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data.');
+                }
+
+                const result = await response.json();
+
+                const imageResultDiv = document.getElementById('imageResult');
+                imageResultDiv.innerHTML = '';
+
+                if (result.length === 0) {
+                    imageResultDiv.textContent = 'No images found for the given S3 URL.';
+                } else {
+                    result.forEach(image => {
+                        const imageContainer = document.createElement('div');
+                        imageContainer.classList.add('image-container');
+
+                        const s3Url = `https://fit5225a3-group77.s3.amazonaws.com/${image.key}`;
+
+                        const img = document.createElement('img');
+                        img.src = s3Url;
+                        img.alt = image.key.split('/').pop();
+
+                        const infoContainer = document.createElement('div');
+                        infoContainer.classList.add('info-container');
+
+                        const imageName = document.createElement('div');
+                        imageName.classList.add('info-item');
+                        imageName.innerHTML = `<label>Image Name:</label><span>${img.alt}</span>`;
+
+                        const s3UrlDiv = document.createElement('div');
+                        s3UrlDiv.classList.add('info-item');
+                        s3UrlDiv.innerHTML = `<label>Image URL:</label><span>${s3Url}</span>`;
+
+                       // Ensure image.tags is a valid JSON string
+                       let tags = [];
+                        try {
+                            tags = JSON.parse(image.tags);
+                        } catch (e) {
+                            console.error('Invalid JSON for image tags:', image.tags);
+                        }
+
+                        const tagsDiv = document.createElement('div');
+                        tagsDiv.classList.add('info-item'); 
+                        tagsDiv.innerHTML = '<label>Image Tags:</label><br>';
+
+                        if (Array.isArray(tags)) {
+                            tags.forEach(tag => {
+                                const tagSpan = document.createElement('span');
+                                tagSpan.innerHTML = `${tag.label} (Accuracy: ${tag.accuracy.toFixed(2)})<br>`;
+                                tagsDiv.appendChild(tagSpan);
+                            });
+                        } else {
+                            tagsDiv.innerHTML += '<span>No tags available</span>';
+                        }
+
+                        infoContainer.appendChild(imageName);
+                        infoContainer.appendChild(s3UrlDiv);
+                        infoContainer.appendChild(tagsDiv);
+
+                        imageContainer.appendChild(img);
+                        imageContainer.appendChild(infoContainer);
+
+                        imageResultDiv.appendChild(imageContainer);
+                    });
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Failed to fetch data. Please try again.');
+            }
+        });
+    </script>
+</body>
+
+</html>

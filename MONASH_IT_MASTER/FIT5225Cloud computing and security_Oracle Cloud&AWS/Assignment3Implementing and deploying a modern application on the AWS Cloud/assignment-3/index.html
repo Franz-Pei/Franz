@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+        }
+
+        .title {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label[for="imageFile"] {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        label[for="imageFile"]:hover {
+            background-color: #0056b3;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #uploadResult {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #28a745;
+        }
+
+        #imagePreview img {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+
+        .button-group button {
+            margin: 5px;
+            background-color: #17a2b8;
+        }
+
+        .button-group button:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hi:</h1>
+            <h1 id="username">Username</h1>
+        </div>
+        <h2 class="title">Please Upload Image (⌒▽⌒)☆</h2>
+        <label for="imageFile">Choose an image</label>
+        <input type="file" id="imageFile" name="filename" accept="image/*">
+        <button id="uploadBtn">Upload</button>
+        <div id="uploadResult"></div>
+        <div id="imagePreview"></div>
+        <div class="button-group">
+            <button id="viewImages" onclick="window.location.href='/view.html'">View the image recognition results</button>
+            <button id="Subscribe" onclick="window.location.href='/subscribe.html'">Subscribe a tag</button>
+            <button id="queryByS3UrlBtn" onclick="window.location.href='/bys3url.html'">Press S3url to query the original image</button>
+            <button id="queryByTagBtn" onclick="window.location.href='/bytag.html'">Query by Tag</button>
+            <button id="modifyTagBtn" onclick="window.location.href='/add_delete_tag.html'">Add delete Tag</button>
+            <button id="deleteImageBtn" onclick="window.location.href='/deleteImage.html'">Delete Image</button>
+            <button id="QueryByUploadedImage" onclick="window.location.href='/queryimagebyuploadedimage.html'">Query By Uploaded Image</button>
+        </div>
+
+        <div>
+            <button onclick="window.location.href='https://demo-group77.auth.us-east-1.amazoncognito.com/logout?client_id=7arahkvvr7vjvjl6fk0t6lp7n6&response_type=token&scope=email+openid+profile&redirect_uri=http%3A%2F%2Flocalhost%3A5500%2Findex.html'">Log out</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Parse the URL hash to extract the id_token and store in sessionStorage
+        const urlHashParams = window.location.hash.substring(1).split('&').reduce((params, item) => {
+            let [key, value] = item.split('=');
+            params[key] = value;
+            return params;
+        }, {});
+
+        const idToken = urlHashParams.id_token;
+        sessionStorage.setItem('idToken', idToken);
+        console.log(urlHashParams)
+        console.log(idToken)
+
+        // Function to parse JWT token and store username and email in sessionStorage
+        function parseJwt(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        const jwtPayload = parseJwt(idToken);
+        
+        sessionStorage.setItem('username', jwtPayload["cognito:username"]);
+        sessionStorage.setItem('email', jwtPayload["email"]);
+
+        // Display the username
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('username').textContent = sessionStorage.getItem('username');
+        });
+
+        // Function to handle file upload
+        async function handleFileUpload() {
+            const fileInput = document.getElementById('imageFile');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Please choose a file to upload');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = async () => {
+                const base64String = reader.result.split(',')[1];
+                const uploadPayload = {
+                    file: base64String,
+                    name: file.name,
+                    username: sessionStorage.getItem("username")
+                };
+
+                try {
+                    const response = await fetch("https://npcu2l61j8.execute-api.us-east-1.amazonaws.com/port/images", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${sessionStorage.getItem("idToken")}`
+                        },
+                        body: JSON.stringify(uploadPayload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Uploading failed, please try again");
+                    }
+
+                    const responseData = await response.json();
+                    document.getElementById('uploadResult').innerHTML = `${responseData} is successfully uploaded!`;
+                    alert(`${responseData} is successfully uploaded!`);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+        }
+
+ 
+        // Event listeners
+        document.getElementById("uploadBtn").addEventListener("click", handleFileUpload);
+        document.getElementById('imageFile').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const previewContainer = document.getElementById('imagePreview');
+                    previewContainer.innerHTML = `<img src="${e.target.result}" alt="Image preview" style="max-width: 200px; max-height: 200px;"/>`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

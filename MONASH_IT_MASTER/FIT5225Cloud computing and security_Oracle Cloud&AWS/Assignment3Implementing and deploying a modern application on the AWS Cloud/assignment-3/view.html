@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .image-container img {
+            max-width: 150px;
+            max-height: 150px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-item {
+            margin-bottom: 5px;
+        }
+
+        .info-item label {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const username = sessionStorage.getItem('username');
+            const idToken = sessionStorage.getItem('idToken');
+            
+            if (!username || !idToken) {
+                console.error('Username or idToken not found in sessionStorage');
+                document.getElementById('message').textContent = 'Error: Please login again.';
+                return;
+            }
+
+            // Query the API to get images for the current user
+            const apiUrl = "https://npcu2l61j8.execute-api.us-east-1.amazonaws.com/port/images/view";
+            
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${idToken}`
+                    },
+                    body: JSON.stringify({ username: username })
+                });
+
+                const result = await response.json();
+
+                // Check for errors in the response
+                if (!response.ok) {
+                    throw new Error(result.message || 'Error fetching data');
+                }
+
+                // Display the result
+                if (result.length === 0) {
+                    document.getElementById('message').textContent = 'No images found for the current user.';
+                } else {
+                    document.getElementById('message').textContent = '';
+                    renderImageResults(result);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('message').textContent = 'Error fetching data. Please try again.';
+            }
+        });
+
+        function renderImageResults(imageResults) {
+            const imagesContainer = document.getElementById('images');
+            imagesContainer.innerHTML = '';  // Clear previous results
+
+            imageResults.forEach(image => {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image-container');
+
+                const s3Url = `https://fit5225a3-group77.s3.amazonaws.com/${image.key}`;
+                const newS3Url = s3Url.replace("resized", "images");
+        
+                const img = document.createElement('img');
+                img.src = s3Url;
+                img.alt = image.key.split('/').pop();
+
+                const s3 = `s3://fit5225a3-group77/${image.key}`;
+
+                const infoContainer = document.createElement('div');
+                infoContainer.classList.add('info-container');
+
+                const imageName = document.createElement('div');
+                imageName.classList.add('info-item');
+                imageName.innerHTML = `<label>Image Name:</label><span>${img.alt}</span>`;
+
+                const UrlDiv = document.createElement('div');
+                UrlDiv.classList.add('info-item');
+                UrlDiv.innerHTML = `<label>Image URL:</label><span>${s3Url}</span>`;
+
+                const s3UrlDiv = document.createElement('div');
+                s3UrlDiv.classList.add('info-item');
+                s3UrlDiv.innerHTML = `<label>S3 URL:</label><span>${s3}</span>`;
+
+                const buttonDiv = document.createElement('div');
+                buttonDiv.classList.add('info-item');
+                buttonDiv.innerHTML = `<button onclick="window.location.href='${newS3Url}'">See Full Image</button>`;
+
+                // Ensure image.tags is a valid JSON string
+                let tags = [];
+                try {
+                    tags = JSON.parse(image.tags);
+                } catch (e) {
+                    console.error('Invalid JSON for image tags:', image.tags);
+                }
+
+                const tagsDiv = document.createElement('div');
+                tagsDiv.classList.add('info-item');
+                tagsDiv.innerHTML = '<label>Image Tags:</label><br>';
+
+                if (Array.isArray(tags)) {
+                    tags.forEach(tag => {
+                        const tagSpan = document.createElement('span');
+                        tagSpan.innerHTML = `${tag.label} (Accuracy: ${tag.accuracy.toFixed(2)})<br>`;
+                        tagsDiv.appendChild(tagSpan);
+                    });
+                } else {
+                    tagsDiv.innerHTML += '<span>No tags available</span>';
+                }
+
+                infoContainer.appendChild(imageName);
+                infoContainer.appendChild(s3UrlDiv);
+                infoContainer.appendChild(UrlDiv);
+                infoContainer.appendChild(buttonDiv);  // Add button after URL
+                infoContainer.appendChild(tagsDiv);
+
+                imageContainer.appendChild(img);
+                imageContainer.appendChild(infoContainer);
+
+                imagesContainer.appendChild(imageContainer);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>User Image Gallery</h1>
+        <div id="message"></div>
+        <div id="images"></div>
+    </div>
+</body>
+</html>

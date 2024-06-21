@@ -1,0 +1,73 @@
+<div class="login-box">
+    <h2>Login</h2>
+    <a href="https://demo-group77.auth.us-east-1.amazoncognito.com/login?client_id=7arahkvvr7vjvjl6fk0t6lp7n6&response_type=token&scope=email+openid+profile&redirect_uri=http%3A%2F%2Flocalhost%3A5500%2Findex.html">Click Here to Login</a>
+</div>
+
+
+<!-- Style -->
+<style>
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login box styles */
+.login-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Heading styles */
+.login-box h2 {
+    margin: 0 0 20px;
+    padding: 0;
+    color: #333;
+    font-size: 24px;
+    position: relative;
+    animation: slideIn 1s ease-out;
+}
+
+/* Link styles */
+.login-box a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box a:hover {
+    background-color: #2980b9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes for animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
