@@ -1,0 +1,138 @@
+[Task 3] - Competition (25%)
+You are NOT allowed to use try/except blocks in Task 3.
+
+We have our runners, we have our races. Now, let's work towards creating a competition! 
+
+The competition class consists of one or several races with different runners competing for the title of the ultimate champion! 
+
+The Competition class has the following variables:
+
+MAX_ROUNDS : An integer class variable that holds the number of rounds for the competition. The default value of this is set to 3.
+
+runners : A list of runners being passed to the constructor.
+
+rounds : A positive integer that determines how many rounds of races will be conducted in this competition. This cannot exceed MAX_ROUNDS. 
+
+distances_short : A list of positive floating values that serve as distances for the short_race (in km).
+
+distances_marathon : A list of positive floating values that serve as distances for the marathon race (in km).
+
+leaderboard : A dictionary that contains the positions of the players in this competition.
+
+It also has the following methods: 
+
+__init__(self, runners, rounds, distances_short, distances_marathon) : This method is the constructor of the competition class that takes in a list of runners (can be an empty list), number of rounds and a list each of distances for short races and marathon races, and initialises these variables. It should also fill in the leaderboard with keys as the positions ('1st', '2nd', '3rd', '4th', '5th', ... etc.) based on the number of runners but the values for all these keys should be set to None. This code has already been done for you. You need to ensure that the number of rounds does not exceed MAX_ROUNDS. You should also ensure that the length of both distances lists should be the same as rounds. 
+
+conduct_competition(self) : This method is the main method by which the competition will be conducted until and including the value of self.rounds is reached, starting at round 1. Each round contains a short race and a marathon race with the runners added at the start of the race. The distance for each round should be retrieved from the self.distances_short and self.distances_marathon variables. After each round, you should recover the racers who did not finish the race to maximum energy. This means only the runners who Did Not Finish should recover to maximum energy. This method should return the final leaderboard.
+
+conduct_race(self, race) : This method takes in an object of the race family and returns a list of the runners and their times taken to finish the race. 
+
+update_leaderboard(self, results) : This method takes a list of results from the conduct_race method and updates the leaderboard according to the positions obtained by the runners. The leaderboard is set as follows: 
+
+Check the list of results and assign points based on the runner's position, inverse to the number of runners (For example, if 4 runners are running and you place first, you get 3 points. If you place second, you get 2 points; and so on). Any runner that does not finish (DNF) should get 0 points.
+
+If the leaderboard is empty; then you should assign the value as a tuple containing the name of the runner as well as their points. 
+
+If the leaderboard already has players, then you should update the runners' points and then re-assign the runners if their position has changed on the leaderboard. 
+
+print_leaderboard(self) : This method prints the leaderboard with the position, the name and the points (in brackets) of the runners. For example: 
+
+Leaderboard
+
+1st - Elijah (10)
+2nd - Phoebe (7)
+3rd - Lauren (4)
+4th - Rupert (1)
+5th - Chloe (0)
+Again, most of the methods are already done for you, your job is as follows: 
+
+Copy and replace the code for runner.py and race.py that is given in the scaffold with your pristine code from the previous tasks.
+
+Fix the logical errors that have been made in the class, variables, and methods given above. 
+
+Check the pre-conditions and post-conditions for each of the methods. Make sure to raise the relevant errors if incorrect values are passed to the functions
+
+Document your code including type-hinting for all variables and arguments for functions and methods, as well as include relevant docstrings for each method and class.
+
+Build on the unit tests that have already been given to you in the file test_competition.py. You are expected to create at least three tests for each method. You should create these additional tests in a separate testing function in the given class. 
+
+
+Sample Competition
+Here is the expected CUMULATIVE leaderboard after each race of each round after running the same runners that have been provided to you at the bottom of your file: 
+
+SETUP
+
+123456789
+runners = [
+    Runner("Elijah", 19, 'Australia', 6.4, 5.2),
+    Runner("Rupert", 67, 'Botswana', 2.2, 1.8),
+    Runner("Phoebe", 12, 'France', 3.4, 2.8),
+    Runner("Lauren", 13, 'Iceland', 4.4, 5.1),
+    Runner("Chloe", 21, 'Timor-Leste', 5.2, 1.9)
+]
+
+competition = Competition(runners, 3, [0.5, 0.6, 1.2], [4.0, 9.0, 4.5])
+
+ROUND 1
+
+After Short Race:
+
+12345
+1st - Elijah (4)
+2nd - Chloe (3)
+3rd - Lauren (2)
+4th - Phoebe (1)
+5th - Rupert (0)
+After Marathon Race:
+
+12345
+1st - Elijah (8)
+2nd - Lauren (5)
+3rd - Chloe (4)
+4th - Phoebe (3)
+5th - Rupert (0)
+
+ROUND 2
+
+After Short Race:
+
+12345
+1st - Elijah (12)
+2nd - Chloe (7)
+3rd - Lauren (7)
+4th - Phoebe (4)
+5th - Rupert (0)
+After Marathon Race (All DNF):
+
+12345
+1st - Elijah (12)
+2nd - Lauren (7)
+3rd - Chloe (7)
+4th - Phoebe (4)
+5th - Rupert (0)
+
+ROUND 3
+
+After Short Race:
+
+12345
+1st - Elijah (16)
+2nd - Chloe (10)
+3rd - Lauren (9)
+4th - Phoebe (5)
+5th - Rupert (0)
+After Marathon Race:
+
+12345
+1st - Elijah (20)
+2nd - Lauren (12)
+3rd - Chloe (11)
+4th - Phoebe (7)
+5th - Rupert (0)
+
+FINAL LEADERBOARD
+1st - Elijah (20)
+2nd - Lauren (12)
+3rd - Chloe (11)
+4th - Phoebe (7)
+5th - Rupert (0)

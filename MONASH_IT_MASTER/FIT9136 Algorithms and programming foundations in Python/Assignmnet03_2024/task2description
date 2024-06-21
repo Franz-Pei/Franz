@@ -1,0 +1,86 @@
+[Task 2] - At The Races (25%)
+You are NOT allowed to use try/except blocks in Task 2.
+
+Task Setup
+Now that we have our runners, we will turn our attention to the races. In the scaffold, you will see a (somewhat) complete code for the races. There are two types of races - Short and Marathon. 
+
+What has been given (with errors)
+There are certain features and attributes that the races share in common, however, some of them are different. As was the case in the previous task, here are the details of the attributes used in these classes: 
+
+race_type : A string that contains the type of the race. If its a short race, this will contain the string "short" whereas if the race is a marathon, then this string will contain "long".
+
+distance : A positive floating value that contains (in kilometres) the distance of the race. Distances vary even within marathons and short races.
+
+runners : A list of runner objects (from the runner class in the previous task).
+
+maximum_participants : An integer that defines the maximum number of participants that can participate in the race. This value is 8 for short races and 16 for marathons.
+
+time_multiplier : Our calculations consider the runners running at the highest speed for the entire duration of a short race. To cater for the error, we apply a time_multiplier which fixes the time calculated for a runner to run the short race. The value of this multiplier is currently set to 1.2 for all short races. This value doesn't exist for marathon races.
+For example - if a runner's speed is 
+𝑥
+x meters per second, and the distance is 
+𝑦
+y meters, then the time should be calculated as
+time
+=
+𝑦
+𝑥
+∗
+1.2
+time= 
+x
+y
+​
+ ∗1.2
+
+
+energy_per_km : An integer (set to 100 for all marathons) that contains the amount of energy consumed per kilometer run of a marathon. When the race is conducted for a marathon, energy is consumed per km and the racers that run out of energy before the marathon finishes don't qualify as a finisher. This value doesn't exist for short races. 
+
+The classes given to you also has the following methods:
+
+__init__(self, distance, runners = None) : this is the constructor for the Race(ABC) class that sets up the Race. As you can see, runners is an optional parameter. If the value of runners is passed as None or if no value for runners is provided, you should initialise the runners as an empty list. However, if there are values provided, then they should only be objects of the Runner class.
+
+add_runner(self) : this method adds a runner to the race. However, if the runner already exists, then this method should raise a RunnerAlreadyExistsError, which has been imported for you already. You should also make sure that the number of runners don't exceed the maximum_participants. In case adding the runner will exceed the maximum participants, you should raise a RaceIsFull error. 
+
+remove_runner(self) : this method removes a runner from the race. However, if the runner does not exist then this method should raise a RunnerDoesntExistError, which has been imported for you already.
+
+conduct_race(self) : this method should conduct a race based on the type of race that we are considering.
+
+For a short race: We call the run_race method for each runner and calculate the time taken to run the race. 
+
+For a marathon race: We call the run_race method once for each runner for each kilometre of the marathon race. We also reduce the runner's energy according to the value set in the class. For this purpose, feel free to round up the distance to the nearest integer. If the runner runs out of energy, their finish time is set to 'DNF' (Did Not Finish).
+
+After the conclusion of the conduct_race method, a list of tuples should be returned (this code is already done for you). 
+
+
+For You To Do 
+We definitely need to find better TAs because these ones keep making mistakes! 
+
+You are tasked with the following: 
+
+Copy and replace the code for runner.py that is given in the scaffold with your pristine code from the previous task.
+
+Fix the errors that have been made in the class, variables, and methods based on the descriptions provided above. There may be cases where you need to remove some of the methods if you are implementing inheritance.
+NOTE: You may need to move/remove some of the variables and methods in between the three classes once you implement proper inheritance. Please ensure that the names of the methods/variables DO NOT CHANGE from the ones given to you.
+
+Check the pre-conditions and post-conditions for each of the methods. Make sure to raise the relevant errors if incorrect values are passed to the functions.
+
+Document your code including type-hinting for all variables and arguments for functions and methods, as well as include relevant docstrings for each method and class.
+
+Build on the unit tests that have already been given to you in the file test_races.py. You are expected to create at least three tests for each method. You should create these additional tests in a separate testing function in the given class. 
+
+
+Important Points
+Remember, it is YOUR RESPONSIBILITY to ensure that a proper error is raised when an invalid input is received. Here are some pointers: 
+
+If the value received by a method is invalid or not what the method expects, then you should raise a CustomValueError.
+
+If the type of value received by a method is invalid or not what the method expects, then you should raise a CustomTypeError.
+
+If the value being passed to the method is not an attribute of the class, then you should raise an CustomAttributeError.
+
+If the method is trying to get a value from a dictionary that shouldn't be returned, you should raise a CustomKeyError.
+
+If a runner is being added to a race that already exists in the race, you should raise a RunnerAlreadyExistsError.
+
+If a runner is being removed from a race that doesn't exist in that race, you should raise a RunnerDoesntExistError.

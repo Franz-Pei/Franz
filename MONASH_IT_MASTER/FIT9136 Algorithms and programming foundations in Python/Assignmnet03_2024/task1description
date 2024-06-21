@@ -1,0 +1,71 @@
+[Task 1] - The Runners Are Here (20%)
+You are NOT allowed to use try/except blocks in Task 1.
+
+Task Setup
+In this part, you are given a class called Runner that contains a few instance variables and some class variables. The purpose of each of them is defined below: 
+
+max_energy (int) : The maximum energy of the runner (i.e., same for all runners).
+
+name (string): The name of a runner.
+
+age (int): The age of the runner.
+
+country (string): The country that the runner.
+
+energy (int): The current level of energy for the player. It starts at max energy.
+
+sprint_speed (float): The speed at which the runner runs when participating in a short race (in meters per second).
+
+endurance_speed (float) : The speed at which the runner runs when participating in a marathon (in meters per second). 
+
+What has been given (with errors)
+The class also contains the following methods: 
+
+__init__(self, name, age, country, sprint_speed, endurance_speed) : this method creates the runner with the attributes passed to the method. There are certain limitations to the attribute values: 
+
+name must be an alphanumeric string (can contain spaces),
+
+age must be an integer between 5 and 120 (both inclusive),
+
+country must be a string and its value must be from the ones contained in the 'name' column of the csv countries.csv provided in the directory this file is currently being run,
+NOTE : You may assume that countries.csv always exists
+
+sprint_speed must be a float and its value should lie between 2.2 and 6.8 in meters per second (both inclusive), 
+
+endurance_speed must be a float and its value should lie between 1.8 and 5.4 in meters per second (both inclusive).
+
+drain_energy(self, drain_points) : this method gets an integer and drains the energy of the runner by the value of drain_points passed. The value of drain points cannot be less than 0 or more than the max_energy value of the runner. Also, the leftover energy of the player once the energy is drained cannot be less than 0. After this method concludes, the energy of the player should have been reduced by the value passed in the function. 
+
+recover_energy(self, recovery_amount) : this method gets an integer and recovers the energy of the player by the value of recovery_amount passed. The value of the energy of the player cannot exceed the maximum energy. If the energy of the player after adding recovery_amount goes over the max_energy then you should set the energy to the max_energy. You should also note that recovery_amount should not be more than max_energy. 
+
+run_race(self, race_type, distance) -> float : this method takes in the race type (either "short" or "long" ) and distance (in kilometers) of the race and is a float value. It then returns the floating value of the time taken (in seconds; rounded to 2 decimal places) to complete the race. After this method concludes, there should be no change in the stats of the player. Please note that if the race is a short race, use the sprint speed of the runner. If the race is a marathon, then use the endurance speed of the runner.
+
+__str__(self) : this method just returns the details of the runner. You don't need to test this method. 
+
+Remember! You may need to validate the input that these methods receive and raise relevant errors. You will also need to assert the post conditions of these methods, that are mentioned above.
+
+For You To Do
+Most of the code has already been done for you. However, your TAs have become lazy and made code mistakes. :(
+
+You are tasked with the following: 
+
+Fix the errors made in the class, variables, and methods based on the descriptions mentioned above.
+
+Check the pre-conditions and post-conditions for each of the methods. Make sure to raise the relevant errors if incorrect values are passed to the functions.
+
+Document your code including type-hinting for all variables, arguments for functions and methods, and relevant docstrings for each method and class.
+
+Build on the unit tests that have already been given to you in the file test_runner.py. You are expected to create at least three tests for each method. You should create these additional tests in a separate testing function in the given class. 
+
+
+Important Points
+Remember, it is YOUR RESPONSIBILITY to ensure that a proper custom error is raised when an invalid input is received. Here are some pointers: 
+
+If the value received by a method is invalid or not what the method expects, then you should raise a CustomValueError.
+
+If the type of value received by a method is invalid or not what the method expects, then you should raise a CustomTypeError.
+
+If the value being passed to the method is not an attribute of the class, then you should raise an CustomAttributeError.
+
+If the method is trying to get a value from a dictionary that shouldn't be returned, you should raise a CustomKeyError.
+

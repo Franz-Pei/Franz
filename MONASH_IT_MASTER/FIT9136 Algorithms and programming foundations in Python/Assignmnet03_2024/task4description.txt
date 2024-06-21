@@ -1,0 +1,55 @@
+[Task 4] - It All Comes Together (30%)
+You are allowed to use try/except blocks in Task 4.
+
+You have worked over the last three tasks to create the runner's assertion with various classes.
+
+Now, you must create a command line interface that ties it all together. 
+
+You have been given a (minimal) scaffold in this task. There are no automated tests in this task and the markers will manually check this. 
+
+Your task is as follows:
+
+Create the code for the main method in the scaffold.
+i) The user should be able to create a runner from scratch (i.e., enter the name, age, country, speeds, etc.). The input should be just one string that contains the name/age/country/speeds. Please see the example below.
+ii) The user should be able to choose how many rounds the competition should run for, as well as the distances for the short races and marathons in the competition. The input should be the same (i.e., comma-separated). Please see the example below. 
+
+Document the methods given in the scaffold.
+
+Ensure that your code will not break under (most) circumstances by using try and except blocks to handle the custom errors we have defined in this assignment.
+
+Write a testing harness under the file test_task4.py that runs basic checks. 
+
+Testing harness for this task is NOT GRADED. Although we are not assigning any marks to this, you should still try to create some tests for this task for your own sanity check.
+
+A run and a check button has been implemented for this task, which will let you run your task4.py and test_task4.py file respectively. 
+
+There are no automated tests for this task hence, the Test button is missing.
+
+WARNING! All of your error handling for creating runners and creating competitions MUST be handled in the create_runner and create_competition methods. Do not create one giant main method. You are STRONGLY RECOMMENDED to create smaller functions to help modularise the code. This is something we will be grading you on.
+
+
+Example Output
+(Please note: this is only an indication. Your output does not need to be exactly the same. However, your program must still ask the user to create runners and competitions. It should also handle all errors that may be raised due to the creation of the runners and competition. Your tutors will enter several inputs to try and break your code so its best if you try to do the same before submitting the assignment.
+
+
+Add runner - name/age/country/sprint speed/marathon speed (blank line stops): Buser/21/4.4/5.2
+ERROR : Incorrect number of fields
+Add runner - name/age/country/sprint speed/marathon speed (blank line stops): Buser/21/Australia/4.4/5.2
+Add runner - name/age/country/sprint speed/marathon speed (blank line stops): Pierre/22/France/3.4/4.8
+Add runner - name/age/country/sprint speed/marathon speed (blank line stops): 
+Done creating runners!
+
+Create competition - rounds/sprint distances/marathon distances: 2/3.4,5.5,6.5/5.0,6.0,12.0
+ERROR : There must be as many sprint distances as there are rounds
+ERROR : There must be as many marathon distances as there are rounds
+Create competition - rounds/sprint distances/marathon distances: 3/3.4,5.5,6.5/5.0,6.0,12.0
+Done creating competition
+
+Executing the competition!
+Competition concluded!
+
+Leaderboard
+
+
+1st - Buser (4)
+2nd - Pierre (0)
