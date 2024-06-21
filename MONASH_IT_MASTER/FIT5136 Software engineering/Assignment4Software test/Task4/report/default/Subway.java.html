@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Subway.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Report</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Subway.java</span></div><h1>Subway.java</h1><pre class="source lang-java linenums">import java.util.*;
+
+<span class="nc" id="L3">public class Subway{</span>
+	
+<span class="fc" id="L5">	private static final List&lt;String&gt; foodTypes = Arrays.asList(&quot;sub&quot;, &quot;salad&quot;, &quot;wrap&quot;);</span>
+<span class="fc" id="L6">	private static final List&lt;Integer&gt; foodTypePrices = Arrays.asList(2, 5, 3);</span>
+
+<span class="fc" id="L8">	private static final List&lt;String&gt; sizes = Arrays.asList(&quot;6-inch&quot;, &quot;footlong&quot;, &quot;&quot;);</span>
+<span class="fc" id="L9">	private static final List&lt;Integer&gt; sizeSurcharges= Arrays.asList(2, 4, 0);</span>
+
+<span class="fc" id="L11">	private static final List&lt;String&gt; breads = Arrays.asList(&quot;garlic&quot;, &quot;plain&quot;, &quot;wholewheat&quot;, &quot;gluten-free&quot;);</span>
+<span class="fc" id="L12">	private static final List&lt;Integer&gt; breadSurcharges = Arrays.asList(0, 0, 0, 1);</span>
+
+<span class="fc" id="L14">	private static final List&lt;String&gt; cheeses = Arrays.asList(&quot;yes&quot;, &quot;no&quot;);</span>
+<span class="fc" id="L15">	private static final List&lt;Integer&gt; cheeseSurcharges = Arrays.asList(1, 0);</span>
+
+<span class="fc" id="L17">	private static final List&lt;String&gt; veggiesList = Arrays.asList(&quot;standard&quot;, &quot;premium&quot;);</span>
+<span class="fc" id="L18">	private static final List&lt;Integer&gt; veggieSurcharges = Arrays.asList(3, 4);</span>
+
+<span class="fc" id="L20">	private static final List&lt;String&gt; meats = Arrays.asList(&quot;meatball&quot;, &quot;blt&quot;, &quot;standard steak&quot;, &quot;wagyu steak&quot;);</span>
+<span class="fc" id="L21">	private static final List&lt;Integer&gt; meatCosts = Arrays.asList(3, 4, 4, 6);</span>
+	
+
+	public static boolean validInputs(String food_type, String size, String bread, String cheese, String veggies, String meat)
+	{
+<span class="pc bpc" id="L26" title="1 of 6 branches missed.">		if(!foodTypes.contains(food_type) || !sizes.contains(size) || !breads.contains(bread)</span>
+<span class="fc bfc" id="L27" title="All 6 branches covered.">			|| !cheeses.contains(cheese) || !veggiesList.contains(veggies) || !meats.contains(meat)){</span>
+<span class="fc" id="L28">			return false;</span>
+		}
+<span class="fc bfc" id="L30" title="All 4 branches covered.">		if (food_type.equals(&quot;sub&quot;) &amp;&amp; size.isEmpty()){</span>
+<span class="fc" id="L31">			return false;</span>
+		}
+<span class="fc" id="L33">		return true;</span>
+	
+	}
+
+
+    public static int subway_price(String food_type, String size, String bread, String cheese, String veggies, String meat) {
+<span class="fc" id="L39">        food_type = food_type.toLowerCase();</span>
+<span class="fc" id="L40">		size = size.toLowerCase();</span>
+<span class="fc" id="L41">		bread = bread.toLowerCase();</span>
+<span class="fc" id="L42">		cheese = cheese.toLowerCase();</span>
+<span class="fc" id="L43">		veggies = veggies.toLowerCase();</span>
+<span class="fc" id="L44">		meat = meat.toLowerCase();</span>
+
+<span class="fc bfc" id="L46" title="All 2 branches covered.">		if (!validInputs(food_type,size, bread, cheese, veggies, meat)){</span>
+<span class="fc" id="L47">			return -1;</span>
+		}
+
+<span class="fc" id="L50">		int basePrice = getFoodTypePrice(food_type);</span>
+<span class="fc" id="L51">		int sizeSurcharge = 0;</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">		if(!food_type.equals(&quot;salad&quot;)){</span>
+<span class="fc" id="L53">			sizeSurcharge = getSizeSurcharge(size);</span>
+		}
+<span class="fc" id="L55">		int breadSurcharge = 0;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">		if(!food_type.equals(&quot;salad&quot;)){</span>
+<span class="fc" id="L57">			breadSurcharge = getBreadSurcharge(bread);</span>
+		} 
+<span class="fc" id="L59">		int cheeseSurcharge = 0;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">		if(!food_type.equals(&quot;salad&quot;)){</span>
+<span class="fc" id="L61">			cheeseSurcharge = getCheeseSurcharge(cheese);</span>
+		}
+<span class="fc" id="L63">		int veggiesSurcharge = getVeggiesSurcharge(veggies, food_type);</span>
+<span class="fc" id="L64">		int meatCost = getMeatCost(meat, food_type);</span>
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">		if (meatCost == -1){</span>
+<span class="fc" id="L67">			return -1;</span>
+		}
+<span class="fc" id="L69">		return basePrice + sizeSurcharge + breadSurcharge + cheeseSurcharge + veggiesSurcharge + meatCost;</span>
+    }
+
+	public static int getFoodTypePrice(String food_type){
+<span class="fc" id="L73">		int index = foodTypes.indexOf(food_type);</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">		return index == -1 ? -1 : foodTypePrices.get(index);</span>
+	}
+	
+	public static int getSizeSurcharge(String size){
+<span class="fc" id="L78">		int index = sizes.indexOf(size);</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">		return index == -1 ? -1 : sizeSurcharges.get(index);</span>
+	}
+
+	public static int getBreadSurcharge(String bread){
+<span class="fc" id="L83">		int index = breads.indexOf(bread);</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">		return index == -1 ? -1 : breadSurcharges.get(index);</span>
+	}
+
+	public static int getCheeseSurcharge(String cheese)	{
+<span class="fc" id="L88">		int index = cheeses.indexOf(cheese);</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">		return index == -1 ? -1 : cheeseSurcharges.get(index);</span>
+	}
+
+	public static int getVeggiesSurcharge(String veggies, String food_type){
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		if (food_type.equals(&quot;salad&quot;)){</span>
+<span class="fc" id="L94">			int index = veggiesList.indexOf(veggies);</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">			return index == -1 ?  3 : veggieSurcharges.get(index); </span>
+		}else{
+<span class="fc" id="L97">			int index = getVeggiesIndex(veggies);</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">			return index == -1 ? -1 : veggieSurcharges.get(index);</span>
+		}
+	}
+	private static int getVeggiesIndex(String veggies)
+	{
+<span class="fc" id="L103">		return veggiesList.indexOf(veggies);</span>
+	}
+
+	public static int getMeatCost(String meat, String food_type){
+<span class="fc" id="L107">		int index = meats.indexOf(meat);</span>
+
+<span class="fc bfc" id="L109" title="All 6 branches covered.">		if(index == -1  ||(meat.equals(&quot;wagyu steak&quot;) &amp;&amp; !food_type.equals(&quot;wrap&quot;))){</span>
+<span class="fc" id="L110">			return -1;</span>
+		}
+<span class="fc" id="L112">		return meatCosts.get(index);</span>
+	}
+}	
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310100211</span></div></body></html>

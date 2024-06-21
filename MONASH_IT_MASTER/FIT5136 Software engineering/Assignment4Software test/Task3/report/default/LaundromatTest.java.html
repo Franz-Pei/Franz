@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LaundromatTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Report</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">LaundromatTest.java</span></div><h1>LaundromatTest.java</h1><pre class="source lang-java linenums">import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.*; 
+import java.io.*;
+
+
+<span class="fc" id="L7">public class LaundromatTest {</span>
+
+    private static Laundromat laundromat;
+
+    @BeforeAll
+    static void setup(){
+<span class="fc" id="L13">        laundromat = new Laundromat();</span>
+<span class="fc" id="L14">    }</span>
+
+    @Test
+    void testInitLaundromat() {
+
+        // Assert mimum weight allowed
+<span class="fc" id="L20">        assertEquals(1.0, laundromat.getMinWeightAllowed(), &quot;Minimum weight allowed should be 1.0&quot;);</span>
+        // Assert maximum weight allowed
+<span class="fc" id="L22">        assertEquals(20.0, laundromat.getMaxWeightAllowed(),&quot;Maximum weight allowed should be 20.0&quot;);</span>
+        //Assert mimum drying time allowed
+<span class="fc" id="L24">        assertEquals(5.0, laundromat.getMinDryingTimeAllowed(), &quot;Minimum drying time allowed should be 5.0&quot;);</span>
+        //Assert maximum drying time allowed
+<span class="fc" id="L26">        assertEquals(60.0, laundromat.getMaxDryingTimeAllowed(), &quot;Maximum drying time allowed should be 60.0&quot;);</span>
+        //Assert cost per weight unit for the eco mode
+<span class="fc" id="L28">        assertEquals(1.0, laundromat.getEcoModeWeightCost(), &quot;Cost per weight unit for the eco mode should be 1.0&quot;);</span>
+        //Assert cost per drying time unit for eco mode
+<span class="fc" id="L30">        assertEquals(1.0, laundromat.getEcoModeDryingCost(), &quot;Cost per weight unit for the eco mode should be 1.0&quot;);</span>
+        //Assert cost per weight unit for the heavy mode
+<span class="fc" id="L32">        assertEquals(1,0, laundromat.getHeavyModeWeightCost(), &quot;Cost per drying time unit for the eco mode should be 1.0&quot;);</span>
+        //Assert cost per weight units for the heavy mode
+<span class="fc" id="L34">        assertEquals(1.2, laundromat.getHeavyModeWeightCost(), &quot;Cost per weight unit for the heavy mode should be 1.2&quot;);</span>
+        //Assert cost per drying time unit for the heavy mode
+<span class="fc" id="L36">        assertEquals(1.2, laundromat.getHeavyModeDryingCost(), &quot;Cost per drying time unit for the heavy mode should be 1.2&quot;);</span>
+        //Assert discount factor for Monash students in eco mode
+<span class="fc" id="L38">        assertEquals(0.95, laundromat.getEcoModeStudentDiscount(), &quot;Discount factor for Monash students in eco mode should be 0.95&quot;);</span>
+        //Assert discount factor for Monash student in heavy mode
+<span class="fc" id="L40">        assertEquals(0.8, laundromat.getHeavyModeStudentDiscount(), &quot;Discount factor for Monash students in heavy mode should be 0.8&quot;);</span>
+<span class="fc" id="L41">    }</span>
+
+    @Test
+    void testSetters()
+    {
+<span class="fc" id="L46">        laundromat.setMinWeightAllowed(2.0);</span>
+<span class="fc" id="L47">        assertEquals(2.0, laundromat.getMinWeightAllowed(), &quot;Minimum weight allowed should be updated.&quot;);</span>
+
+<span class="fc" id="L49">        laundromat.setMaxWeightAllowed(25.0);</span>
+<span class="fc" id="L50">        assertEquals(25.0, laundromat.getMaxWeightAllowed(), &quot;Maximum weight allowed should be updated&quot;);</span>
+
+<span class="fc" id="L52">        laundromat.setMinDryingTimeAllowed(10.0);</span>
+<span class="fc" id="L53">        assertEquals(10.0, laundromat.getMinDryingTimeAllowed(), &quot;Minimum drying time allowed should be updated&quot;);</span>
+
+<span class="fc" id="L55">        laundromat.setMaxDryingTimeAllowed(90.0);</span>
+<span class="fc" id="L56">        assertEquals(90.0, laundromat.getMaxDryingTimeAllowed(), &quot;Maximum drying time allowed should be updated&quot;);</span>
+
+<span class="fc" id="L58">        laundromat.setEcoModeWeightCost(1.5);</span>
+<span class="fc" id="L59">        assertEquals(1.5, laundromat.getEcoModeWeightCost(),&quot;Eco mode weight cost should be updated&quot;);</span>
+
+<span class="fc" id="L61">        laundromat.setEcoModeDryingCost(2.0);</span>
+<span class="fc" id="L62">        assertEquals(2,0, laundromat.getEcoModeDryingCost(), &quot;Heavy mode weight cost should be updated&quot;);</span>
+
+<span class="fc" id="L64">        laundromat.setHeavyModeWeightCost(1.8);</span>
+<span class="fc" id="L65">        assertEquals(1.8, laundromat.getHeavyModeWeightCost(),&quot;Heavy mode weight cost should be updated&quot;);</span>
+
+<span class="fc" id="L67">        laundromat.setHeavyModeDryingCost(2.2);</span>
+<span class="fc" id="L68">        assertEquals(2.2, laundromat.getHeavyModeDryingCost(), &quot;Heavy mode drying cost should be updated&quot;);</span>
+
+<span class="fc" id="L70">        laundromat.setEcoModeStudentDiscount(0.9);</span>
+<span class="fc" id="L71">        assertEquals(0.9, laundromat.getEcoModeStudentDiscount(),&quot;Eco mode student discount should be updated&quot;);</span>
+
+<span class="fc" id="L73">        laundromat.setHeavyModeStudentDiscount(0.7);</span>
+<span class="fc" id="L74">        assertEquals(0.7, laundromat.getHeavyModeStudentDiscount(), &quot;Heavy mode student discount should be updated&quot;);</span>
+<span class="fc" id="L75">    }</span>
+    @Test 
+    void testCost(){
+<span class="fc" id="L78">        assertEquals(38.0,laundromat.cost(true,&quot;eco&quot;, 10, 30), &quot;Eco mode with Monash student&quot;);</span>
+<span class="fc" id="L79">        assertEquals(72.0,laundromat.cost(false,&quot;heavy&quot;,15, 45), &quot;Heavy mode with non-Monash student&quot;);</span>
+<span class="fc" id="L80">        assertEquals(81.6, laundromat.cost(true, &quot;heavy&quot;, 20, 60), &quot;Heavy mode with Monash student&quot;);</span>
+    
+<span class="fc" id="L82">    }</span>
+
+    @Test
+    void testCostWithInvalidInputs() {
+        // Test case for eco mode with Monash student
+<span class="fc" id="L87">        assertEquals(38.0, laundromat.cost(true, &quot;eco&quot;, 10, 30), &quot;Eco mode with Monash student&quot;);</span>
+        // Test case for heavy mode with non-Monash student
+<span class="fc" id="L89">        assertEquals(72.0, laundromat.cost(false, &quot;heavy&quot;, 15, 45), &quot;Heavy mode with non-Monash student&quot;);</span>
+        // Test case for heavy mode with Monash student
+<span class="fc" id="L91">        assertEquals(81.6, laundromat.cost(true, &quot;heavy&quot;, 20, 60), &quot;Heavy mode with Monash student&quot;);</span>
+<span class="fc" id="L92">    }</span>
+
+    @Test
+    void testCostEcoMode() {
+        // Test case for non-Monash student
+<span class="fc" id="L97">        assertEquals(35, laundromat.cost(false, &quot;eco&quot;, 5, 30), &quot;Non-Monash student in eco mode&quot;);</span>
+        // Test case for Monash student without discount
+<span class="fc" id="L99">        assertEquals(33, laundromat.cost(true, &quot;eco&quot;, 4, 29), &quot;Monash student without discount in eco mode&quot;);</span>
+        // Test case for Monash student with discount
+<span class="fc" id="L101">        assertEquals(33.25, laundromat.cost(true, &quot;eco&quot;, 5, 30), &quot;Monash student with discount in eco mode&quot;);</span>
+        // Test case for Monash student without discount
+<span class="fc" id="L103">        assertEquals(66.5, laundromat.cost(true, &quot;eco&quot;, 10, 60), &quot;Monash student without discount in eco mode&quot;);</span>
+        // Test case for Monash student without discount
+<span class="fc" id="L105">        assertEquals(24.0, laundromat.cost(true, &quot;eco&quot;, 4, 20), &quot;Monash student without discount in eco mode&quot;);</span>
+<span class="fc" id="L106">    }</span>
+
+    @Test 
+    void testCalculateHeavyCost(){
+<span class="fc" id="L110">        assertEquals(57.6, laundromat.calculateHeavyCost(8, 40,false), &quot;Non-Monash student in heavy mode&quot;);</span>
+<span class="fc" id="L111">        assertEquals(69.6, laundromat.calculateHeavyCost(10, 60, true), &quot;Monash student without discount in heavy mode&quot;);</span>
+<span class="fc" id="L112">    }</span>
+
+    @Test
+    void testStudentDiscountHeavyMode() {
+        // Test case for Monash student without discount
+<span class="fc" id="L117">        assertEquals(60.0, laundromat.cost(true, &quot;heavy&quot;, 10, 50), &quot;Monash student without discount in heavy mode&quot;);</span>
+        // Test case for non-Monash student
+<span class="fc" id="L119">        assertEquals(57.6, laundromat.cost(false, &quot;heavy&quot;, 8, 40), &quot;Non-Monash student in heavy mode&quot;);</span>
+        // Test case for Monash student with discount
+<span class="fc" id="L121">        assertEquals(55.2, laundromat.cost(true, &quot;heavy&quot;, 7, 39), &quot;Monash student with discount in heavy mode&quot;);</span>
+        // Test case for Monash student with discount
+<span class="fc" id="L123">        assertEquals(48.0, laundromat.cost(true, &quot;heavy&quot;, 8, 40), &quot;Monash student with discount in heavy mode&quot;);</span>
+        // Test case for Monash student without discount
+<span class="fc" id="L125">        assertEquals(69.6, laundromat.cost(true, &quot;heavy&quot;, 10, 60), &quot;Monash student without discount in heavy mode&quot;);</span>
+<span class="fc" id="L126">    }</span>
+
+    @Test
+    void testWithInvalidInputs(){
+<span class="fc" id="L130">        assertFalse(laundromat.isInvalidInput(false, &quot;eco&quot;, 10, 30), &quot;Invalid monash_student input&quot;);</span>
+<span class="fc" id="L131">        assertTrue(laundromat.isInvalidInput(true, &quot;invalid_mode&quot;, 10, 30), &quot;Invalid mode input&quot;);</span>
+<span class="fc" id="L132">        assertFalse(laundromat.isInvalidInput(true, &quot;eco&quot;, 10, 30), &quot;Invalid weight input&quot;);</span>
+<span class="fc" id="L133">        assertFalse(laundromat.isInvalidInput(true, &quot;eco&quot;, 10, 30), &quot;Valid inputs&quot;);</span>
+<span class="fc" id="L134">        assertTrue(laundromat.isInvalidInput(true,&quot;eco&quot;, 0, 30),&quot;Weight below the minimum&quot;);</span>
+<span class="fc" id="L135">        assertTrue(laundromat.isInvalidInput(true, &quot;eco&quot;, 21, 30),&quot;Weight above the maximum&quot;);</span>
+        
+<span class="fc" id="L137">    }</span>
+
+    @Test 
+    void testCalculateEcoCst(){
+<span class="fc" id="L141">        assertEquals(35,laundromat.calculateEcoCost(5, 30, false), &quot;Non-Monash student in eco mode&quot;);</span>
+<span class="fc" id="L142">        assertEquals(66.5,laundromat.calculateEcoCost(10, 60,true), &quot;Monash student with discount in eco mode&quot;);</span>
+<span class="fc" id="L143">        assertEquals(33.25, laundromat.calculateEcoCost(5, 30, true), &quot;Monash student with discount in eco mode&quot;);</span>
+<span class="fc" id="L144">        assertEquals(33.25, laundromat.calculateEcoCost(5, 30, true), &quot;Monash student with discount in eco mode&quot;);</span>
+<span class="fc" id="L145">    }</span>
+
+    
+    @Test
+    void testInvalidInput(){
+<span class="fc" id="L150">        assertEquals(0, laundromat.cost(true, &quot;invalid&quot;, 10, 30), &quot;Invalid mode input&quot;);</span>
+<span class="fc" id="L151">        assertEquals(0, laundromat.cost(true, &quot;eco&quot;, 0, 30),&quot;Weight below the minimum&quot;);</span>
+<span class="fc" id="L152">        assertEquals(0, laundromat.cost(true, &quot;eco&quot;, 10, 2), &quot;Drying_time below the minimum&quot;);</span>
+        // Test case with drying_time above the maximum
+<span class="fc" id="L154">        assertEquals(0, laundromat.cost(true, &quot;eco&quot;, 10, 70), &quot;Drying_time above the maximum&quot;);</span>
+<span class="fc" id="L155">    }</span>
+    
+    @Test 
+    void testCostEcoModeMonashStudent()
+    {
+<span class="fc" id="L160">        double weight = 10.0;</span>
+<span class="fc" id="L161">        double drying_time = 60.0;</span>
+<span class="fc" id="L162">        boolean isMonashStudent = true;</span>
+<span class="fc" id="L163">        String mode = &quot;eco&quot;;</span>
+<span class="fc" id="L164">        double expectedCost = laundromat.calculateEcoCost(weight, drying_time, isMonashStudent);</span>
+<span class="fc" id="L165">        expectedCost = Math.round(expectedCost * 100.0) / 100.0;</span>
+<span class="fc" id="L166">        double actualCost = laundromat.cost(isMonashStudent, mode, weight, drying_time);</span>
+<span class="fc" id="L167">        assertEquals(expectedCost, actualCost, &quot;Cost for eco mode&quot;);</span>
+<span class="fc" id="L168">    }</span>
+
+    @Test
+    void testCostHeavyMode()
+    {
+<span class="fc" id="L173">        double weight = 15.0;</span>
+<span class="fc" id="L174">        double dryingTime = 45.0;</span>
+<span class="fc" id="L175">        boolean isMonashStudent = false;</span>
+<span class="fc" id="L176">        String mode = &quot;heavy&quot;;</span>
+<span class="fc" id="L177">        double expectedCost = laundromat.calculateHeavyCost(weight, dryingTime, isMonashStudent);</span>
+<span class="fc" id="L178">        expectedCost = Math.round(expectedCost * 100) / 100.0;</span>
+<span class="fc" id="L179">        double actualCost = laundromat.cost(isMonashStudent, mode, weight, dryingTime);</span>
+<span class="fc" id="L180">        assertEquals(expectedCost, actualCost, &quot;Cost for heavy mode&quot;);</span>
+<span class="fc" id="L181">    }</span>
+
+    @Test
+    void testCostInvalidMode()
+    {
+<span class="fc" id="L186">        double weight = 10.0;</span>
+<span class="fc" id="L187">        double dryingTime = 30.0;</span>
+<span class="fc" id="L188">        boolean isMonashStudent = true;</span>
+<span class="fc" id="L189">        String mode = &quot;invalid&quot;;</span>
+<span class="fc" id="L190">        double actualCost = laundromat.cost(isMonashStudent, mode, weight, dryingTime);</span>
+<span class="fc" id="L191">        assertEquals(0.0, actualCost, &quot;Cost for invalid mode should be 0&quot;);</span>
+<span class="fc" id="L192">    }</span>
+
+    @Test
+    void testCostEcoModeNonMonashStudent()
+    {
+<span class="fc" id="L197">        double weight = 10.0;</span>
+<span class="fc" id="L198">        double dryingTime = 30.0;</span>
+<span class="fc" id="L199">        boolean isMonashStudent = false;</span>
+<span class="fc" id="L200">        String mode = &quot;eco&quot;;</span>
+<span class="fc" id="L201">        double expectedCost = weight * laundromat.getEcoModeWeightCost() + dryingTime * laundromat.getEcoModeDryingCost();</span>
+<span class="fc" id="L202">        expectedCost = Math.round(expectedCost * 100.0) / 100.0;</span>
+<span class="fc" id="L203">        double actualCost = laundromat.cost(isMonashStudent, mode, weight, dryingTime);</span>
+<span class="fc" id="L204">        assertEquals(expectedCost, actualCost, &quot;Cost for eco mode with non-Monash student&quot;);</span>
+<span class="fc" id="L205">    }</span>
+
+    @Test
+    void testCostHeavyModeMonashStudent()
+    {
+<span class="fc" id="L210">        double weight = 15.0;</span>
+<span class="fc" id="L211">        double dryingTime = 50.0;</span>
+<span class="fc" id="L212">        boolean isMonashStudent = true;</span>
+<span class="fc" id="L213">        String mode = &quot;heavy&quot;;</span>
+<span class="fc" id="L214">        double expectedCost = laundromat.calculateHeavyCost(weight, dryingTime, isMonashStudent);</span>
+<span class="fc" id="L215">        expectedCost = Math.round(expectedCost * 100) / 100.0;</span>
+<span class="fc" id="L216">        double actualCost = laundromat.cost(isMonashStudent, mode,weight,dryingTime);</span>
+<span class="fc" id="L217">        assertEquals(expectedCost, actualCost, &quot;Cost for heavy mode with Monash student without discount&quot;);</span>
+<span class="fc" id="L218">    }</span>
+
+    @Test 
+    void testInvalidInputAtBoundaris()
+    {
+<span class="fc" id="L223">        assertTrue(laundromat.isInvalidInput(false, &quot;eco&quot;, 0.999, 30), &quot;weight just below mimum should be invalid&quot;);</span>
+<span class="fc" id="L224">        assertTrue(laundromat.isInvalidInput(false, &quot;eco&quot;, 20.001, 30), &quot;Weight just above maximum should be invalid&quot;);</span>
+<span class="fc" id="L225">        assertTrue(laundromat.isInvalidInput(false, &quot;eco&quot;, 10, 4.999),&quot;Drying time just below minimum should be invalid&quot;);</span>
+<span class="fc" id="L226">        assertTrue(laundromat.isInvalidInput(false, &quot;eco&quot;, 10, 60.001), &quot;Drying time just above maximum should be invalid&quot;);</span>
+<span class="fc" id="L227">        assertFalse(laundromat.isInvalidInput(false, &quot;eco&quot;, 1.0, 5.0), &quot;Minimum weight and drying time should be valid&quot;);</span>
+<span class="fc" id="L228">        assertFalse(laundromat.isInvalidInput(false, &quot;eco&quot;, 20.0, 60.0),&quot;Maximum weight and drying time should be valid&quot;);</span>
+<span class="fc" id="L229">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310100211</span></div></body></html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Laundromat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Report</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Laundromat.java</span></div><h1>Laundromat.java</h1><pre class="source lang-java linenums"><span class="fc" id="L1">public class Laundromat{</span>
+    // Minimum weight allowed
+<span class="fc" id="L3">    private double minWeightAllowed = 1.0;</span>
+    // Maximum weight allowed
+<span class="fc" id="L5">    private double maxWeightAllowed = 20.0;</span>
+    // Minimum drying time allowed
+<span class="fc" id="L7">    private double minDryingTimeAllowed = 5.0;</span>
+    // Maximum drying time allowed
+<span class="fc" id="L9">    private double maxDryingTimeAllowed = 60.0;</span>
+    // Cost per weight unit for the eco mode
+<span class="fc" id="L11">    private double ecoModeWeightCost = 1.0;</span>
+    // Cost per drying time unit for the eco mode
+<span class="fc" id="L13">    private double ecoModeDryingCost= 1.0;</span>
+    // Cost per weight unit for the heavy mode
+<span class="fc" id="L15">    private double heavyModeWeightCost = 1.2;</span>
+    // Cost per drying time unit for the heavy mode
+<span class="fc" id="L17">    private double heavyModeDryingCost = 1.2;</span>
+    // Discount factor for Monash students in eco mode
+<span class="fc" id="L19">    private double ecoModeStudentDiscount = 0.95;</span>
+    // Discount factor for Monash students in heavy mode
+<span class="fc" id="L21">    private double heavyModeStudentDiscount = 0.8;</span>
+
+    public double getMinWeightAllowed(){
+<span class="fc" id="L24">        return minWeightAllowed;</span>
+    }
+
+    public void setMinWeightAllowed(double minWeightAllowed)
+    {
+<span class="fc" id="L29">        this.minWeightAllowed = minWeightAllowed;</span>
+<span class="fc" id="L30">    }</span>
+
+    public double getMaxWeightAllowed(){
+<span class="fc" id="L33">        return maxWeightAllowed;</span>
+    }
+
+    public void setMaxWeightAllowed(double maxWeightAllowed){
+<span class="fc" id="L37">        this.maxWeightAllowed = maxWeightAllowed;</span>
+<span class="fc" id="L38">    }</span>
+
+    public double getMinDryingTimeAllowed(){
+<span class="fc" id="L41">        return minDryingTimeAllowed;</span>
+    }
+
+    public void setMinDryingTimeAllowed(double minDryingTimeAllowed){
+<span class="fc" id="L45">        this.minDryingTimeAllowed = minDryingTimeAllowed;</span>
+<span class="fc" id="L46">    }</span>
+
+    public double getMaxDryingTimeAllowed() {
+<span class="fc" id="L49">        return maxDryingTimeAllowed;</span>
+    }
+
+    public void setMaxDryingTimeAllowed(double maxDryingTimeAllowed) {
+<span class="fc" id="L53">        this.maxDryingTimeAllowed = maxDryingTimeAllowed;</span>
+<span class="fc" id="L54">    }</span>
+
+    public double getEcoModeWeightCost() {
+<span class="fc" id="L57">        return ecoModeWeightCost;</span>
+    }
+
+    public void setEcoModeWeightCost(double ecoModeWeightCost) {
+<span class="fc" id="L61">        this.ecoModeWeightCost = ecoModeWeightCost;</span>
+<span class="fc" id="L62">    }</span>
+
+    public double getEcoModeDryingCost() {
+<span class="fc" id="L65">        return ecoModeDryingCost;</span>
+    }
+
+    public void setEcoModeDryingCost(double ecoModeDryingCost) {
+<span class="fc" id="L69">        this.ecoModeDryingCost = ecoModeDryingCost;</span>
+<span class="fc" id="L70">    }</span>
+
+    public double getHeavyModeWeightCost() {
+<span class="fc" id="L73">        return heavyModeWeightCost;</span>
+    }
+
+    public void setHeavyModeWeightCost(double heavyModeWeightCost) {
+<span class="fc" id="L77">        this.heavyModeWeightCost = heavyModeWeightCost;</span>
+<span class="fc" id="L78">    }</span>
+
+    public double getHeavyModeDryingCost() {
+<span class="fc" id="L81">        return heavyModeDryingCost;</span>
+    }
+
+    public void setHeavyModeDryingCost(double heavyModeDryingCost) {
+<span class="fc" id="L85">        this.heavyModeDryingCost = heavyModeDryingCost;</span>
+<span class="fc" id="L86">    }</span>
+
+    public double getEcoModeStudentDiscount() {
+<span class="fc" id="L89">        return ecoModeStudentDiscount;</span>
+    }
+
+    public void setEcoModeStudentDiscount(double ecoModeStudentDiscount) {
+<span class="fc" id="L93">        this.ecoModeStudentDiscount = ecoModeStudentDiscount;</span>
+<span class="fc" id="L94">    }</span>
+
+    public double getHeavyModeStudentDiscount() {
+<span class="fc" id="L97">        return heavyModeStudentDiscount;</span>
+    }
+
+    public void setHeavyModeStudentDiscount(double heavyModeStudentDiscount) {
+<span class="fc" id="L101">        this.heavyModeStudentDiscount = heavyModeStudentDiscount;</span>
+<span class="fc" id="L102">    }</span>
+
+    /**
+     * Calcilates the cost of the laundry service
+     *
+     * @param isMonashStudent Whether the user is a Monash student
+     * @param mode            The mode, either &quot;eco&quot; or &quot;heavy&quot;
+     * @param weight          The weight of the Laundry in kilograms
+     * @param drying_time     The drying time in minutes
+     * @return The cost of the laundary service, rounded to decimal places
+     */
+    public double cost(boolean isMonashStudent, String mode, double weight, double dryingTime) {
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        if(isInvalidInput(isMonashStudent, mode, weight, dryingTime)){</span>
+<span class="fc" id="L115">            return 0.0;</span>
+        }
+        double calculatedCost;
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        if (&quot;eco&quot;.equalsIgnoreCase(mode)){</span>
+<span class="fc" id="L119">            calculatedCost = calculateEcoCost(weight, dryingTime, isMonashStudent);</span>
+        } else {
+<span class="fc" id="L121">            calculatedCost = calculateHeavyCost(weight, dryingTime, isMonashStudent);</span>
+        }
+<span class="fc" id="L123">        return Math.round(calculatedCost * 100.0) / 100.0;</span>
+    }
+
+    /**
+     * Checks if the input parameters are valid
+     *
+     * @param isMonashStudent Whether the user is a Monash student
+     * @param mode            The mode, either &quot;eco&quot; or &quot;heavy&quot;
+     * @param weight          The weight of the laundary in kilograms
+     * @param dryingTime      The drying time in minutes
+     * @return true if any input parameters is invalid, false otherwise
+     */
+    public boolean isInvalidInput(boolean isMonashStudent, String mode, double weight, double dryingTime){
+<span class="fc bfc" id="L136" title="All 4 branches covered.">        if (!(&quot;eco&quot;.equalsIgnoreCase(mode) || &quot;heavy&quot;.equalsIgnoreCase(mode))){</span>
+<span class="fc" id="L137">            return true;</span>
+        }
+<span class="fc bfc" id="L139" title="All 4 branches covered.">        if (weight &lt; getMinWeightAllowed() || weight &gt; getMaxWeightAllowed()){</span>
+<span class="fc" id="L140">            return true;</span>
+        }
+<span class="fc bfc" id="L142" title="All 4 branches covered.">        if (dryingTime &lt; getMinDryingTimeAllowed() || dryingTime &gt; getMaxDryingTimeAllowed()){</span>
+<span class="fc" id="L143">            return true;</span>
+        }
+<span class="fc" id="L145">        return false;</span>
+    }
+
+
+    /**
+     * Calculates the cost of the laundry service in eco mode
+     *
+     * @param weight         The weight of the laundary in kilograms
+     * @param dryingTime     The drying time in minutes
+     * @param isMonashStudent  Whether the user is a Monash {@link SubContextList}
+     * @return The cost of the laundary service in eco mode
+     */
+    public double calculateEcoCost( double weight, double dryingTime, boolean isMonashStudent){
+<span class="fc" id="L158">        double calculatedCost = weight * getEcoModeWeightCost() + dryingTime * getEcoModeDryingCost();</span>
+
+<span class="pc bpc" id="L160" title="1 of 6 branches missed.">        if(isMonashStudent &amp;&amp; weight &gt;= 5.0 &amp;&amp; dryingTime &gt;= 30.0){</span>
+<span class="fc" id="L161">            calculatedCost *= getEcoModeStudentDiscount();</span>
+        }
+<span class="fc" id="L163">        return calculatedCost;</span>
+    }
+
+    /**
+     * Calculates the cost of the laundry service in heavy mode
+     *
+     * @param weight        The weight of the laundary in killograms
+     * @param dryingTime    The drying time in mimutes
+     * @param isMonashStudent Whether the user is a Monash student
+     * @return The cost of the laundary service in heavy mode
+     */
+     public double calculateHeavyCost(double weight, double dryingTime, boolean isMonashStudent){
+<span class="fc" id="L175">        double weightCost = weight * getHeavyModeWeightCost();</span>
+<span class="fc" id="L176">        double dryingCost = dryingTime * getHeavyModeDryingCost();</span>
+
+<span class="pc bpc" id="L178" title="1 of 6 branches missed.">        if(isMonashStudent &amp;&amp; weight &gt;= 8.0 &amp;&amp; dryingTime &gt;= 40.0){</span>
+<span class="fc" id="L179">            dryingCost *= getHeavyModeStudentDiscount();</span>
+        }
+<span class="fc" id="L181">        return weightCost + dryingCost;</span>
+     }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310100211</span></div></body></html>
