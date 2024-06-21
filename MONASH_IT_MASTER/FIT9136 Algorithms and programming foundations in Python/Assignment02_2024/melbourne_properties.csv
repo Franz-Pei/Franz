@@ -1,0 +1,101 @@
+prop_id,full_address,bedrooms,bathrooms,parking_spaces,latitude,longitude,floor_number,land_area,floor_area,price,property_features
+P10001,3 Antrim Place Langwarrin VIC 3910,4,2,2,-38.16655678,145.1838435,,608,257,870000,dishwasher;central heating
+P10002,G01/7 Rugby Road Hughesdale VIC 3166,2,1,1,-37.89342337,145.0862616,1,,125,645000,dishwasher;air conditioning;balcony
+P10003,18 Blantyre Avenue Chelsea VIC 3196,3,2,2,-38.0518997,145.1183469,,546,259,1185000,air conditioning;spa;storage cage
+P10004,3/69 Woodbine Grove Chelsea VIC 3196,3,2,2,-38.05178396,145.1258001,1,,240,754000,floorboards;air conditioning; central heating
+P10005,3/39 Carlisle Road Hallam VIC 3803,3,1,1,-38.0014455,145.254438,3,,112,552000,dishwasher;air conditioning; communal pool
+P10006,1 Basil Close Hallam VIC 3803,3,1,2,-38.00911741,145.282743,,651,144,637000,covered patio; outdoor shed
+P10007,6 Blanford Court Mulgrave VIC 3170,3,2,2,-37.92389154,145.1920065,,324,199,1188000,central heating;solar; covered yard
+P10008,4/523-525 Police Road Mulgrave VIC 3170,3,2,1,-37.93822098,145.2109744,2,,304,730000,fireplace;air conditioning;roller garage
+P10009,28 Oakpark Drive Chadstone VIC 3148,5,3,2,-37.89020346,145.1013983,,552,262,1476000,openplan living;double garage
+P10010,FL-L5-507/8 Gheringhap Street Geelong VIC 3220,2,1,1,-38.14346765,144.3592767,5,,112,498000,
+P10011,282 Drummond Street Carlton VIC 3053,3,1,0,-37.79925869,144.9688795,,81,203,1285000,fireplace;air conditioning;double-storey
+P10012,131 Canning Street Carlton VIC 3053,3,1,1,-37.79550084,144.9729991,,98,151,1633000,fireplace;air conditioning;carport;double-storey
+P10013,612/22 Orr Street Carlton VIC 3053,1,1,0,-37.80602561,144.965354,6,,47,140000,communal laundry;communal kitchen
+P10014,403/518 Swanston Street Carlton VIC 3053,1,1,0,-37.80459225,144.9634754,4,,55,406000,
+P10015,114-118 Cardigan Street Carlton VIC 3053,2,2,4,-37.80379941,144.9650549,,412,399,1900000,double-storey;central heating; air conditioning
+P10016,62 Elgin Street Carlton VIC 3053,3,1,2,-37.79732384,144.972527,,141,160,1285000,fireplace;air conditioning
+P10017,812/145 Queensberry Street Carlton VIC 3053,1,1,2,-37.80474653,144.963873,8,,60,500000,balcony;central heating;central cooling
+P10018,25/25 Barkly Street Carlton VIC 3053,1,1,0,-37.79836543,144.9744793,2,,44,389500,balcony;air conditioning
+P10019,23/355 Rathdowne Street Carlton VIC 3053,1,1,1,-37.79801999,144.9701568,2,,99,555000,balcony
+P10020,207/37 Palmerston Street Carlton VIC 3053,2,2,1,-37.79669753,144.9738508,2,,66,525000,balcony;air conditioning
+P10021,917/145 Queensberry Street Carlton VIC 3053,2,1,2,-37.8047211,144.9639373,9,,63,575000,balcony;central heating;central cooling
+P10022,10/116 Drummond Street Carlton VIC 3053,2,1,1,-37.80357044,144.9681677,1,,77,811000,floorboards;air conditioning;central heating
+P10023,4/82 Canning Street Carlton VIC 3053,1,1,0,-37.79660146,144.9733729,1,,40,365000,floorboards;air conditioning;central heating
+P10024,53 The Old Stock Run Sunbury VIC 3429,4,2,2,-37.57250471,144.7505934,,1302,370,913000,floorboards;air conditioning;central heating;pool;backyard
+P10025,68 Davenport Drive Sunbury VIC 3429,3,2,2,-37.59016034,144.7077497,,686,253,634000,central heating;floorboards;undercover carport
+P10026,10 Oxley Street Sunbury VIC 3429,2,1,0,-37.58018063,144.7128661,,507,152,468000,outdoor shed;backyard;ceiling fans
+P10027,8 Grenache Court Sunbury VIC 3429,4,2,2,-37.56467806,144.7511366,,1002,379,950000,floorboards;central heating;central cooling;carpet
+P10028,65 Charter Road Sunbury VIC 3429,3,1,2,-37.58066591,144.7000303,,640,225,568000,floorboards;central heating
+P10029,"51 Charter Road Sunbury, VIC 3429",4,2,1,-37.58053572,144.7032709,,572,264,654000,central heating;floorboards;air conditioning
+P10030,3 Wellington Mews Sunbury VIC 3429,5,3,4,-37.60050607,144.7299626,,1593,600,1403000,central heating;floorboards;fireplace;backyard;cinema room;luxury
+P10031,15 Knightsbridge Drive Epping VIC 3076,3,1,2,-37.63010022,145.0126851,,312,177,575000,dishwasher;air conditioning;floorboards
+P10032,3 Watford Court Epping VIC 3076,3,1,2,-37.641284,145.0354282,,561,268,672000,floorboards;central heating
+P10033,4/30 Mcfarlane Cres Epping VIC 3076,2,1,2,-37.64634027,145.0398565,1,,191,472000,central heating;double-storey
+P10034,12 Inverloch Street Epping VIC 3076,4,2,4,-37.63126653,145.0226406,,507,281,860000,double garage;central heating;air conditioning;backyard
+P10035,13 Healey Drive Epping VIC 3076,3,2,2,-37.63672302,145.0359126,,560,229,697000,central heating;backyard;double garage
+P10036,23 Camouflage Drive Epping VIC 3076,3,2,2,-37.62551563,145.0051524,,315,197,625000,air conditioning
+P10037,1/13 Mahon Road Epping VIC 3076,2,1,1,-37.63436804,145.0389854,1,,132,421000,air conditioning;covered carport
+P10038,1 Coronet Close Epping VIC 3076,3,1,2,-37.64424155,145.0559056,,835,129,631000,
+P10039,2/118 Kanooka Grove Clayton VIC 3168,3,2,2,-37.92622019,145.1257033,1,,234,826000,floorboards;air conditioning
+P10040,24/163 Carinish Road Clayton VIC 3168,3,1,1,-37.92458456,145.1221595,2,,122,604000,air conditioning;backyard
+P10041,3/23 Francis Street Clayton VIC 3168,2,1,1,-37.92474308,145.1239072,1,,195,640000,floorboards;air conditioning
+P10042,2/106 Moriah Street Clayton VIC 3168,2,1,2,-37.92607231,145.1301095,1,,297,771000,backyard
+P10043,2/6 Luke Street Clayton VIC 3168,2,2,1,-37.92172121,145.128411,1,,196,660000,floorboards;air conditioning
+P10044,1/12 Atlantic Street Clayton VIC 3168,3,3,2,-37.91791973,145.1291738,2,,200,834000,double-storey;air conditioning;floorboards
+P10045,16/1 Greenfield Drive Clayton VIC 3168,2,1,1,-37.92294508,145.128207,1,,263,366000,air conditioning
+P10046,1/68 Edinburgh Street Clayton VIC 3168,3,1,2,-37.91614911,145.1176981,1,,392,770000,air conditioning;backyard
+P10047,3/33 Prince Charles Street Clayton VIC 3168,6,3,1,-37.92363613,145.1141803,1,,117,884000,double-storey;air conditioning;floorboards
+P10048,29 Robinson Street Clayton VIC 3168,4,1,4,-37.9194112,145.1117236,,859,326,1432000,floorboards;air conditioning;backyard
+P10049,2/3 Jaguar Drive Clayton VIC 3168,4,2,1,-37.92330037,145.1323699,1,,133,842000,floorboards;air conditioning;double-storey
+P10050,2/25 Jaguar Drive Clayton VIC 3168,4,3,2,-37.92487507,145.1317014,2,,232,887000,floorboards;air conditioning;double-storey;central heating
+P10051,3/22 Dennis Street Clayton VIC 3168,4,2,2,-37.91835962,145.1373333,2,,224,807000,air conditioning;floorboards
+P10052,6/1802-1806 Dandenong Road Clayton VIC 3168,3,1,1,-37.91784021,145.132101,6,,68,426000,air conditioning
+P10053,5 Glenwood Court Cranbourne VIC 3977,3,2,2,-38.09191541,145.2787486,,639,266,813000,floorboards;air conditioning;central heating;covered yard
+P10054,63 Phoenix Avenue Cranbourne VIC 3977,3,1,2,-38.09423888,145.2866734,,343,187,600000,air conditioning;dishwasher;backyard
+P10055,123 Majestic Boulevard Cranbourne VIC 3977,4,2,2,-38.08827691,145.2843737,,544,276,729000,central heating;central cooling;ensuite;backyard
+P10056,8 Barilla Court Cranbourne VIC 3977,3,1,2,-38.1036773,145.274312,,712,200,558000,central heating;central cooling;ensuite;backyard
+P10057,13 Campbell Parade Cranbourne VIC 3977,3,1,2,-38.10960216,145.2736322,,448,121,626000,air conditioning;floorboards
+P10058,18 Hotham Street Cranbourne VIC 3977,4,1,2,-38.1021736,145.2899229,,756,205,689000,ceiling fan;backyard
+P10059,6 Carole Court Cranbourne VIC 3977,3,1,2,-38.09482832,145.2703393,,700,114,605000,ceiling fan;backyard;covered yard
+P10060,20 Violet Way Cranbourne VIC 3977,3,2,3,-38.08982725,145.2920498,,350,106,606000,central heating;air conditioning;dishwasher
+P10061,2/47 Bakewell Street Cranbourne VIC 3977,2,1,1,-38.11086502,145.2898319,1,,225,466000,air conditioning
+P10062,29 Sarno Court Cranbourne VIC 3977,3,2,2,-38.10786419,145.2677922,,651,257,640000,air conditioning;ceiling fan;covered yard
+P10063,12 Hotham Street Cranbourne VIC 3977,3,1,2,-38.10317819,145.289761,,639,230,638000,air conditioning;ceiling fan;covered yard
+P10064,1/54 Taylor Street Cranbourne VIC 3977,2,1,1,-38.1050899,145.2739538,1,,254,465000,dishwasher;backyard
+P10065,48 Camms Road Cranbourne VIC 3977,4,1,2,-38.09700076,145.2735995,,600,202,592000,
+P10066,103 Diamond Parade Skye VIC 3977,3,2,2,-38.11849664,145.199632,,411,210,711000,air conditioning;dishwasher;ceiling fan
+P10067,45 Rangeview Drive Skye VIC 3977,3,2,2,-38.09804876,145.2003766,,610,230,713000,floorboards;air conditioning;dishwasher
+P10068,14 Marinda Drive Skye VIC 3977,4,2,1,-38.12085274,145.1891924,,661,206,696000,dishwasher;central heating
+P10069,34 Postregna Way Skye VIC 3977,4,2,2,-38.10360961,145.2036769,,578,165,779000,floorboards;air conditioning;dishwasher
+P10070,292 Ballarto Road Skye VIC 3977,3,2,2,-38.11674663,145.1904109,,649,192,699000,central heating
+P10071,24 Diamond Parade Skye VIC 3977,4,2,2,-38.12083768,145.1944553,,596,294,809000,central heating;air conditioning;backyard
+P10072,38 Triumph Way Skye VIC 3977,3,2,2,-38.12223546,145.1920283,,478,153,728000,air conditioning;dishwasher;central heating
+P10073,8 Oriana Grove Skye VIC 3977,3,2,2,-38.1223166,145.1907233,,601,226,748000,floorboards;air conditioning;dishwasher
+P10074,19 Hartington Street Kew VIC 3101,3,3,2,-37.80136179,145.0418401,,928,206,1445000,floorboards;double-storey;modular kitchen;wine cellar;cinema room;fireplace
+P10075,106 Wiltshire Drive Kew VIC 3101,5,2,2,-37.79393948,145.023799,,103700,12800,1770000,castle;family room;cinema room;floorboards;backyard;cinema room;wine cellar;grand staircase;fireplace;dishwasher
+P10076,17 Princess Street Kew VIC 3101,4,2,2,-37.80654882,145.0285712,,678,242,2530000,timber floors;air conditioning;backyard
+P10077,3/20 Pakington Street Kew VIC 3101,2,1,1,-37.80383398,145.0345936,2,,41,628000,air conditioning;balcony
+P10078,12/2-6 Malmsbury Street Kew VIC 3101,2,1,1,-37.80212022,145.0304411,1,,95,607000,floorboards;air conditioning
+P10079,5 Redmond Street Kew VIC 3101,5,4,2,-37.79974836,145.0222317,,728,351,4700000,floorboards;backyard;central heating;central cooling;covered yard;piano room;hammock;pool
+P10080,69/378 Cotham Road Kew VIC 3101,2,2,1,-37.81020597,145.0593444,3,,97,999000,floorboards;dishwasher;balcony
+P10081,2/33 Parkhill Road Kew VIC 3101,3,2,1,-37.80482782,145.0496217,2,,201,1054000,air conditioning;outdoor deck
+P10082,1/105 Wiltshire Drive Kew VIC 3101,2,1,1,-37.79558256,145.0228233,1,,95,616000,dishwasher;floorboards
+P10083,203/11 Peel Street Kew VIC 3101,2,1,1,-37.80479881,145.032842,1,,80,692000,dishwasher;balcony;air conditioning
+P10084,59 Tram Road Doncaster VIC 3108,3,1,1,-37.79141278,145.1252238,,648,191,1200000,air conditioning;dishwasher;fireplace
+P10085,2 Ruda Street Doncaster VIC 3108,4,3,2,-37.79064482,145.108332,,1394,756,1974000,double-storey;backyard;pool;cinema room;floorboards;dishwasher;central heating;air conditioning
+P10086,113/832 Doncaster Road Doncaster VIC 3108,1,1,1,-37.78698317,145.1430951,1,,72,388000,floorboards;air conditioning
+P10087,101/832 Doncaster Road Doncaster VIC 3108,2,2,1,-37.78698317,145.1430951,1,,87,547000,floorboards;air conditioning;dishwasher
+P10088,1/765-767 Doncaster Road Doncaster VIC 3108,2,1,1,-37.78642253,145.1351824,1,,84,509000,central heating;central cooling;floorboards
+P10089,2/8 Persimmon Court Doncaster VIC 3108,4,2,2,-37.78445067,145.1400969,1,,176,1250000,double garage;double-storey;floorboards;air conditioning
+P10090,3/345 George Street Doncaster VIC 3108,3,2,2,-37.77855757,145.1333281,3,,98,787000,central heating;central cooling;floorboards
+P10091,5/545-549 Doncaster Road Doncaster VIC 3108,1,1,1,-37.78767438,145.1189214,5,,76,387000,
+P10092,7 Station Street Burwood VIC 3125,4,2,1,-37.85520685,145.1188326,,312,176,1192000,backyard;floorboards;central heating;outdoor deck
+P10093,50 Cumming Street Burwood VIC 3125,4,2,2,-37.8540211,145.1126043,,339,237,1641000,floorboards;central heating;central cooling;dishwasher
+P10094,3/1 Havelock Street Burwood VIC 3125,2,1,2,-37.85212189,145.1188176,1,,113,888000,central heating;central cooling;dishwasher;outdoor deck
+P10095,15A Murray Drive Burwood VIC 3125,4,2,2,-37.84531234,145.1016948,,356,112,1450000,central heating;central cooling;dishwasher;outdoor deck;fireplace
+P10096,5/380 Burwood Highway Burwood VIC 3125,2,1,1,-37.85221917,145.1298455,1,,142,762000,floorboards;air conditioning;dishwasher
+P10097,31 Harrison Avenue Burwood VIC 3125,3,1,2,-37.85639908,145.0969882,,789,184,1655000,double-storey;double garage;dishwasher;air conditioning
+P10098,18 Mccubbin Street Burwood VIC 3125,4,1,2,-37.85326195,145.1293408,,1027,275,1883000,
+P10099,3/2 Worrall Street Burwood VIC 3125,3,2,2,-37.84848676,145.1322909,1,,64,1106000,floorboards;air conditioning;dishwasher
+P10100,1/20-22 Hughes Street Burwood VIC 3125,4,3,2,-37.8524801,145.1090027,1,,151,1122000,floorboards;air conditioning;dishwasher

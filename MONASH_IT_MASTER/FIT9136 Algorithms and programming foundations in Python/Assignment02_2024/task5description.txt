@@ -1,0 +1,34 @@
+Task 5 - Adding More Methods Using More OOP
+Now that you have working classes, we will refine them slightly. Read the instructions carefully and then edit the classes from the previous tasks.
+
+Part 1 - Editing Property Features
+In Task 1, we created two functions to add_feature(self, feature: str) -> None and remove_feature(self, feature: str) -> None. We are now going to implement those as methods in the property classes. You may or may not need to implement in one or all of the three property classes, you need to figure out where it would suit best. 
+
+You need to copy and paste the code for these classes from Task 4 into the appropriate files given in this slide's scaffold and then add these methods.
+
+You should try and use the methods that have been defined in the classes rather than calling the variables themselves. Doing so will result in a loss of marks.
+
+Completing this part should pass the tests from 5.1 to 5.4.
+
+Part 2 - Finding the Nearest Amenity
+To the Property class, you need to add a method called nearest_amenity(self, amenities: List[Amenity], amenity_type: str, amenity_subtype: str = None) -> Tuple[Amenity, float] which will take as an input a list of amenities, the type of the amenity and the subtype (if applicable), and return a Tuple containing an object of the Amenity class that is the closest amenity of this type and subtype as well as the distance to this particular Amenity. 
+
+If the value of the type or subtype doesn't exist or is invalid, then this method will return None.
+
+Please note that if the subtype is Pri/Sec is a school, then that school should appear in both Primary and Secondary searches.
+
+If a amenity_subtype is not provided, then it should consider all amenities of that type and return the closest one.
+
+You may want to copy the haversine function to this class but ensure to make it a private function of this class rather than a global function in the file as this will fail test cases.
+
+Completing this part should pass the tests 5.5 and 5.6
+
+Additional Important Information About Task 5
+As a reminder, the file ingestion.py that reads the properties and amenities has been provided to you and organizes them into lists. You may read this file if you require but you DO NOT NEED TO OR SHOULD CHANGE THIS FILE AT ALL.
+
+Once you add the three new methods, and if all works well then you should see an output similar to the following:
+
+The nearest station to 3 Antrim Place Langwarrin VIC 3910 is Baxter Railway Station (Baxter) and it is 3.67km away
+The property at G01/7 Rugby Road Hughesdale VIC 3166 has the following features: ['dishwasher', 'air conditioning', 'balcony']
+We are going to add 'tennis court' as a feature to this property
+Now the property at G01/7 Rugby Road Hughesdale VIC 3166 has the following features: ['dishwasher', 'air conditioning', 'balcony', 'tennis court']

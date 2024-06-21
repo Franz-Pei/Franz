@@ -1,0 +1,88 @@
+Task 7 - Don't go regexing my address
+In this section, you are expected to use re library to extract key information from plain text. Furthermore, you are now more familiar with Abstract Data Type (ADT) and Object-Oriented Programming (OOP), therefore, this task will be finished based on a new class given in the scaffold.
+
+Part 1
+The first task is about matching the email address, then linking the data back to the original property, and adding the email address to the original CSV data. For linking the email address with properties, we can assume the property ID is always unique.
+
+Before we start working on extracting email addresses, we should be clear to what are the essential components of an email address.
+
+Normally, an email address has two parts, a local part and a domain part, some examples are shown below:
+
+Hello.World@gmail.com
+helleWorld@gmail.com
+hello1234@student.monash.edu
+hello.world@monash.edu
+hello.world@student.monash.edu
+In this task, we simply only allow alphabet characters as valid characters, so we can exclude the hello1234@student.monash.edu from valid cases in our task (hello@student.monash.edu is still valid). Then on your right-hand side, you may define your regular expression as the attribute of the class for matching valid email addresses, then use that regex pattern in a method for validating email addresses.
+
+For original CSV data, we simplify the structure (you may do a data inspection before implementing your solution), and you are required to process the CSV data without using CSV module or any other packages, you can only use built-in methods of str object to handle the CSV data.
+
+Note: 
+
+for properties, if there is no matched email address, then make it empty,
+
+i.e., in the CSV file, as part of final result, you may see "p1011,20 Exhibition walk Clayton,"
+
+you can see there is a comma at the end but with no contents/data, which is left for the email address field.
+
+for properties, if there is email address but the property does not exist in the original property file, then ignore this email address.
+
+You may notice that the function prop_email_matcher returns a str object, which means, the returned obj is already a CSV-like str, if you simply print it out, you should be able to see something like below,
+
+prop_id,full_address,email
+P10001,3 Antrim Place Langwarrin VIC 3910,Albert.B@gmail.com
+P10002,G01/7 Rugby Road Hughesdale VIC 3166,
+P10004,3/69 Woodbine Grove Chelsea VIC 3196,Albert.D@gmail.com
+P10005,1/69 Woodbine Grove Chelsea VIC 3196,Albert.D@qq.com
+P10006,201/8 Rugby Road Hughesdale VIC 3166,
+
+If the property file is empty (no contents but has header line), only display the header, header should contain both file's header without overlapping
+
+Part 2
+The second task is extracting valid phone number, similar to above, you have to define the regular expression for phone number and a method for validating correct phone number.
+
+Some valid cases are shown in below,
+
+610426123456
+
+(61)0426123456
+
+In this task, you should assume only AU numbers are valid as we are processing AU properties, so we should always have country code 61 at the beginning. However, it could contain the brackets for distinguishing country code and phone number itself, so why you can see two valid phone number format above. In other words, phone number like:
+
+61426123456 (lacks 0)
+
+61042612345 (8-digit number)
+
+0426123456   (lacks country code)
+
+860426123456 (not AU number)
+
+are all invalid numbers and should be paired with a property.
+
+At the end of this task, you should be able to get similar output as the first task, but with property information and match phone number only (no email address), the expected output is:
+
+prop_id,full_address,phone
+P10001,3 Antrim Place Langwarrin VIC 3910,610412980001
+P10002,G01/7 Rugby Road Hughesdale VIC 3166,(61)0412980002
+P10004,3/69 Woodbine Grove Chelsea VIC 3196,
+P10005,1/69 Woodbine Grove Chelsea VIC 3196,(61)0412980005
+P10006,201/8 Rugby Road Hughesdale VIC 3166,
+
+If the property file is empty (no contents but has header line)), only display the header, header should contain both file's header without overlapping.
+
+Great, you are almost reach the end of A2! 🥳
+
+Part 3
+The final task is extracting both email and phone for properties and link them back simultaneously. However, one difference here is that we only keep the property information if we can have at least one valid contact information. In the above two tasks, we keep the property as long as we see it appears in both files, even with the contact information lost / damaged. But here, as long as one contact information is valid (both are valid, or phone is valid or email is valid), we can keep the property information in the final output.
+
+You should implement your solution in the given function merge_prop_email_phone, and you should be able to see something like below as output:
+
+prop_id,full_address,email,phone
+P10001,3 Antrim Place Langwarrin VIC 3910,Albert.B@gmail.com,610412980001
+P10002,G01/7 Rugby Road Hughesdale VIC 3166,,(61)0412980002
+P10004,3/69 Woodbine Grove Chelsea VIC 3196,Albert.D@gmail.com,
+P10005,1/69 Woodbine Grove Chelsea VIC 3196,Albert.D@qq.com,(61)0412980005
+
+If the property file is empty (no contents but has header line)), only display the header, header should contain both file's header without overlapping.
+
+A gentle reminder here, you can see the prop_id is always the first column in the given samples, but in the real test cases, we may shuffle the order of columns (not only for prop_id). So you should identify which column is for property id, full address, which column is for email or phone number. You can assume the column names are always same as the given samples, but the order may vary.

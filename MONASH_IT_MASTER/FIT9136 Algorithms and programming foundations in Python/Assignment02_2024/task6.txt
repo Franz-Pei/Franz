@@ -1,0 +1,109 @@
+Task 6 - Producing Suitability Score
+You've done extremely well to get to this stage! Pat yourself on the back! 🥳
+
+We will now use the information that you have ingested and apply that to a real-world scenario. We will import a request from the user to provide a suitability score for each property and then provide a list of properties that fit the user's criteria. 
+
+Part 1 - Read the User's Request in a JSON Format
+To do this, you are going to need the json module as the requests are going to be handled using json files. The user's request is provided to you in the file request.json and has the following format:
+
+{
+  "request": {
+    "house_importance": {
+      "suburb": "Clayton",
+      "prop_type": "Apartment",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "parking_spaces": 1,
+      "price": 900000,
+      "property_features":"air conditioning"
+    },
+    "amenities_accessibility": {
+      "train_station": "walk",
+      "school": {
+        "school_type": "Primary",
+        "accessibility": "cycle"
+      },
+      "medical_centre": "drive",
+      "sport_facility": {
+        "sport_played": "Cricket",
+        "accessibility": "optional"
+      }
+    }
+  }
+}
+
+Please note that some or all fields in the house_importance may or may not exist in the request. The valid fields are the variables that you created in the Property family. Similarly, in the amenities school and sport_facility, the school_type and sport_played may or may not exist. If they don't exist then you should consider all amenities in that category. Similar to the previous task, if a user asks for a Primary or a Secondary school then the Pri/Sec schools should be considered in both categories.
+
+Your task is to write the appropriate code in the function read_request which returns two dictionaries; house_importance and amenity_accessibility based on the JSON request being read.
+
+Completing this part should pass test 6.1.
+
+Part 2 - Collect Properties that Match the Given Criteria in the JSON Request
+You will now use the dictionary house_importance obtained from the previous part as well as the list of all properties that has been ingested for you in the variable props and return a list of matching properties based on the user's request. The return value should be a list that contains objects of the Property Family (i.e., House/Apartment/Property). This will be done in the find_matching_properties function.
+
+There are certain constraints for selecting a property based on the request: 
+
+For property type and suburb, consider only a full match; i.e. if the request is for a house, filter out apartments.
+
+For property features; consider a full match in the list. If the feature is mentioned in the request and is not present in the property, that property should be filtered out.
+
+For floor area, land area, bedrooms, bathrooms and parking_spaces, you should treat the given values as the baseline. Anything higher than or equal to the value should be accepted. 
+
+For the floor number and price, treat the given value as the ceiling. Anything less than or equal to the value should be accepted.
+
+For item 2 above, please assume that the request will only contain one property feature.
+
+While filtering properties, any field that is missing in the request should not be considered as a filtering criteria. For example, if the request does not contain a value for bedrooms, you should keep all possible values of bedrooms. This applies to all fields.
+
+Completing this part should pass the test cases 6.2 and 6.3.
+
+Additional Information About Scoring the of Properties
+If you notice the function produce_star_scores, once you have completed parts 1 and 2, it should now produce some star scores for the properties using some complex math that is contained in the score.py file. You need not worry about the math behind this step.
+
+After this step is complete, you will have a dictionary in the variable called prop_scored that contains the star_score as the key and the property object as the value. An example of the format of the prop_scored dictionary is as below: 
+
+12345
+prop_scored = {
+    "3.5" : <Property_Object_1>,
+    "2.3" : <Property_Object_2>,
+    "1.3" : <Property_Object_3>
+}
+Part 3 - Create a Response Dictionary and Return
+In this part, you will need to define the function create_response_dict that takes in the dictionary prop_scored and creates the dictionary response_dict. The response dictionary should be in a JSON valid format and an example is given below:
+
+{
+  "properties": [
+    {
+      "property_id": "P1001",
+      "star_score": 4.2
+    },
+    {
+      "property_id": "P1002",
+      "star_score": 3.8
+    },
+    {
+      "property_id": "P1003",
+      "star_score": 3.5
+    }
+  ]
+}
+
+Once you create this dictionary, you should return it from the function.
+
+Completing this part should pass the test cases 6.4, 6.5 and 6.6
+
+Part 4 - Responding in a JSON file
+You will now write the code for the respond function.
+
+respond(response_dict: dict) -> None: This function reads the return value from the function produce_star_scores and writes the file called response.json. While writing the response files, sort the scores in descending order by star_score and if there is a tie then ascending order of prop_id. Unfortunately due to the limitations of Ed, simply pressing the 'Run' button will not create your response file, you need to open the terminal and manually execute the task6.py file. Then, you should be able to see the response.json file in your scaffold.
+
+It is YOUR RESPONSIBILITY to validate your JSON file. You can do so by copying the content of your response.json file and checking its validity on a website such as JSONFormatter.
+
+There are no tests for this task, your file will be manually checked by a tutor.
+
+Additional Important Information About Task 6
+You must copy and paste the code for all four classes from Task 5 into the appropriate files given in the scaffold. 
+
+You have been given a couple of functions and their arguments in the scaffold that you need to use, however, you are STRONGLY RECOMMENDED to define other functions that are called within the given functions. Please do not edit the arguments or the return value types that our functions require.
+
+Once you have completed your code in task6.py, you should be able to run the code given in the if __name__ == '__main__' block and produce the response.json file while printing the success or the failure of your code.

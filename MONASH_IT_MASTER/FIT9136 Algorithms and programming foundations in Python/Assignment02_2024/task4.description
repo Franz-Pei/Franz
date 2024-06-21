@@ -1,0 +1,92 @@
+f data storage, we will convert all that we have worked with so far into classes and objects.
+
+Some boilerplate code has been provided for you in various files, so open up the file explorer to see what you have. You have to read the instructions in the docstrings of the methods, create the classes, and define the methods. 
+
+Part 1 - The Property Class and its Children
+The Property class will be the overarching abstract base class for all properties. This class will have two child classes; House and Apartment class. These classes should have one or many variables each to hold the following information:
+
+the property's ID,
+
+the property's address,
+
+the property's suburb,
+
+the number of bedrooms the property has,
+
+the number of bathrooms the property has,
+
+the type of property,
+
+the number of parking spaces the property has,
+
+a tuple containing the (latitude, longitude) of the property,
+
+the floor number of the property,
+
+the land area of the property,
+
+the floor area of the property,
+
+the price of the property,
+
+a list of the features of the property.
+
+You have to choose if these should be class or instance variables, and which class they should be defined in. Make sure that the data type of these variables also match what you did in Task 1. The only exception is the coordinates, which is now a tuple of floats (latitude, longitude).
+
+You should define getters and setters for these variables. There are exceptions for these, namely: prop_id, full_address, prop_type, coordinates and suburb are static fields and hence do not need setters, only getters. These values for a property cannot change as that would change the property itself. The rest of the attributes can change (think renovation)
+
+Getters and setters help us implement an important aspect of OOP called Encapsulation. You can read more about it here.
+
+For example for the variable bedrooms, one of your classes should have the method: get_bedrooms(self) -> int that returns the number of bedrooms that exist in the property and also a method set_bedrooms(self, num_bedrooms: int) -> None that sets the value num_bedrooms to the  bedrooms variable in the class.
+
+You will have some methods as abstract methods in the Property class. When overriding the method, if that particular method should not have an implementation in one of the child classes, make it return None.
+
+Completing this section should pass the tests from 4.1 to 4.20.
+
+Part 2 - The Amenity Class
+The Amenity class will help hold all the information about the various amenities we learned about in the previous tasks (Train stations, Medical Centres, Sport Facilities, Schools). This class will not have any children classes, but would have the following variables and their appropriate getters and setters:
+
+a variable to store the gp_code, school_no , stop_id or facility_id,
+
+a variable to store the gp_name, school_name , stop_name or facility_name,
+
+a variable to store the coordinates (latitude, longitude) of the amenity in a tuple of floats,
+
+a variable to store the type of amenity ('school', 'sport_facility', 'train_station' or 'medical_centre'),
+
+a variable to store the subtype of the amenity ('primary', 'secondary', 'pri/sec' for schools, or whatever sport is played at the sport_facility). If the amenity does not have a subtype, then just set this to None.
+
+Please DO NOT add any additional parameters to ANY of the given functions.
+
+Again, there are exceptions for these getters and setters, namely: amenity code , amenity type and amenity coords are static fields and hence do not need setters, only getters. 
+
+Completing this part should pass the tests from 4.21 to 4.22.
+
+Additional Important Information About Task 4
+You have been given some code in the file ingestion.py including a function called ingest_files. The purpose of the ingest_files function here is to read the five files given to you (sample_properties.csv , train_stations.csv , sample_melbourne_schools.csv , sample_melbourne_medical.csv , sample_melbourne_sport_facilities.csv) and create two lists:
+
+properties which is a list of objects from the House/Apartment/Property family,
+
+amenities which is a list of objects from the Amenity class.
+
+You do not need to change this file or this function. As long as you have created the four classes properly (Property, House, Apartment, Amenity) then this function should run properly and produce some output for you.
+
+Please remember to always use the getter and setter methods to access the class and instance variables where appropriate. Using the instance variables directly where a getter or a setter should have been used will result in a loss of marks.
+
+Some code has already been given to you in the file at the end, and if your classes and the main() method have been successfully set up, it should print out some legible output. 
+
+🚫 YOU MUST NOT CHANGE any of the following elements of the skeleton.
+
+Class names.
+
+Class method names, parameters, or return types.
+
+✅ YOU MUST CHANGE 
+
+all other aspects of the skeleton required to produce a functional well-structured solution to the assignment.
+
+🧠 YOU CAN CHANGE
+
+everything that is in the if __name__ == '__main__' block of code. 
+
+instance and class variables for any of the classes. You have to decide how many class and instance variables to make and what their purpose should be.

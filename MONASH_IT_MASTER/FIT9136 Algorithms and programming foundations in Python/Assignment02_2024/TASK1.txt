@@ -1,0 +1,131 @@
+Task 1 - Manipulate Property Data
+In the first task, we will be learning how to generate a data structure by reading a string. The string that you will read will contain a lot of information and we need to find a way to store it in a neat and readable data structure such that it can be used for analysis later. 
+
+For our purposes, there are two types of properties: a house or an apartment
+
+You will be using a string that we will call property_string. This string will contain comma-separated values (CSV) of the following fields, in this particular order: 
+
+Please note that not all fields will have values for both types of properties. This has been mentioned in the attribute description if this is the case. If a value is missing, there will be nothing between the commas at that spot. Please see the examples below to make more sense of this. 
+
+prop_id: this will contain the property ID of the property
+
+full_address: this will contain the address of the property. The address will be in the following format:
+
+In the case of a house: <street number> <street name> <street type> <suburb> <state code> <postcode>
+
+For example - 400 Toorak Road Toorak VIC 3142 or 17 Turella Close Berwick VIC 3806
+
+In the case of an apartment: <apartment number>/<street number> <street name> <street type> <suburb> <state code> <postcode>
+
+For example - 17/123 Wellington Road Clayton VIC 3168 or 1A/8 Rugby Road Hughesdale VIC 3166
+
+Please note that the address will be space-delimited. If there is an apartment number available, then you should consider the property an apartment. However, please note that a / can appear in the address other than to separate the apartment number and the street number.
+
+bedrooms: this will contain the number of bedrooms in the property
+
+bathrooms: this will contain the number of bathrooms in the property
+
+parking_spaces: this will contain the number of parking spaces in the property
+
+latitude: this will contain the latitude of the property
+
+longitude: this will contain the longitude of the property
+
+floor_number: this will contain the floor that the property is in (this will be missing for houses)
+
+land_area: this will contain the land area (in 
+m
+2
+m 
+2
+ ) of the property (this will be missing for apartments)
+
+floor_area: this will contain the floor area (in 
+m
+2
+m 
+2
+ ) of the property
+
+price: this will contain the predicted price of the property
+
+property_features: This is a semi-colon-separated list of the features of the property. This could include solar, air conditioning, dishwasher, floorboards, central heating, etc. Note: this field can have 0 items and if it does, you should make an empty list.
+
+In this task, you will write a function called extract_information(property_string: str) -> dict that takes in a property string as described above and creates a dictionary for the property with the following keys (with data types of the values in the <>):
+
+prop_id <str>
+
+prop_type <str> (this should be set to either 'house' for a house or 'apartment' for an apartment)
+
+full_address <str>
+
+suburb <str> (which you should extract from the address)
+
+bedrooms <int> 
+
+bathrooms <int> 
+
+parking_spaces <int>
+
+latitude <float>
+
+longitude <float>
+
+floor_number <int> (include this key only if applicable)
+
+land_area <int> (include this key only if applicable)
+
+floor_area <int>
+
+price <int>
+
+property_features <list of strings>
+
+Some code has been given in the main function for you to test the running of your code through a couple of examples. Please do not change the code in main, this should run properly if you have programmed your function correctly.
+
+Next, you will add two functions add_feature(property_dict: dict, feature: str) and remove_feature(property_dict: dict, feature: str) that will add or remove a feature from the property features list. These functions shouldn't return anything.
+
+Please note that if the feature you are trying to add already exists, then ignore the new value, don't add anything in. If you are trying to delete a feature that doesn't exist, then also ignore the request and don't do anything.
+
+Examples
+If the property string is:
+
+1
+example_string = "P10001,3 Antrim Place Langwarrin VIC 3910,4,2,2,-38.16655678,145.1838435,,608,257,870000,dishwasher;central heating"
+It should produce a dictionary like the one below:
+
+123456789101112131415
+property_dict = {
+    "prop_id" : "P10001",
+    "prop_type": "house",
+    "full_address" : "3 Antrim Place Langwarrin VIC 3910",
+    "suburb": "Langwarrin",
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "parking_spaces": 2,
+    "latitude": -38.16655678,
+    "longitude": 145.1838435,
+
+As you can see in this dictionary, as this is a house, the key floor_number is not present. Similarly, when you have a dictionary for an apartment, the key land_area should not be present.
+
+Another Example:
+
+If the property string is:
+
+1
+example_string = "P10002,9 Delirium Road Toorak VIC 3142,4,2,2,-37.83993823378452,145.0067231018509,,521,357,1460000,"
+It should produce a dictionary like the one below:
+
+23456789101112131415
+property_dict = {
+    "prop_id" : "P10002",
+    "prop_type": "house",
+    "full_address" : "9 Delirium Road Toorak VIC 3142",
+    "suburb": "Toorak",
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "parking_spaces": 2,
+    "latitude": -37.83993823,
+    "longitude": 145.0067231,
+
+As you can see in this dictionary, since the string had no property features, it has an empty list.

@@ -1,0 +1,330 @@
+stop_id,stop_name,stop_lat,stop_lon
+17204,Wallan Railway Station (Wallan),-37.416861,145.0053723
+19980,Melton Railway Station (Melton South),-37.70335908,144.5722158
+19981,Rockbank Railway Station (Rockbank),-37.72926127,144.6506315
+19982,Deer Park Railway Station (Deer Park),-37.77776375,144.7723036
+19998,Sunbury Railway Station (Sunbury),-37.57920639,144.7281645
+20020,Ardeer Railway Station (Ardeer),-37.78306529,144.8021881
+20029,Craigieburn Railway Station (Craigieburn),-37.6019248,144.943306
+20043,Southern Cross Railway Station (Melbourne City),-37.81833429,144.9525249
+20287,Albury Railway Station (Albury (NSW)),-36.08426161,146.9245154
+20288,Ararat Railway Station (Ararat),-37.28220485,142.9369137
+20289,Avenel Railway Station (Avenel),-36.89364778,145.229515
+20290,Bacchus Marsh Railway Station (Maddingley),-37.68751666,144.4368553
+20291,Bairnsdale Railway Station (Bairnsdale),-37.82872043,147.6276138
+20292,Ballan Railway Station (Ballan),-37.60429951,144.225448
+20293,Ballarat Railway Station (Ballarat Central),-37.55879148,143.8594574
+20294,Beaufort Railway Station (Beaufort),-37.42787497,143.3822337
+20295,Benalla Railway Station (Benalla),-36.54455031,145.9839151
+20296,Bendigo Railway Station (Bendigo),-36.76566973,144.2830089
+20297,Birregurra Railway Station (Birregurra),-38.32880781,143.7836252
+20298,Broadford Railway Station (Broadford),-37.20720049,145.0430079
+20299,Bunyip Railway Station (Bunyip),-38.09910771,145.7207575
+20300,Camperdown Railway Station (Camperdown),-38.22890091,143.1509278
+20301,Castlemaine Railway Station (Castlemaine),-37.06283745,144.213799
+20302,Chiltern Railway Station (Chiltern),-36.15563663,146.6113748
+20303,Clarkefield Railway Station (Clarkefield),-37.48349769,144.7453726
+20304,Colac Railway Station (Colac),-38.34337792,143.5866531
+20305,Corio Railway Station (Corio),-38.07283126,144.3797684
+20306,Dingee Railway Station (Dingee),-36.36923291,144.2311203
+20307,Donnybrook Railway Station (Donnybrook),-37.54257526,144.9695549
+20308,Drouin Railway Station (Drouin),-38.1364519,145.8559469
+20309,Eaglehawk Railway Station (Eaglehawk),-36.71852539,144.2483799
+20310,Echuca Railway Station (Echuca),-36.13098223,144.7534587
+20311,Elmore Railway Station (Elmore),-36.49502002,144.6077575
+20312,Euroa Railway Station (Euroa),-36.7491306,145.5680886
+20313,Garfield Railway Station (Garfield),-38.09103062,145.6742247
+20314,Geelong Railway Station (Geelong),-38.14424211,144.3549891
+20315,Gisborne Railway Station (New Gisborne),-37.4588255,144.5987216
+20316,Heathcote Junction Railway Station (Heathcote Junction),-37.37171346,145.0282049
+20317,Kangaroo Flat Railway Station (Kangaroo Flat),-36.79483364,144.2489902
+20318,Kerang Railway Station (Kerang),-35.73312162,143.9244251
+20319,Kilmore East Railway Station (Kilmore East),-37.29321027,144.983566
+20320,Kyneton Railway Station (Kyneton),-37.25827885,144.4506016
+20321,Lara Railway Station (Lara),-38.02242764,144.4144043
+20323,Little River Railway Station (Little River),-37.96292909,144.4984849
+20324,Longwarry Railway Station (Longwarry),-38.11099211,145.7668603
+20325,Macedon Railway Station (Macedon),-37.42357331,144.5613969
+20326,Malmsbury Railway Station (Malmsbury),-37.18974032,144.3753232
+20327,Marshall Railway Station (Marshall),-38.198549,144.3550567
+20328,Moe Railway Station (Moe),-38.17690856,146.2605716
+20329,Mooroopna Railway Station (Mooroopna),-36.39912828,145.3582148
+20330,Morwell Railway Station (Morwell),-38.23671876,146.396753
+20331,Murchison East Railway Station (Murchison East),-36.61314794,145.2406356
+20332,Nagambie Railway Station (Nagambie),-36.7854641,145.1603567
+20333,Nar Nar Goon Railway Station (Nar Nar Goon),-38.08159155,145.5716657
+20334,North Geelong Railway Station (North Geelong),-38.12283523,144.3522719
+20335,North Shore Railway Station (North Shore),-38.09837714,144.3653214
+20336,Pyramid Railway Station (Pyramid Hill),-36.05311274,144.1131327
+20337,Riddells Creek Railway Station (Riddells Creek),-37.46512379,144.6798307
+20338,Rochester Railway Station (Rochester),-36.3623605,144.6986813
+20339,Rosedale Railway Station (Rosedale),-38.15640367,146.7869664
+20341,Sale Railway Station (Sale),-38.10310272,147.0548051
+20342,Seymour Railway Station (Seymour),-37.02472873,145.1377286
+20343,Shepparton Railway Station (Shepparton),-36.38379101,145.4064975
+20344,South Geelong Railway Station (South Geelong),-38.15865863,144.358987
+20345,Springhurst Railway Station (Springhurst),-36.1858934,146.470417
+20346,Stratford Railway Station (Stratford),-37.96704739,147.0814694
+20347,Swan Hill Railway Station (Swan Hill),-35.34111357,143.5623432
+20348,Tallarook Railway Station (Tallarook),-37.09233454,145.1029973
+20349,Terang Railway Station (Terang),-38.23621199,142.9114722
+20350,Trafalgar Railway Station (Trafalgar),-38.2072423,146.1547728
+20351,Traralgon Railway Station (Traralgon),-38.19888494,146.5378821
+20352,Tynong Railway Station (Tynong),-38.08499626,145.6282343
+20353,Violet Town Railway Station (Violet Town),-36.63881606,145.7159234
+20355,Wandong Railway Station (Wandong),-37.3546771,145.0264154
+20356,Wangaratta Railway Station (Wangaratta),-36.35510089,146.3170385
+20357,Warragul Railway Station (Warragul),-38.16522945,145.9326742
+20358,Warrnambool Railway Station (Warrnambool),-38.38501396,142.475545
+20359,Winchelsea Railway Station (Winchelsea),-38.24013506,143.9841339
+20360,Wodonga Railway Station (Wodonga),-36.1058271,146.8712657
+20361,Woodend Railway Station (Woodend),-37.35879859,144.5258901
+20362,Yarragon Railway Station (Yarragon),-38.20315754,146.0630628
+22238,Flinders Street Railway Station (Melbourne City),-37.81830513,144.9669643
+22239,North Melbourne Railway Station (West Melbourne),-37.80630984,144.9415102
+22240,Footscray Railway Station (Footscray),-37.80141343,144.9020201
+22241,Sunshine Railway Station (Sunshine),-37.78853633,144.8328782
+22244,Watergardens Railway Station (Sydenham),-37.70112872,144.7741805
+22247,Richmond Railway Station (Richmond),-37.82407446,144.9901643
+22248,Caulfield Railway Station (Caulfield East),-37.87745946,145.0425248
+22249,Clayton Railway Station (Clayton),-37.92468255,145.1205344
+22250,Dandenong Railway Station (Dandenong),-37.98996792,145.2097254
+22251,Berwick Railway Station (Berwick),-38.04040813,145.3457147
+22252,Pakenham Railway Station (Pakenham),-38.08061383,145.4863677
+22253,Essendon Railway Station (Essendon),-37.7560117,144.9161975
+22254,Broadmeadows Railway Station (Broadmeadows),-37.68304926,144.9196132
+22257,Sherwood Park Railway Station (Warrnambool),-38.38639224,142.5388712
+43469,Wendouree Railway Station (Wendouree),-37.53971611,143.8200675
+44951,Creswick Railway Station (Creswick),-37.42460539,143.8881236
+44952,Clunes Railway Station (Clunes),-37.30314079,143.7815766
+44953,Maryborough Railway Station (Maryborough),-37.05090849,143.7424023
+47482,Talbot Railway Station (Talbot),-37.17289923,143.7056403
+47641,Waurn Ponds Railway Station (Waurn Ponds),-38.21581447,144.3068194
+47642,Epsom Railway Station (Epsom),-36.70634158,144.3210395
+47647,Wyndham Vale Railway Station (Manor Lakes),-37.87288647,144.6087319
+47648,Tarneit Railway Station (Tarneit),-37.83216813,144.6947144
+48804,Cobblebank Railway Station (Cobblebank),-37.71254554,144.6041078
+49295,Raywood Railway Station (Raywood),-36.53195927,144.201161
+49296,Huntly Railway Station (Huntly),-36.66584794,144.3698205
+51809,Goornong Railway Station (Goornong),-36.61518327,144.5034742
+52011,Caroline Springs Railway Station (Ravenhall),-37.76614472,144.7357479
+15351,Sunbury Railway Station (Sunbury),-37.57909097,144.7273188
+15353,Diggers Rest Railway Station (Diggers Rest),-37.62701651,144.7199224
+19827,Stony Point Railway Station (Crib Point),-38.37423454,145.2218375
+19828,Crib Point Railway Station (Crib Point),-38.36612338,145.2040433
+19829,Morradoo Railway Station (Crib Point),-38.35403334,145.1896025
+19830,Bittern Railway Station (Bittern),-38.33739032,145.1780265
+19831,Hastings Railway Station (Hastings),-38.30565853,145.1859799
+19832,Tyabb Railway Station (Tyabb),-38.259815,145.1864007
+19833,Somerville Railway Station (Somerville),-38.22534196,145.1762449
+19834,Baxter Railway Station (Baxter),-38.19404306,145.1605261
+19835,Glen Iris Railway Station (Glen Iris),-37.85930842,145.0582249
+19836,Leawarra Railway Station (Frankston),-38.152034,145.139534
+19837,Darling Railway Station (Malvern East),-37.86895684,145.0629508
+19838,East Malvern Railway Station (Malvern East),-37.87693002,145.069393
+19839,Holmesglen Railway Station (Malvern East),-37.87440222,145.090662
+19840,Jordanville Railway Station (Mount Waverley),-37.87360339,145.1120902
+19841,Flagstaff Railway Station (Melbourne City),-37.81198131,144.9556538
+19842,Melbourne Central Railway Station (Melbourne City),-37.80993877,144.9625935
+19843,Parliament Railway Station (Melbourne City),-37.81105406,144.9729109
+19844,Belgrave Railway Station (Belgrave),-37.9091021,145.3552913
+19845,Tecoma Railway Station (Tecoma),-37.90811849,145.3429946
+19846,Upwey Railway Station (Upwey),-37.90369097,145.3313334
+19847,Alamein Railway Station (Ashburton),-37.86832039,145.0796557
+19848,Ashburton Railway Station (Ashburton),-37.86196753,145.0813438
+19849,Burwood Railway Station (Glen Iris),-37.85156328,145.0805111
+19850,Hartwell Railway Station (Camberwell),-37.84398457,145.0755596
+19851,Willison Railway Station (Camberwell),-37.83571565,145.0702976
+19852,Riversdale Railway Station (Camberwell),-37.83150543,145.069646
+19853,Camberwell Railway Station (Camberwell),-37.82656714,145.0586972
+19854,Flinders Street Railway Station (Melbourne City),-37.81830513,144.9669643
+19855,Frankston Railway Station (Frankston),-38.14299007,145.1261623
+19856,Kananook Railway Station (Seaford),-38.12174203,145.1352953
+19857,Seaford Railway Station (Seaford),-38.10402104,145.1282304
+19858,Carrum Railway Station (Carrum),-38.07650361,145.1228331
+19859,Bonbeach Railway Station (Bonbeach),-38.06507704,145.1200248
+19860,Chelsea Railway Station (Chelsea),-38.05332563,145.116633
+19861,Edithvale Railway Station (Edithvale),-38.03606256,145.1072993
+19862,Aspendale Railway Station (Aspendale),-38.02722019,145.1021496
+19863,Mordialloc Railway Station (Mordialloc),-38.00658295,145.0876594
+19864,Parkdale Railway Station (Parkdale),-37.99307882,145.0763268
+19865,Mentone Railway Station (Mentone),-37.98296939,145.0659908
+19866,Cheltenham Railway Station (Cheltenham),-37.96664989,145.0545579
+19867,Upper Ferntree Gully Railway Station (Upper Ferntree Gully),-37.8926717,145.3075302
+19868,Ferntree Gully Railway Station (Ferntree Gully),-37.88169799,145.2952513
+19869,Boronia Railway Station (Boronia),-37.8604518,145.2843851
+19870,Bayswater Railway Station (Bayswater),-37.84173004,145.2681364
+19871,Heathmont Railway Station (Heathmont),-37.82832227,145.2445554
+19872,Highett Railway Station (Highett),-37.948425,145.0418718
+19873,Glen Waverley Railway Station (Glen Waverley),-37.87950407,145.1620575
+19874,Syndal Railway Station (Glen Waverley),-37.87622963,145.1497805
+19875,Mount Waverley Railway Station (Mount Waverley),-37.87525526,145.1280557
+19876,Lilydale Railway Station (Lilydale),-37.75722149,145.3458107
+19877,Mooroolbark Railway Station (Mooroolbark),-37.78474883,145.3124024
+19878,Croydon Railway Station (Croydon),-37.79543697,145.2805978
+19879,Ringwood East Railway Station (Ringwood East),-37.81196804,145.2501909
+19880,Pakenham Railway Station (Pakenham),-38.08061397,145.4863791
+19881,Officer Railway Station (Officer),-38.06614572,145.4109872
+19882,Beaconsfield Railway Station (Beaconsfield),-38.05083135,145.3660737
+19883,Berwick Railway Station (Berwick),-38.04040829,145.3457261
+19884,Narre Warren Railway Station (Narre Warren),-38.02780932,145.3039694
+19885,Hallam Railway Station (Hallam),-38.01774038,145.2697768
+19886,Cranbourne Railway Station (Cranbourne),-38.09953731,145.280599
+19887,Merinda Park Railway Station (Cranbourne North),-38.07900048,145.2635114
+19888,Dandenong Railway Station (Dandenong),-37.98996792,145.2097254
+19889,Yarraman Railway Station (Noble Park),-37.97825454,145.1916003
+19890,Noble Park Railway Station (Noble Park),-37.96662768,145.1763246
+19891,Sandown Park Railway Station (Springvale),-37.95650457,145.1628259
+19892,East Camberwell Railway Station (Camberwell),-37.82589419,145.0681902
+19893,Canterbury Railway Station (Canterbury),-37.82448518,145.0812242
+19894,Chatham Railway Station (Surrey Hills),-37.82429952,145.0886479
+19897,Laburnum Railway Station (Blackburn),-37.82078023,145.1407027
+19898,Blackburn Railway Station (Blackburn),-37.82007075,145.1500135
+19899,Nunawading Railway Station (Nunawading),-37.82042828,145.1752369
+19900,Mitcham Railway Station (Mitcham),-37.81808706,145.1928918
+19901,Heatherdale Railway Station (Ringwood),-37.81883485,145.2135498
+19902,Ringwood Railway Station (Ringwood),-37.81565977,145.2294737
+19903,Auburn Railway Station (Hawthorn East),-37.82239831,145.0458437
+19904,Glenferrie Railway Station (Hawthorn),-37.82146682,145.0364388
+19905,Hawthorn Railway Station (Hawthorn),-37.82182601,145.0228987
+19906,Burnley Railway Station (Burnley),-37.82756022,145.0075551
+19907,East Richmond Railway Station (Richmond),-37.82639995,144.9970657
+19908,Richmond Railway Station (Richmond),-37.82407446,144.9901643
+19909,Heyington Railway Station (Toorak),-37.83467244,145.0226353
+19910,Kooyong Railway Station (Kooyong),-37.83992894,145.0335516
+19911,Tooronga Railway Station (Malvern),-37.84936553,145.0417337
+19912,Gardiner Railway Station (Glen Iris),-37.85327908,145.0516547
+19913,Springvale Railway Station (Springvale),-37.94950878,145.1534518
+19914,Westall Railway Station (Clayton South),-37.93849121,145.1388326
+19915,Clayton Railway Station (Clayton),-37.92468255,145.1205344
+19916,Huntingdale Railway Station (Oakleigh),-37.91101734,145.1023643
+19917,Oakleigh Railway Station (Oakleigh),-37.90037214,145.0883079
+19918,Hughesdale Railway Station (Hughesdale),-37.89424888,145.0764347
+19919,Murrumbeena Railway Station (Murrumbeena),-37.89019832,145.0673749
+19920,Carnegie Railway Station (Carnegie),-37.88624148,145.0585751
+19921,Werribee Railway Station (Werribee),-37.89937805,144.661118
+19922,Hoppers Crossing Railway Station (Hoppers Crossing),-37.88327618,144.7009549
+19923,Laverton Railway Station (Laverton),-37.86369404,144.7726167
+19924,Aircraft Railway Station (Laverton),-37.86660595,144.7608094
+19925,Westona Railway Station (Altona),-37.86516348,144.8134936
+19926,Altona Railway Station (Altona),-37.8671476,144.8296447
+19927,Seaholme Railway Station (Seaholme),-37.86784231,144.8409577
+19928,Westgarth Railway Station (Northcote),-37.7806207,144.9992332
+19929,Dennis Railway Station (Northcote),-37.77918729,145.0082416
+19930,Fairfield Railway Station (Fairfield),-37.77917126,145.0169053
+19931,Alphington Railway Station (Alphington),-37.77839363,145.0312549
+19932,Darebin Railway Station (Ivanhoe),-37.77496341,145.038476
+19933,Ivanhoe Railway Station (Ivanhoe),-37.76889674,145.0454252
+19934,Eaglemont Railway Station (Eaglemont),-37.76358553,145.0539427
+19935,Heidelberg Railway Station (Heidelberg),-37.75707293,145.0606855
+19936,Rosanna Railway Station (Rosanna),-37.7428786,145.0661403
+19937,Moorabbin Railway Station (Moorabbin),-37.93435329,145.0367383
+19938,Patterson Railway Station (Bentleigh),-37.92514919,145.03547
+19939,Bentleigh Railway Station (Bentleigh),-37.91742457,145.0369951
+19940,McKinnon Railway Station (Mckinnon),-37.91030903,145.038299
+19941,Ormond Railway Station (Ormond),-37.90321167,145.0396134
+19942,Glen Huntly Railway Station (Glen Huntly),-37.88971946,145.0422229
+19943,Caulfield Railway Station (Caulfield East),-37.87745946,145.0425248
+19944,Malvern Railway Station (Malvern),-37.8662533,145.0292939
+19945,Armadale Railway Station (Armadale),-37.85645238,145.0193255
+19946,Toorak Railway Station (Armadale),-37.85077381,145.0139086
+19947,Hawksburn Railway Station (South Yarra),-37.84459087,145.0021421
+19948,Sandringham Railway Station (Sandringham),-37.95033018,145.0045614
+19949,Hampton Railway Station (Hampton),-37.93797681,145.0014706
+19950,Brighton Beach Railway Station (Brighton),-37.92648432,144.9891536
+19951,Middle Brighton Railway Station (Brighton),-37.91513441,144.9962991
+19952,North Brighton Railway Station (Brighton),-37.90488721,145.002605
+19953,Gardenvale Railway Station (Brighton),-37.89669508,145.0041684
+19954,Elsternwick Railway Station (Elsternwick),-37.88475311,145.0008979
+19955,Ripponlea Railway Station (Ripponlea),-37.87590643,144.9952366
+19956,Balaclava Railway Station (Balaclava),-37.86948773,144.9935121
+19957,Windsor Railway Station (Windsor),-37.85605308,144.9920352
+19958,Prahran Railway Station (Prahran),-37.84951848,144.9898599
+19959,South Yarra Railway Station (South Yarra),-37.83844935,144.9923422
+19960,Upfield Railway Station (Coolaroo),-37.66607779,144.9467399
+19961,Gowrie Railway Station (Glenroy),-37.700678,144.9588743
+19962,Fawkner Railway Station (Fawkner),-37.71462129,144.960545
+19963,Merlynston Railway Station (Coburg North),-37.72093389,144.9613135
+19964,Batman Railway Station (Coburg North),-37.73352285,144.9628406
+19965,Coburg Railway Station (Coburg),-37.74234502,144.9633363
+19966,Moreland Railway Station (Coburg),-37.75448484,144.961823
+19967,Anstey Railway Station (Brunswick),-37.76124203,144.960684
+19968,Brunswick Railway Station (Brunswick),-37.76772055,144.9595865
+19969,Jewell Railway Station (Brunswick),-37.77498702,144.9587169
+19970,Royal Park Railway Station (Parkville),-37.78119293,144.9523013
+19971,Flemington Bridge Railway Station (North Melbourne),-37.78813995,144.9393233
+19972,Macaulay Railway Station (North Melbourne),-37.79426673,144.9361663
+19973,North Melbourne Railway Station (West Melbourne),-37.80741877,144.9425698
+19974,Clifton Hill Railway Station (Clifton Hill),-37.78865745,144.9954167
+19975,Victoria Park Railway Station (Abbotsford),-37.79915782,144.9944514
+19976,Collingwood Railway Station (Abbotsford),-37.80452593,144.9937497
+19977,North Richmond Railway Station (Richmond),-37.81039836,144.9925003
+19978,West Richmond Railway Station (Richmond),-37.81494896,144.9914228
+19979,Jolimont-MCG Railway Station (East Melbourne),-37.81652702,144.9840983
+19983,Macleod Railway Station (Macleod),-37.7260123,145.0691433
+19984,Watsonia Railway Station (Watsonia),-37.71095798,145.0837934
+19985,Greensborough Railway Station (Greensborough),-37.70395408,145.1082474
+19986,Montmorency Railway Station (Montmorency),-37.71529624,145.1215157
+19987,Eltham Railway Station (Eltham),-37.71354967,145.147822
+19988,Diamond Creek Railway Station (Diamond Creek),-37.67329744,145.1585062
+19989,Wattle Glen Railway Station (Wattle Glen),-37.66396792,145.1816145
+19990,Hurstbridge Railway Station (Hurstbridge),-37.63939817,145.1920169
+19991,Williamstown Railway Station (Williamstown),-37.86775292,144.9053233
+19992,Williamstown Beach Railway Station (Williamstown),-37.86398189,144.8944837
+19993,North Williamstown Railway Station (Williamstown),-37.85733348,144.8890695
+19994,Newport Railway Station (Newport),-37.84271757,144.8835999
+19995,Spotswood Railway Station (Spotswood),-37.83063888,144.8859335
+19996,Yarraville Railway Station (Yarraville),-37.81585044,144.8899337
+19997,Seddon Railway Station (Seddon),-37.80900514,144.8956716
+20000,Watergardens Railway Station (Sydenham),-37.70112872,144.7741805
+20001,Keilor Plains Railway Station (St Albans),-37.72927934,144.7937381
+20002,St Albans Railway Station (St Albans),-37.74486131,144.8000505
+20003,Ginifer Railway Station (St Albans),-37.76006707,144.8113481
+20004,Albion Railway Station (Sunshine North),-37.77765281,144.8247036
+20005,Epping Railway Station (Epping),-37.65218666,145.0310678
+20006,Lalor Railway Station (Lalor),-37.66585075,145.0171932
+20007,Thomastown Railway Station (Thomastown),-37.68033809,145.0142789
+20008,Keon Park Railway Station (Thomastown),-37.69487012,145.0118838
+20009,Ruthven Railway Station (Reservoir),-37.70789754,145.0095166
+20010,Reservoir Railway Station (Reservoir),-37.71688492,145.0069958
+20011,Regent Railway Station (Reservoir),-37.72840277,145.0027726
+20012,Preston Railway Station (Preston),-37.73867424,145.000522
+20013,Bell Railway Station (Preston),-37.74556212,145.000155
+20014,Thornbury Railway Station (Thornbury),-37.75505179,144.9985715
+20015,Croxton Railway Station (Northcote),-37.764101,144.9970562
+20016,Northcote Railway Station (Northcote),-37.76986537,144.9952772
+20017,Merri Railway Station (Northcote),-37.77784668,144.9929725
+20019,Rushall Railway Station (Fitzroy North),-37.78321711,144.9924071
+20021,Sunshine Railway Station (Sunshine),-37.78853633,144.8328782
+20022,Tottenham Railway Station (West Footscray),-37.7992509,144.8629449
+20023,West Footscray Railway Station (West Footscray),-37.80180266,144.8839848
+20024,Middle Footscray Railway Station (Footscray),-37.8025047,144.8914721
+20025,Footscray Railway Station (Footscray),-37.80108298,144.9031992
+20026,South Kensington Railway Station (Kensington),-37.79953087,144.925469
+20027,Flemington Racecourse Railway Station (Flemington),-37.78720192,144.9075887
+20030,Broadmeadows Railway Station (Broadmeadows),-37.68304926,144.9196132
+20031,Jacana Railway Station (Glenroy),-37.69513079,144.9158505
+20032,Glenroy Railway Station (Glenroy),-37.70453633,144.9172204
+20033,Oak Park Railway Station (Oak Park),-37.71794973,144.9215188
+20034,Pascoe Vale Railway Station (Pascoe Vale),-37.73075596,144.9281956
+20035,Strathmore Railway Station (Strathmore),-37.74359132,144.9273157
+20036,Glenbervie Railway Station (Essendon),-37.74720985,144.9209387
+20037,Essendon Railway Station (Essendon),-37.7560117,144.9161975
+20038,Moonee Ponds Railway Station (Moonee Ponds),-37.76570666,144.9191607
+20039,Ascot Vale Railway Station (Ascot Vale),-37.77530609,144.9218207
+20040,Newmarket Railway Station (Flemington),-37.78732767,144.9289785
+20041,Kensington Railway Station (Kensington),-37.79378022,144.9305244
+20042,Box Hill Railway Station (Box Hill),-37.81922165,145.1214289
+22180,Southern Cross Railway Station (Melbourne City),-37.81793643,144.9514112
+40220,Roxburgh Park Railway Station (Roxburgh Park),-37.63823121,144.9354037
+40221,Craigieburn Railway Station (Craigieburn),-37.6018169,144.9433203
+44817,Coolaroo Railway Station (Coolaroo),-37.66100253,144.9260556
+45793,Lynbrook Railway Station (Lynbrook),-38.05734118,145.2492751
+45794,Cardinia Road Railway Station (Pakenham),-38.07129047,145.437791
+45795,South Morang Railway Station (South Morang),-37.6491588,145.0670324
+46468,Williams Landing Railway Station (Williams Landing),-37.86986533,144.7474447
+49343,Union Railway Station (Mont Albert),-37.82311792,145.1002781
+52095,Southland Railway Station (Cheltenham),-37.95875571,145.0491209
+52159,Middle Gorge Railway Station (South Morang),-37.6440613,145.092144
+52160,Hawkstowe Railway Station (South Morang),-37.62299455,145.0973962
+52161,Mernda Railway Station (Mernda),-37.60254797,145.100885

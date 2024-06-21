@@ -1,0 +1,51 @@
+ask 3 - Process Amenities
+In this task, you MUST use the csv and the json modules to read and manipulate other files being provided to you. We are going to create some more dictionaries for each of the following files: 
+
+melbourne_schools.csv contains a CSV formatted list of schools in the city of Melbourne. This file contains many fields but we are only concerned about the following: 
+
+school_no, which contains the school number,
+
+school_name, which contains the school name,
+
+school_type, which contains the type of the school (Primary, Secondary, or Pri/Sec which means both),
+
+school_lat, which contains the latitude value of the school,
+
+school_lon, which contains the longitude value of the school. 
+
+melbourne_medical.csv contains a CSV formatted list of GPs in Melbourne. This file contains a few fields but we are only concerned about the following: 
+
+gp_code; which contains the code of the GP service,
+
+gp_name; which contains the name of the GP service,
+
+location; which contains the latitude and longitude of the service in a particular format. You should read the file (either manually or through code) to figure out how to read and process the latitude and longitude. 
+
+sport_facilities.csv  contains a CSV formatted list of sport facilities in Melbourne. This file contains a few fields but we are only concerned about the following:
+
+facility_id; which contains the ID of the sports facility,
+
+facility_name; which contains the name of the sports facility,
+
+sport_lat; which contains the latitude value of the sports facility,
+
+sport_lon; which contains the longitude value of the sports facility,
+
+sport_played; which contains the sport played at the facility.
+
+Your task is to complete the functionality of the two functions given to you: 
+
+process_schools(file_name: str) -> dict: this function should read the file passed as file_name and return a dictionary that contains all the schools read from the file where the key is a string version of the school_no and the value is a dictionary containing five keys (and their appropriate value data types) (school_no <str>,school_name <str>, school_type <str>, school_lat <float> and school_lon <float>).
+
+process_medicals(file_name: str) -> dict: this function should read the file passed as file_name and return a dictionary that contains all the GPs read from the file where the key is the gp_code and the value is a dictionary containing four keys (and their appropriate value data types) (gp_code <str>, gp_name <str>, gp_lat <float>, gp_lon <float>).
+
+process_sport(file_name: str) -> dict: this function should read the file passed as file_name and return a dictionary that contains all the sport facilities read from the file where the key is the facility_id and the value is a dictionary containing five keys (and their appropriate value data types) (facility_id <str>, facility_name <str>, sport_lat <float>, sport_lon <float>, sport_played <str>).
+
+Sample files have been provided to you in this task and can be used to test your code. 
+
+You will notice that there are some rows where the location  or latitude or longitude is empty, or marked 'NA'. In these cases, you are supposed to ignore those rows and move on to the next row.
+
+Sometimes you will see some junk characters being read such as '\ufeff' in your file. If this is the case, when you use the appropriate function from the csv module, make sure to mention the encoding as 'utf-8-sig' and that should get rid of the junk characters.
+
+You have also been given some code in the main block which should run if you have completed the three functions properly.
+

@@ -1,0 +1,39 @@
+Task 2 - File IO
+Alright! Now that you know how to read and write files, we are going to read and generate some files of our own.
+
+To begin with, have a look at your scaffold. You have been given a few files: 
+
+sample_properties.csv: this file contains a bunch of comma delimited properties that follow the same structure as from the previous task. In the function process_properties(file_name: str) -> dict , your job is to read this file and create a dictionary.
+
+In process_properties, please keep the value of prop_id as the key and use the same dict structure as Task 1 as the value (including the value of prop_id).
+
+Please also note that a key-value pair is the fundamental element for a dictionary (see the example below for clarity).
+
+You do not need to extract the dictionary keys from the CSV file, just use the same keys from Task 1.
+
+2. train_stations.csv: this file contains the location of various train stations in the state of Victoria with their stop_id, name, latitude, and longitude. In the function process_stations(file_name: str) -> dict you need to read this file and create a dictionary that has the station stop_id as the key and the value should be another dictionary that has stop_id,stop_name, stop_lat and stop_lon as the keys and the values of those keys should be based on the file that you read. Please check the format and data types of the dictionary below in the examples section.
+
+3. haversine.py: This file contains a function that calculates the haversine distance between two points on Earth. It takes in four arguments: latitude_1, longitude_1 (latitude and longitude for the first point) latitude_2, longitude_2 (latitude and longitude for the second point) and returns a value that denotes the distance in kilometers (km) between the two points.
+
+DO NOT CHANGE ANYTHING IN THIS FILE. You don't need to worry about how this function works.
+
+Once you have created and populated these functions, you need to create the function nearest_station(properties: dict, stations: dict, prop_id: str) -> str that accepts a property ID and returns the name of the nearest station to this property. To implement this function, you will need to use the haversine_distance function, that has already been provided to you.
+
+Examples
+Once you read the properties file, it should create a nested dictionary of the following format: 
+
+4567891011121314151617
+properties = {
+    'P10001' : {
+        "prop_id" : "P10001",
+        "prop_type": "house",
+        "full_address" : "3 Antrim Place Langwarrin VIC 3910",
+        "suburb": "Langwarrin", 
+        # ..... (and other key value pairs for the property)
+    },
+    'P10002' : {
+        "prop_id" : "P10002",
+
+And once you read the train_stations.csv file, it should produce a dictionary of the following format: 
+
+12345678910111213
