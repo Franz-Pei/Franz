@@ -1,0 +1,19 @@
+Task 2 - Implementing Basic Movement (8%)
+Now that the game environment is set up, it is time to implement basic movement for the players on the game board. You will use variables and expressions to calculate the new positions of the players based on their dice rolls.
+
+We are going to use a pre-defined function to generate a dice roll. You will learn more about functions in Week 3. However, for this task, just assume that dice roll will contain an integer between 1 and 6 (included) just like when you roll a six sided dice.
+
+You are required to complete the following task: 
+
+Copy and paste all the code from Task 1 (except the print statements at the end). 
+
+Change the players' positions based on dice rolls. We are going to simulate one dice roll for each of the players. 
+
+Set the new position of the player as the position after the dice roll. Make sure to use the same variable names as in the previous tasks or the tests will fail.
+
+Make sure you check that the player should not go over a 100 in their position. Even though we are only simulating one dice roll and it is impossible to go over a 100 with one roll, we need this logic for future tasks. If the total is going to cross 100, then ignore the dice roll and don't change the position.
+
+For example: 
+Player Red is on 96.
+
+Player Red rolls a 5, and hence, their dice roll is ignored. Player Red stays on 96.

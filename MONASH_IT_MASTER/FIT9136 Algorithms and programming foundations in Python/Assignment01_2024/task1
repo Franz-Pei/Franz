@@ -1,0 +1,27 @@
+Task 1 - Setting Up the Game Environment (8%)
+In this task, we will define the game board and the 2 players that will play the game. 
+
+You will need to figure out the type of variable that will be suitable for each of the following parts of the game: 
+
+Player 1 name - We will be setting one of these 4 colors as player 1's name: Red, Blue, Green, White
+
+Player 1 position - This will store the current position where the player sits. When the game starts, the position for all players will be 0.
+
+Duplicate these for Player 2.
+
+Snake-head positions - This will be a collection of positions where snake-heads are located. In this task, you will need to arbitrarily choose 5 locations where snakes will be placed. When a player reaches this position, they will end up at the corresponding tail position.
+
+Snake-tail positions - This will be a collection of positions where snake-tails are located. These are the places where the player ends up if they step on a snake head. Please be aware that snake tails need to be at a position less than their corresponding heads.
+
+Ladder-base positions - This will be a collection of positions where ladder bases are located. In this task, you will need to arbitrarily choose 5 locations where ladders will be placed. When a player reaches this position, they will end up at the corresponding ladder top position.
+
+Ladder-top positions - This will be a collection of positions where ladder tops are located. These are the places where the player ends up if they step on a ladder base. Please be aware that ladder tops need to be at a position more than their corresponding heads.
+
+You CANNOT have more than one item on a tile. For example - if a snake head is placed on position 5, another snake head/ snake tail/ ladder base/ ladder top CANNOT be placed on position 5.
+
+Next, print the players' names and their corresponding positions in the following format: 
+
+Player <playername> is in position <position>
+For example; if player Red is in position 0 at the start of the game, then the following string will print:
+
+Player Red is in po

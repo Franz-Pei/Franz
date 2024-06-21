@@ -1,0 +1,380 @@
+--- Start of game ---
+diceroll #1 a 1 was rolled.
+Player Red is in position 1
+special roll #1 a 0 was rolled.
+Player Red gets another chance to roll due to special dice roll.
+
+diceroll #2 a 2 was rolled.
+Player Red is in position 3
+
+diceroll #3 a 5 was rolled.
+Player Blue is in position 5
+
+diceroll #4 a 3 was rolled.
+Player Green is in position 3
+
+diceroll #5 a 2 was rolled.
+Player White is in position 2
+
+diceroll #6 a 1 was rolled.
+Player Red is in position 4
+
+diceroll #7 a 5 was rolled.
+Player Blue is in position 10
+
+diceroll #8 a 2 was rolled.
+Player Green is in position 5
+
+diceroll #9 a 6 was rolled.
+Player White climbed a ladder and is now in position 43
+Player White is in position 43
+
+diceroll #10 a 3 was rolled.
+Player Red is in position 7
+
+diceroll #11 a 1 was rolled.
+Player Blue is in position 11
+
+diceroll #12 a 6 was rolled.
+Player Green is in position 11
+
+diceroll #13 a 5 was rolled.
+Player White is in position 48
+
+diceroll #14 a 3 was rolled.
+Player Red is in position 10
+
+diceroll #15 a 3 was rolled.
+Player Blue is in position 14
+
+diceroll #16 a 3 was rolled.
+Player Green is in position 14
+
+diceroll #17 a 4 was rolled.
+Player White is in position 52
+
+diceroll #18 a 6 was rolled.
+Player Red is in position 16
+
+diceroll #19 a 4 was rolled.
+Player Blue is in position 18
+
+diceroll #20 a 3 was rolled.
+Player Green is in position 17
+
+diceroll #21 a 1 was rolled.
+Player White is in position 53
+special roll #2 a 1 was rolled.
+Player Red loses a chance to roll due to special dice roll.
+
+diceroll #22 a 5 was rolled.
+Player Blue is in position 23
+
+diceroll #23 a 3 was rolled.
+Player Green is in position 20
+
+diceroll #24 a 4 was rolled.
+Player White is in position 57
+
+diceroll #25 a 6 was rolled.
+Player Red is in position 22
+
+diceroll #26 a 2 was rolled.
+Player Blue stepped on a snake and is now in position 6
+Player Blue is in position 6
+
+diceroll #27 a 1 was rolled.
+Player Green is in position 21
+
+diceroll #28 a 1 was rolled.
+Player White is in position 58
+
+diceroll #29 a 6 was rolled.
+Player Red is in position 28
+
+diceroll #30 a 5 was rolled.
+Player Blue is in position 11
+
+diceroll #31 a 6 was rolled.
+Player Green is in position 27
+
+diceroll #32 a 3 was rolled.
+Player White is in position 61
+special roll #3 a 1 was rolled.
+Player Red loses a chance to roll due to special dice roll.
+
+diceroll #33 a 3 was rolled.
+Player Blue is in position 14
+
+diceroll #34 a 3 was rolled.
+Player Green is in position 30
+
+diceroll #35 a 6 was rolled.
+Player White is in position 67
+
+diceroll #36 a 2 was rolled.
+Player Red is in position 30
+
+diceroll #37 a 2 was rolled.
+Player Blue is in position 16
+
+diceroll #38 a 5 was rolled.
+Player Green is in position 35
+
+diceroll #39 a 5 was rolled.
+Player White is in position 72
+
+diceroll #40 a 1 was rolled.
+Player Red is in position 31
+
+diceroll #41 a 4 was rolled.
+Player Blue is in position 20
+
+diceroll #42 a 6 was rolled.
+Player Green is in position 41
+
+diceroll #43 a 3 was rolled.
+Player White is in position 75
+
+diceroll #44 a 3 was rolled.
+Player Red is in position 34
+
+diceroll #45 a 4 was rolled.
+Player Blue is in position 24
+
+diceroll #46 a 4 was rolled.
+Player Green is in position 45
+
+diceroll #47 a 5 was rolled.
+Player White is in position 80
+
+diceroll #48 a 5 was rolled.
+Player Red is in position 39
+
+diceroll #49 a 5 was rolled.
+Player Blue is in position 29
+
+diceroll #50 a 5 was rolled.
+Player Green is in position 50
+
+diceroll #51 a 5 was rolled.
+Player White is in position 85
+special roll #4 a 0 was rolled.
+Player White gets another chance to roll due to special dice roll.
+
+diceroll #52 a 2 was rolled.
+Player White is in position 87
+special roll #5 a 1 was rolled.
+Player Red loses a chance to roll due to special dice roll.
+
+diceroll #53 a 1 was rolled.
+Player Blue is in position 30
+
+diceroll #54 a 6 was rolled.
+Player Green is in position 56
+
+diceroll #55 a 1 was rolled.
+Player White is in position 88
+
+diceroll #56 a 6 was rolled.
+Player Red is in position 45
+
+diceroll #57 a 6 was rolled.
+Player Blue is in position 36
+
+diceroll #58 a 3 was rolled.
+Player Green is in position 59
+
+diceroll #59 a 5 was rolled.
+Player White is in position 93
+
+diceroll #60 a 5 was rolled.
+Player Red is in position 50
+
+diceroll #61 a 1 was rolled.
+Player Blue is in position 37
+
+diceroll #62 a 6 was rolled.
+Player Green stepped on a snake and is now in position 34
+Player Green is in position 34
+
+diceroll #63 a 4 was rolled.
+Player White is in position 97
+
+diceroll #64 a 3 was rolled.
+Player Red is in position 53
+special roll #6 a 1 was rolled.
+Player Blue loses a chance to roll due to special dice roll.
+
+diceroll #65 a 5 was rolled.
+Player Green is in position 39
+
+diceroll #66 a 2 was rolled.
+Player White stepped on a snake and is now in position 56
+Player White is in position 56
+
+diceroll #67 a 6 was rolled.
+Player Red is in position 59
+
+diceroll #68 a 3 was rolled.
+Player Blue is in position 40
+
+diceroll #69 a 1 was rolled.
+Player Green is in position 40
+
+diceroll #70 a 2 was rolled.
+Player White is in position 58
+
+diceroll #71 a 4 was rolled.
+Player Red is in position 63
+
+diceroll #72 a 4 was rolled.
+Player Blue stepped on a snake and is now in position 23
+Player Blue is in position 23
+
+diceroll #73 a 3 was rolled.
+Player Green is in position 43
+
+diceroll #74 a 2 was rolled.
+Player White is in position 60
+special roll #7 a 0 was rolled.
+Player White gets another chance to roll due to special dice roll.
+
+diceroll #75 a 1 was rolled.
+Player White is in position 61
+special roll #8 a 1 was rolled.
+Player Red loses a chance to roll due to special dice roll.
+
+diceroll #76 a 6 was rolled.
+Player Blue is in position 29
+
+diceroll #77 a 5 was rolled.
+Player Green is in position 48
+
+diceroll #78 a 2 was rolled.
+Player White is in position 63
+
+diceroll #79 a 5 was rolled.
+Player Red is in position 68
+
+diceroll #80 a 3 was rolled.
+Player Blue is in position 32
+
+diceroll #81 a 1 was rolled.
+Player Green is in position 49
+
+diceroll #82 a 3 was rolled.
+Player White climbed a ladder and is now in position 92
+Player White is in position 92
+
+diceroll #83 a 5 was rolled.
+Player Red is in position 73
+special roll #9 a 2 was rolled.
+Every other player moved back 5 steps due to special dice roll.
+
+diceroll #84 a 5 was rolled.
+Player Blue is in position 32
+
+diceroll #85 a 1 was rolled.
+Player Green is in position 45
+
+diceroll #86 a 4 was rolled.
+Player White is in position 91
+
+diceroll #87 a 2 was rolled.
+Player Red is in position 75
+
+diceroll #88 a 6 was rolled.
+Player Blue climbed a ladder and is now in position 55
+Player Blue is in position 55
+
+diceroll #89 a 3 was rolled.
+Player Green is in position 48
+
+diceroll #90 a 3 was rolled.
+Player White is in position 94
+
+diceroll #91 a 4 was rolled.
+Player Red is in position 79
+special roll #10 a 0 was rolled.
+Player Red gets another chance to roll due to special dice roll.
+
+diceroll #92 a 5 was rolled.
+Player Red is in position 84
+
+diceroll #93 a 3 was rolled.
+Player Blue is in position 58
+
+diceroll #94 a 2 was rolled.
+Player Green is in position 50
+
+diceroll #95 a 1 was rolled.
+Player White is in position 95
+
+diceroll #96 a 3 was rolled.
+Player Red is in position 87
+special roll #11 a 2 was rolled.
+Every other player moved back 5 steps due to special dice roll.
+
+diceroll #97 a 6 was rolled.
+Player Blue is in position 59
+
+diceroll #98 a 2 was rolled.
+Player Green climbed a ladder and is now in position 81
+Player Green is in position 81
+
+diceroll #99 a 4 was rolled.
+Player White is in position 94
+
+diceroll #100 a 1 was rolled.
+Player Red is in position 88
+
+diceroll #101 a 4 was rolled.
+Player Blue is in position 63
+
+diceroll #102 a 1 was rolled.
+Player Green is in position 82
+
+diceroll #103 a 2 was rolled.
+Player White is in position 96
+
+diceroll #104 a 1 was rolled.
+Player Red is in position 89
+
+diceroll #105 a 1 was rolled.
+Player Blue is in position 64
+
+diceroll #106 a 3 was rolled.
+Player Green is in position 85
+special roll #12 a 1 was rolled.
+Player White loses a chance to roll due to special dice roll.
+
+diceroll #107 a 3 was rolled.
+Player Red is in position 92
+
+diceroll #108 a 4 was rolled.
+Player Blue is in position 68
+
+diceroll #109 a 1 was rolled.
+Player Green is in position 86
+special roll #13 a 2 was rolled.
+Every other player moved back 5 steps due to special dice roll.
+
+diceroll #110 a 3 was rolled.
+Player White is in position 94
+
+diceroll #111 a 2 was rolled.
+Player Red is in position 89
+
+diceroll #112 a 5 was rolled.
+Player Blue is in position 68
+
+diceroll #113 a 5 was rolled.
+Player Green is in position 91
+
+diceroll #114 a 6 was rolled.
+Player White has reached 100 and is the winner!
+
+The winner of my game is White
+The final locations of the players are {'Red': 89, 'Blue': 68, 'Green': 91, 'White': 100}
+--- End of game ---

@@ -1,0 +1,22 @@
+Task 5 - The More The Merrier! (12%)
+Okay! So hopefully now you have got a fun little text-based game of Snakes and Ladders to play with your teammate. 
+
+What we are going to do in this task is extend your game you have built so far, and make it include multiple players! 
+
+You must use the variables players and positions to store the multiple players.
+
+At the start of the game, you should ask the user for input on how many players they would like to play (minimum 1 and up to and including 4) and then you will need to modify your game such that all 4 players can play.
+
+The order to follow for turns is: 
+
+Red -> Blue -> Green -> White
+
+This is also the order in which the players get added to the game. 
+
+For example, if 3 players are going to play the game, then Red, Blue, and Green are added in that order. 
+
+You must use the same snakes and ladder positions from the previous task. 
+
+Also, feel free to print statements according to the previous task as well.
+
+Similar to Task 4, once one player reaches 100, the game is over and you need to save the winning player's name in a variable called winner. You should then also print out a message declaring the winner.

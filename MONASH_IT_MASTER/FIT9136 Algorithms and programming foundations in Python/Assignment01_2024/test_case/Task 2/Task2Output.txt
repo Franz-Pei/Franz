@@ -1,0 +1,2 @@
+Player Red is in position 6
+Player Blue is in position 1

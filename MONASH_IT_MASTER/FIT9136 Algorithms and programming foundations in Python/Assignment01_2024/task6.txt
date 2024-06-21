@@ -1,0 +1,32 @@
+Task 6 - Making the game 'functional' (20%)
+Now that you have learned about functions, we are going to turn this game into something much more functional! And we are going to do this using functions! 
+
+You do not have to implement anything new in this part, except you are going to reorganise the code that you wrote previously into functions, which makes it much more readable, and easier to use and maintain.
+
+You have been given a scaffold with the following functions, and you just need to populate them using and modifying the code that you wrote in the previous tasks: 
+
+initialise_game -> (list, list, list, list, list, list): This function initialises the game and sets up the game. The function should initialise and return the following:
+
+List of players' names
+
+List of players' initial positions
+
+List of snake heads
+
+List of snake tails
+
+List of ladder bases
+
+List of ladder tops
+
+For simplicity, please feel free to initialise with the same 4 player names and the exact same places for snakes and ladders.
+
+get_num_players() -> int: This function asks the user how many players they want to play the game (minimum 1 and maximum of 4) and returns that number.
+
+You should take care to NOT call get_num_players anywhere except in main 
+
+play_game(players, positions, snake_heads, snake_tails, ladder_bases, ladder_tops) -> list: This function plays the actual game. Please note that even though we have limited our initialise_game to 4 players, this function should work for an arbitrary number of players and as many snakes and ladders as possible. This function should return the list of final positions of the players once one player has won the game.
+
+pick_winner(list) -> int: This function receives the list of final positions and then returns the index of the player that has won the game. If none of the positions are at a 100 then it returns -1.
+
+Please read the code in the scaffold and feel free to click the 'Run' button to check if your code is running smoothly. 

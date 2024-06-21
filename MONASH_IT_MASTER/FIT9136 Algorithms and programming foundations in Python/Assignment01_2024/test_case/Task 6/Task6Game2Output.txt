@@ -1,0 +1,275 @@
+--- Start of game ---
+diceroll #1 a 6 was rolled.
+Player Red is now at 6
+diceroll #2 a 6 was rolled.
+Player Blue is now at 6
+diceroll #3 a 6 was rolled.
+Player Green is now at 6
+diceroll #4 a 6 was rolled.
+Player White is now at 6
+
+diceroll #5 a 5 was rolled.
+Player Red is now at 11
+diceroll #6 a 5 was rolled.
+Player Blue is now at 11
+diceroll #7 a 3 was rolled.
+Player Green is now at 9
+diceroll #8 a 6 was rolled.
+Player White is now at 12
+
+diceroll #9 a 4 was rolled.
+Player Red is now at 15
+diceroll #10 a 2 was rolled.
+Player Blue is now at 13
+diceroll #11 a 4 was rolled.
+Player Green is now at 13
+diceroll #12 a 2 was rolled.
+Player White is now at 14
+
+diceroll #13 a 2 was rolled.
+Player Red is now at 17
+diceroll #14 a 2 was rolled.
+Player Blue is now at 15
+diceroll #15 a 6 was rolled.
+Player Green is now at 19
+diceroll #16 a 6 was rolled.
+Player White is now at 20
+
+diceroll #17 a 4 was rolled.
+Player Red is now at 21
+diceroll #18 a 3 was rolled.
+Player Blue is now at 18
+diceroll #19 a 3 was rolled.
+Player Green is now at 22
+diceroll #20 a 5 was rolled.
+Player White stepped on a snake and is now in 6
+Player White is now at 6
+
+diceroll #21 a 5 was rolled.
+Player Red climbed a ladder and is now in 37
+Player Red is now at 37
+diceroll #22 a 5 was rolled.
+Player Blue is now at 23
+diceroll #23 a 1 was rolled.
+Player Green is now at 23
+diceroll #24 a 4 was rolled.
+Player White is now at 10
+
+diceroll #25 a 6 was rolled.
+Player Red is now at 43
+diceroll #26 a 1 was rolled.
+Player Blue is now at 24
+diceroll #27 a 4 was rolled.
+Player Green is now at 27
+diceroll #28 a 5 was rolled.
+Player White is now at 15
+
+diceroll #29 a 6 was rolled.
+Player Red is now at 49
+diceroll #30 a 3 was rolled.
+Player Blue is now at 27
+diceroll #31 a 2 was rolled.
+Player Green is now at 29
+diceroll #32 a 5 was rolled.
+Player White is now at 20
+
+diceroll #33 a 2 was rolled.
+Player Red is now at 51
+diceroll #34 a 3 was rolled.
+Player Blue is now at 30
+diceroll #35 a 4 was rolled.
+Player Green is now at 33
+diceroll #36 a 2 was rolled.
+Player White is now at 22
+
+diceroll #37 a 1 was rolled.
+Player Red is now at 52
+diceroll #38 a 4 was rolled.
+Player Blue is now at 34
+diceroll #39 a 6 was rolled.
+Player Green is now at 39
+diceroll #40 a 5 was rolled.
+Player White is now at 27
+
+diceroll #41 a 6 was rolled.
+Player Red is now at 58
+diceroll #42 a 4 was rolled.
+Player Blue climbed a ladder and is now in 53
+Player Blue is now at 53
+diceroll #43 a 2 was rolled.
+Player Green is now at 41
+diceroll #44 a 2 was rolled.
+Player White is now at 29
+
+diceroll #45 a 2 was rolled.
+Player Red is now at 60
+diceroll #46 a 1 was rolled.
+Player Blue is now at 54
+diceroll #47 a 5 was rolled.
+Player Green is now at 46
+diceroll #48 a 1 was rolled.
+Player White is now at 30
+
+diceroll #49 a 2 was rolled.
+Player Red is now at 62
+diceroll #50 a 1 was rolled.
+Player Blue is now at 55
+diceroll #51 a 6 was rolled.
+Player Green is now at 52
+diceroll #52 a 2 was rolled.
+Player White is now at 32
+
+diceroll #53 a 3 was rolled.
+Player Red stepped on a snake and is now in 34
+Player Red is now at 34
+diceroll #54 a 3 was rolled.
+Player Blue is now at 58
+diceroll #55 a 4 was rolled.
+Player Green is now at 56
+diceroll #56 a 4 was rolled.
+Player White is now at 36
+
+diceroll #57 a 2 was rolled.
+Player Red is now at 36
+diceroll #58 a 6 was rolled.
+Player Blue is now at 64
+diceroll #59 a 5 was rolled.
+Player Green is now at 61
+diceroll #60 a 5 was rolled.
+Player White is now at 41
+
+diceroll #61 a 6 was rolled.
+Player Red is now at 42
+diceroll #62 a 3 was rolled.
+Player Blue is now at 67
+diceroll #63 a 4 was rolled.
+Player Green stepped on a snake and is now in 34
+Player Green is now at 34
+diceroll #64 a 4 was rolled.
+Player White is now at 45
+
+diceroll #65 a 5 was rolled.
+Player Red climbed a ladder and is now in 72
+Player Red is now at 72
+diceroll #66 a 5 was rolled.
+Player Blue is now at 72
+diceroll #67 a 5 was rolled.
+Player Green is now at 39
+diceroll #68 a 4 was rolled.
+Player White is now at 49
+
+diceroll #69 a 2 was rolled.
+Player Red is now at 74
+diceroll #70 a 1 was rolled.
+Player Blue is now at 73
+diceroll #71 a 1 was rolled.
+Player Green is now at 40
+diceroll #72 a 2 was rolled.
+Player White is now at 51
+
+diceroll #73 a 2 was rolled.
+Player Red stepped on a snake and is now in 28
+Player Red is now at 28
+diceroll #74 a 4 was rolled.
+Player Blue is now at 77
+diceroll #75 a 5 was rolled.
+Player Green is now at 45
+diceroll #76 a 5 was rolled.
+Player White is now at 56
+
+diceroll #77 a 3 was rolled.
+Player Red is now at 31
+diceroll #78 a 5 was rolled.
+Player Blue is now at 82
+diceroll #79 a 3 was rolled.
+Player Green is now at 48
+diceroll #80 a 4 was rolled.
+Player White is now at 60
+
+diceroll #81 a 2 was rolled.
+Player Red is now at 33
+diceroll #82 a 3 was rolled.
+Player Blue is now at 85
+diceroll #83 a 2 was rolled.
+Player Green is now at 50
+diceroll #84 a 6 was rolled.
+Player White climbed a ladder and is now in 98
+Player White is now at 98
+
+diceroll #85 a 1 was rolled.
+Player Red is now at 34
+diceroll #86 a 5 was rolled.
+Player Blue is now at 90
+diceroll #87 a 1 was rolled.
+Player Green is now at 51
+diceroll #88 a 4 was rolled.
+
+diceroll #89 a 6 was rolled.
+Player Red is now at 40
+diceroll #90 a 5 was rolled.
+Player Blue is now at 95
+diceroll #91 a 4 was rolled.
+Player Green is now at 55
+diceroll #92 a 6 was rolled.
+
+diceroll #93 a 5 was rolled.
+Player Red is now at 45
+diceroll #94 a 6 was rolled.
+diceroll #95 a 4 was rolled.
+Player Green is now at 59
+diceroll #96 a 5 was rolled.
+
+diceroll #97 a 4 was rolled.
+Player Red is now at 49
+diceroll #98 a 6 was rolled.
+diceroll #99 a 5 was rolled.
+Player Green is now at 64
+diceroll #100 a 5 was rolled.
+
+diceroll #101 a 6 was rolled.
+Player Red is now at 55
+diceroll #102 a 4 was rolled.
+Player Blue stepped on a snake and is now in 56
+Player Blue is now at 56
+diceroll #103 a 3 was rolled.
+Player Green is now at 67
+diceroll #104 a 3 was rolled.
+
+diceroll #105 a 5 was rolled.
+Player Red is now at 60
+diceroll #106 a 4 was rolled.
+Player Blue is now at 60
+diceroll #107 a 3 was rolled.
+Player Green is now at 70
+diceroll #108 a 3 was rolled.
+
+diceroll #109 a 6 was rolled.
+Player Red climbed a ladder and is now in 98
+Player Red is now at 98
+diceroll #110 a 6 was rolled.
+Player Blue climbed a ladder and is now in 98
+Player Blue is now at 98
+diceroll #111 a 2 was rolled.
+Player Green is now at 72
+diceroll #112 a 3 was rolled.
+
+diceroll #113 a 4 was rolled.
+diceroll #114 a 4 was rolled.
+diceroll #115 a 5 was rolled.
+Player Green is now at 77
+diceroll #116 a 5 was rolled.
+
+diceroll #117 a 5 was rolled.
+diceroll #118 a 3 was rolled.
+diceroll #119 a 3 was rolled.
+Player Green is now at 80
+diceroll #120 a 4 was rolled.
+
+diceroll #121 a 2 was rolled.
+Player Red has won the game!
+Player Red is now at 100
+
+Players: ['Red', 'Blue', 'Green', 'White']
+Final positions: [100, 98, 80, 98]
+
+--- End of game ---

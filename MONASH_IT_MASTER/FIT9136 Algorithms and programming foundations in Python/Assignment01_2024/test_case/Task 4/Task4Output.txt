@@ -1,0 +1,124 @@
+--- Start of game ---
+diceroll #1 a 3 was rolled.
+Player Red is at position 3
+diceroll #2 a 2 was rolled.
+Player Blue is at position 2
+
+diceroll #3 a 4 was rolled.
+Player Red is at position 7
+diceroll #4 a 5 was rolled.
+Player Blue is at position 7
+
+diceroll #5 a 3 was rolled.
+Player Red is at position 10
+diceroll #6 a 6 was rolled.
+Player Blue is at position 13
+
+diceroll #7 a 3 was rolled.
+Player Red is at position 13
+diceroll #8 a 1 was rolled.
+Player Blue is at position 14
+
+diceroll #9 a 2 was rolled.
+Player Red is at position 15
+diceroll #10 a 2 was rolled.
+Player Blue is at position 16
+
+diceroll #11 a 4 was rolled.
+Player Red is at position 19
+diceroll #12 a 6 was rolled.
+Player Blue is at position 22
+
+diceroll #13 a 2 was rolled.
+Player Red is at position 21
+diceroll #14 a 3 was rolled.
+Player Blue stepped on a snake and is now in position 6
+Player Blue is at position 6
+
+diceroll #15 a 2 was rolled.
+Player Red is at position 23
+diceroll #16 a 5 was rolled.
+Player Blue is at position 11
+
+diceroll #17 a 5 was rolled.
+Player Red is at position 28
+diceroll #18 a 2 was rolled.
+Player Blue is at position 13
+
+diceroll #19 a 1 was rolled.
+Player Red is at position 29
+diceroll #20 a 3 was rolled.
+Player Blue is at position 16
+
+diceroll #21 a 5 was rolled.
+Player Red is at position 34
+diceroll #22 a 5 was rolled.
+Player Blue is at position 21
+
+diceroll #23 a 4 was rolled.
+Player Red climbed a ladder and is now in position 55
+Player Red is at position 55
+diceroll #24 a 3 was rolled.
+Player Blue is at position 24
+
+diceroll #25 a 6 was rolled.
+Player Red is at position 61
+diceroll #26 a 6 was rolled.
+Player Blue is at position 30
+
+diceroll #27 a 3 was rolled.
+Player Red is at position 64
+diceroll #28 a 2 was rolled.
+Player Blue is at position 32
+
+diceroll #29 a 3 was rolled.
+Player Red is at position 67
+diceroll #30 a 4 was rolled.
+Player Blue is at position 36
+
+diceroll #31 a 6 was rolled.
+Player Red is at position 73
+diceroll #32 a 6 was rolled.
+Player Blue is at position 42
+
+diceroll #33 a 2 was rolled.
+Player Red is at position 75
+diceroll #34 a 5 was rolled.
+Player Blue climbed a ladder and is now in position 81
+Player Blue is at position 81
+
+diceroll #35 a 6 was rolled.
+Player Red is at position 81
+diceroll #36 a 1 was rolled.
+Player Blue is at position 82
+
+diceroll #37 a 3 was rolled.
+Player Red is at position 84
+diceroll #38 a 3 was rolled.
+Player Blue is at position 85
+
+diceroll #39 a 4 was rolled.
+Player Red is at position 88
+diceroll #40 a 6 was rolled.
+Player Blue is at position 91
+
+diceroll #41 a 5 was rolled.
+Player Red is at position 93
+diceroll #42 a 5 was rolled.
+Player Blue is at position 96
+
+diceroll #43 a 4 was rolled.
+Player Red is at position 97
+diceroll #44 a 2 was rolled.
+Player Blue is at position 98
+
+diceroll #45 a 6 was rolled.
+Player Red is at position 97
+diceroll #46 a 3 was rolled.
+Player Blue is at position 98
+
+diceroll #47 a 3 was rolled.
+Player Red is at position 100
+Player Red has reached 100 and is the winner!
+
+--- End of game ---

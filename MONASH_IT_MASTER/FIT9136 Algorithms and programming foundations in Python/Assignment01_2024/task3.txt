@@ -1,0 +1,15 @@
+e are going to handle the player landing on snakes or ladders.
+
+You are going to need conditional statements to figure out where a player needs to land and how to update their position. 
+
+Here are the steps to follow: 
+
+Copy and paste all the code from Task 2 (except the print statements at the end).
+
+While checking the final position after the dice roll, check if the player lands on either a snake head or a ladder base. 
+
+If they do, change their position to the corresponding snake tail or ladder top. 
+
+Save the new position as the p1_position or p2_position as appropriate.
+
+Run the tests to make sure your logic is airtight.
