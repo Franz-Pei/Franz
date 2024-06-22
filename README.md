@@ -14,6 +14,8 @@ Courses:
 - FIT9132 Introduction to Databases
 - FIT9136 Algorithms and Programming Fundamentals
 - FIT9137 Introduction to Computer Architecture
+- FIT5032 Internet applications development
+- FIT5057 Project management
 
 Each folder contains assignments and projects related to the respective course.
 
