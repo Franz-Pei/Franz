@@ -29,40 +29,40 @@
       <h3>Mapping Arrays</h3>
       <p>Famous works:</p>
       <ul>
-        <!-- Activity 8: Render a list of all famous works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
-        <!-- TODO: CODE TO RENDER LIST OF FAMOUS WORKS HERE -->
-        <li v-for="work in allFamousWorks" :key="work">
-          {{ work }}
+      <!-- Activity 8: Render a list of all famous works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
+      <!-- TODO: CODE TO RENDER LIST OF FAMOUS WORKS HERE -->
+      <li v-for="work in austen.famousWorks" :key="work.title">
+          {{ work.title }}
         </li>
       </ul>
       <h3>Finding in Arrays</h3>
       <p>Finding by property: {{ orwell?.name }}</p>
 
       <h3>Nested Arrays/Objects</h3>
-      <p>{{ austen?.name }}'s works:</p>
+
       <!-- Activity 9: Render a list of Austen's works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
       <!-- TODO: CODE TO RENDER LIST OF AUSTEN'S WORKS HERE -->
+      <h3>{{ austen.name }}'s works:</h3>
+      <ul>
+        <li v-for="work in austen.famousWorks" :key="work.title">
+          {{ work.title }}
+        </li>
+      </ul>
     </section>
-    <p>{{ austen?.name }}'s works:</p>  
-    <ul>
-      <li v-for="work in austen?.works" :key="work.title">
-      {{ work.title }}
-      </li>
-    </ul>
-
+    
     <section class="lab-section">
       <h2>🏢 Working with JSON Objects</h2>
       <p>Our <code>bookstores.json</code> is a JSON object.</p>
 
       <h3>Accessing Properties</h3>
       <p>
-        Company:
+        Company:{{ bookstores.company }}
         <!-- Activity 9a: Get the company name from the bookstores object. -->
         <!-- TODO: CODE TO GET COMPANY NAME HERE -->
       </p>
 
       <p>
-        Total Stores:
+        Total Stores:{{ bookstores.totalStores }}
         <!-- Activity 9b: Get the total number of stores from the bookstores object. -->
         <!-- TODO: CODE TO GET TOTAL STORES HERE -->
       </p>
@@ -71,33 +71,52 @@
       <p>Store Types:</p>
       <!-- Activity 10: Iterate through the storeTypes array and display the store type and the number of stores that use that type. -->
       <!-- TODO: CODE TO RENDER LIST OF STORE TYPES HERE -->
-
+      <ul>
+        <li v-for="(count, type) in bookstores.storeTypes" :key="type">
+          {{ type }} - {{ count }} stores
+        </li>
+      </ul>
       <h3>Nested Objects</h3>
       <p>Opening Hours:</p>
       <!-- Activity 11: Iterate through the openingHours object and display the day of the week and the opening and closing times. -->
       <!-- TODO: CODE TO RENDER LIST OF OPENING HOURS HERE -->
-
+      <ul>
+        <li v-for="(hours, day) in bookstores.openingHours" :key="day">
+          {{ day }}: {{ hours.open }} - {{ hours.close }}
+        </li>
+      </ul>
       <h3>Working with Arrays in Objects</h3>
       <!-- Activity 12: Get the top sellers from the bookstores object. -->
       <!-- TODO: CODE TO GET TOP SELLERS HERE -->
-      <p>We operate in:</p>
-      <p>Our #1 seller:</p>
+      <h3>Top Sellers:</h3>
+      <ul>
+        <li v-for="seller in bookstores.topSellers" :key="seller">
+          {{ seller }}
+        </li>
+      </ul>
+      <p>We operate in:{{ bookstores.countries.join(', ') }}</p>
+      <p>Our #1 seller:{{ bookstores.topSellers[0] }}</p>
     </section>
 
     <section class="lab-section">
       <h2>v-if & v-else</h2>
       <p>Toggle visibility based on a condition.</p>
+      <button @click="showMessage = !showMessage">Toggle Message</button>
       <!-- Activity 13: Toggle the message visibility when the button is clicked. -->
       <!-- TODO: CODE TO TOGGLE MESSAGE VISIBILITY HERE. Hint: Use the v-if directive. -->
-      <button @click="showMessage = !showMessage">Toggle Message</button>
-      <p class="message success">✨ You're a Vue superstar! ✨</p>
-      <p>Click the button to see a message.</p>
+      <p v-if="showMessage" class="message success">✨ You're a Vue superstar! ✨</p>
+      <!-- <p>Click the button to see a message.</p> -->
     </section>
 
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
-      <p>Highlighting Specific Authors:</p>
-
+    <h2>Highlighting Specific Authors:</h2>
+    <ul>
+        <li v-for="author in authors" :key="author.id"
+            :class="{ 'highlighted': author.name === 'George Orwell' }">
+          {{ author.name }}
+        </li>
+      </ul>
     </section>
   </div>
 </template>
@@ -129,6 +148,7 @@ const orwell = computed(() => {
   return authors.find((author) => author.name === "George Orwell");
 })
 
+
 // Activity 5: Find author by ID
 const austen = computed(() => {
   // TODO: CODE TO FIND AUTHOR BY ID HERE
@@ -148,6 +168,11 @@ const austen = computed(() => {
   color: #000;
 }
 
+.highlighted {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text for better readability */
+  border-radius: 8px; /* Rounded corners */
+}
 h1,
 h2 {
   color: #333;
