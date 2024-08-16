@@ -5,12 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "serve": "vue-cli-service serve --port 3000",
+    "build": "vue-cli-service build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@primevue/themes": "^4.0.4",
+    "bootstrap": "^5.3.3",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.0.4",
     "vue": "^3.4.29"
   },
   "devDependencies": {
