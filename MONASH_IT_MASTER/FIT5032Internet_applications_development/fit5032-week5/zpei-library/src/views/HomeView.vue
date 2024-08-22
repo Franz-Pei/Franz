@@ -88,12 +88,6 @@
             <button type="button" class="btn btn-secondary" @click="clearForm">Clear</button>
           </div>
         </form>
-         <!-- Success Message -->
-         <div class="text-center mt-3">
-          <div v-if="formSubmitted" class="alert alert-success">
-            Welcome join
-          </div>
-        </div>
       </div>
       </div>
     </div>
@@ -265,8 +259,6 @@ const validateReason = (blur) => {
     specialMessageVisible.value = true; // Show the special message when the input is valid and over 10 characters
   }
 }
-
-
 
 
 </script>
