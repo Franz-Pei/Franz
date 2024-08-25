@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '@/views/LoginView.vue';
-import store from '../store/store';
+// import store from '../store/store';
 
 
 const routes = [
@@ -33,8 +33,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if(!store.state.isAuthenticated && to.name !== 'Login'){
-    return({name:'Login'});
+  const token = sessionStorage.getItem("token")
+  if(!token && to.name !== 'Login'){
+    next("/login")
+    return;
   }else{
     next();
   }

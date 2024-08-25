@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2> Login</h2>
+        <h3 class="msg" v-if="loginStatus">Login Failed, Wrong Username or Password</h3>
         <form @submit.prevent="handleLogin">
             <div>
                 <label for="username">Username:</label>
@@ -23,15 +24,29 @@
             return{
                 username:'',
                 password:'',
+                loginStatus: false
             };
         },
         methods:{
             ...mapActions(['login']),
-            handleLogin(){
+           async handleLogin(){
                 const user = {username: this.username, password: this.password};
-                this.login(user);
+               const res = await this.login(user);
+               console.log(res,"res")
+               if(res.code == 200) {
+                this.loginStatus = false
+                sessionStorage.setItem("token",res.data.token)
                 this.$router.push({name: 'Home'});
+               } else {
+                this.loginStatus = true
+               }
             },
         },
     };
 </script>
+
+<style scoped>
+.msg{
+    color: red;
+}
+</style>

@@ -1,12 +1,33 @@
 <script setup>
 // import JSON from './components/JSON.vue'
 // import Form from './views/HomeView.vue'
+import {ref, watch} from "vue";
 import BHeader from './components/BHeader.vue';
+import {useRoute} from "vue-router"
+const loginStatus = ref(false)
+const route = useRoute()
+
+watch(
+  () => route.name,
+  (name) => {
+    const token = sessionStorage.getItem("token")
+    if(token) {
+      loginStatus.value = true
+    } else {
+      loginStatus.value = false
+    }
+    console.log(name,"name")
+  },
+  {
+    deep: true,
+    immediate: true
+  }
+)
 </script>
 
 <template>
   <div class="main-container">
-    <header>
+    <header v-if="loginStatus">
       <BHeader />
     </header>
     <main class="main-box">

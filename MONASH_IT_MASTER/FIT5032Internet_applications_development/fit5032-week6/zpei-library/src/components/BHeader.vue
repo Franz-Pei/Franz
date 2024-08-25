@@ -8,11 +8,8 @@
         <li class="nav-item">
           <router-link to="/about" class="nav-link" active-class="active">About</router-link>
         </li>
-        <li v-if="!isAuthenticated" class="nav-item">
-          <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
-        </li>
-        <li v-if="isAuthenticated" class="nav-item">
-          <button @click="logout" class="btn btn-link nav-link">Logout</button>
+        <li v-if="loginStatus" class="nav-item">
+          <button @click="performLogout" class="btn btn-link nav-link">Logout</button>
         </li>
       </ul>
     </header>
@@ -23,15 +20,27 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
+  data(){
+    return {
+      loginStatus: false
+    }
+  },
   computed: {
-    ...mapState({
-      isAuthenticated: state => state.isAuthenticated // Ensure this matches Vuex state
-    })
+    ...mapState(['isAuthenticated'])
   },
   methods: {
     ...mapActions(['logout']),
-    logout() {
-      this.logout(); // Redirect is handled here if not using .then()
+    performLogout() {
+      this.logout(); // Call Vuex action to log out
+      this.$router.push({ name: 'Login' }); // Then redirect to login page
+    }
+  },
+  mounted () {
+    const token = sessionStorage.getItem("token");
+    if(token) {
+      this.loginStatus = true
+    } else {
+      this.loginStatus = false
     }
   }
 };
