@@ -15,6 +15,7 @@
     "@primevue/themes": "^4.0.4",
     "bootstrap": "^5.3.3",
     "firebase": "^10.13.1",
+    "firebase-admin": "^12.4.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.4",
     "vue": "^3.4.29",
