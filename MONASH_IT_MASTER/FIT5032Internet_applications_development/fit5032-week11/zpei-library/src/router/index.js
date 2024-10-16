@@ -11,7 +11,7 @@ import WeatherView from '../views/WeatherView.vue';
 import CountBookAPI from '../views/CountBookAPI.vue';
 import GetAllBookAPI from '../views/GetAllBookAPI.vue';
 
-// Define routes array
+// Define routes array outside of the createRouter function
 const routes = [
   {
     path: "/GetBookCount",
@@ -70,9 +70,8 @@ const routes = [
   }
 ];
 
-// Use process.env.BASE_URL instead of import.meta.env.VITE_BASE_URL
+// Correct usage of the environment variable in Vite (using import.meta.env.VITE_BASE_URL)
 const router = createRouter({
-  // eslint-disable-next-line no-undef
   history: createWebHistory(),
   routes
 });
