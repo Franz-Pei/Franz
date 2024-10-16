@@ -18,15 +18,30 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Install dependencies 
-      run:  npm install 
+    # 设置工作目录到项目根目录
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11
 
-    - name: build 
-      run: npm run build
-      env:
-          NODE_ENV: production
-          VITE_BASE_URL: /test/
+    # 构建项目
+    - name: Build
+      run: |
+        # 设置 VITE_BASE_URL 环境变量
+        echo "VITE_BASE_URL=/test/" >> .env
+        npm run build
+      working-directory: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11
 
+    # 创建 .nojekyll 文件来禁用 Jekyll
+    - name: Create .nojekyll to bypass Jekyll on GitHub Pages
+      run: echo > dist/.nojekyll
+      working-directory: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11
+
+    # 复制 index.html 为 404.html 以支持 Vue Router 的 history 模式
+    - name: Copy 404.html for routing
+      run: cp dist/index.html dist/404.html
+      working-directory: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11
+
+    # 部署到 GitHub Pages
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
