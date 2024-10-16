@@ -8,7 +8,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  base: '/test/',  // Ensure base is set to '/test/'
+  base: '/Franz/',  // Ensure base is set to '/test/'
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

@@ -75,7 +75,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes
 });
-
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 // Set up route guards with Firebase authentication
