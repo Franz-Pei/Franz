@@ -11,7 +11,7 @@ import WeatherView from '../views/WeatherView.vue';
 import CountBookAPI from '../views/CountBookAPI.vue';
 import GetAllBookAPI from '../views/GetAllBookAPI.vue';
 
-// Define routes array outside of the createRouter function
+// Define routes array
 const routes = [
   {
     path: "/GetBookCount",
@@ -70,11 +70,13 @@ const routes = [
   }
 ];
 
-// Correct usage of the environment variable in Vite (using import.meta.env.VITE_BASE_URL)
+// Use process.env.BASE_URL instead of import.meta.env.VITE_BASE_URL
 const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_BASE_URL),
+  // eslint-disable-next-line no-undef
+  history: createWebHistory(),
   routes
 });
+
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 // Set up route guards with Firebase authentication
