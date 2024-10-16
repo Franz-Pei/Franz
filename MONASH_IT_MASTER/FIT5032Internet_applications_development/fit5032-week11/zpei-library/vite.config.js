@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 
 export default defineConfig({
+  base: '',
   plugins: [vue(), vueDevTools()],
   // base: '/Franz/', // Directly set your base URL here
   resolve: {
@@ -13,7 +14,6 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+    outDir: 'dist'
   }
-});
+})
