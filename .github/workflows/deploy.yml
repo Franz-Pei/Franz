@@ -25,19 +25,7 @@ jobs:
 
     # 构建项目
     - name: Build
-      run: |
-        echo "VITE_BASE_URL=/Franz/" >> .env
-        npm run build
-      working-directory: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11/zpei-library
-
-    # 创建 .nojekyll 文件来禁用 Jekyll
-    - name: Create .nojekyll to bypass Jekyll on GitHub Pages
-      run: echo > dist/.nojekyll
-      working-directory: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11/zpei-library
-
-    # 复制 index.html 为 404.html 以支持 Vue Router 的 history 模式
-    - name: Copy 404.html for routing
-      run: cp dist/index.html dist/404.html
+      run: npm run build
       working-directory: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11/zpei-library
 
     # 部署到 GitHub Pages
