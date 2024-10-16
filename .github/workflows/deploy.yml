@@ -45,7 +45,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.1.4
       with:
         branch: gh-pages
-        folder: zpei-library/dist
+        folder: ./MONASH_IT_MASTER/FIT5032Internet_applications_development/fit5032-week11/zpei-library/dist
 
 permissions:
   contents: write
