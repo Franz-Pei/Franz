@@ -12,6 +12,8 @@ import Aura from '@primevue/themes/aura'
 // src/firebase/firebase.js
 // import { initializeApp } from "firebase/app";
 
+console.log(import.meta.env.VITE_BASE_URL);
+
 
 const app = createApp(App)
 app.use(PrimeVue, {
