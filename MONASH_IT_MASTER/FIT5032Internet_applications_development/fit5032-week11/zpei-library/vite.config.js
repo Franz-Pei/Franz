@@ -6,7 +6,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
-  base: '/Franz/', // Directly set your base URL here
+  // base: '/Franz/', // Directly set your base URL here
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
