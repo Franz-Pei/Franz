@@ -1,0 +1,1 @@
+export const ITEM_INTERNAL_KEYS = ['_cellProps', '_props', '_selectable', '_selected']
