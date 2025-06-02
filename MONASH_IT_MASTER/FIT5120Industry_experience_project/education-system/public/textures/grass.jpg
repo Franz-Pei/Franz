@@ -1,0 +1,165 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Base grass pattern -->
+    <pattern id="grassPattern" patternUnits="userSpaceOnUse" width="64" height="64">
+      <rect width="64" height="64" fill="#7ec850"/>
+      
+      <!-- Darker grass details -->
+      <g fill="#6db649" opacity="0.7">
+        <path d="M0,0 L12,8 L0,16 M16,16 L28,24 L16,32 M32,0 L44,8 L32,16 M48,16 L60,24 L48,32"/>
+        <path d="M0,32 L12,40 L0,48 M16,48 L28,56 L16,64 M32,32 L44,40 L32,48 M48,48 L60,56 L48,64"/>
+      </g>
+      
+      <!-- Lighter grass details -->
+      <g fill="#8ed160" opacity="0.5">
+        <path d="M8,4 L16,10 L8,16 M24,20 L32,26 L24,32 M40,4 L48,10 L40,16 M56,20 L64,26 L56,32"/>
+        <path d="M8,36 L16,42 L8,48 M24,52 L32,58 L24,64 M40,36 L48,42 L40,48 M56,52 L64,58 L56,64"/>
+      </g>
+    </pattern>
+    
+    <!-- Soil/dirt pattern for variation -->
+    <pattern id="soilPattern" patternUnits="userSpaceOnUse" width="64" height="64">
+      <rect width="64" height="64" fill="#8b6d5c"/>
+      
+      <!-- Darker soil specs -->
+      <g fill="#7a5c4d" opacity="0.7">
+        <circle cx="10" cy="10" r="2" />
+        <circle cx="30" cy="5" r="3" />
+        <circle cx="50" cy="12" r="2.5" />
+        <circle cx="15" cy="25" r="2" />
+        <circle cx="38" cy="28" r="3" />
+        <circle cx="55" cy="30" r="2" />
+        <circle cx="8" cy="45" r="2.5" />
+        <circle cx="25" cy="50" r="2" />
+        <circle cx="45" cy="48" r="3" />
+        <circle cx="60" cy="55" r="2.5" />
+      </g>
+      
+      <!-- Lighter soil specs -->
+      <g fill="#97796a" opacity="0.5">
+        <circle cx="5" cy="15" r="1.5" />
+        <circle cx="22" cy="8" r="2" />
+        <circle cx="40" cy="15" r="1.5" />
+        <circle cx="58" cy="20" r="2" />
+        <circle cx="12" cy="35" r="1.5" />
+        <circle cx="30" cy="38" r="2" />
+        <circle cx="48" cy="35" r="1.5" />
+        <circle cx="18" cy="55" r="2" />
+        <circle cx="32" cy="60" r="1.5" />
+        <circle cx="52" cy="58" r="2" />
+      </g>
+    </pattern>
+    
+    <!-- Composite pattern with grass clumps and patches -->
+    <pattern id="compositePattern" patternUnits="userSpaceOnUse" width="512" height="512">
+      <!-- Base grass layer -->
+      <rect width="512" height="512" fill="url(#grassPattern)"/>
+      
+      <!-- Some soil/dirt patches for realism -->
+      <g opacity="0.3">
+        <ellipse cx="100" cy="80" rx="40" ry="30" fill="url(#soilPattern)"/>
+        <ellipse cx="380" cy="120" rx="50" ry="40" fill="url(#soilPattern)"/>
+        <ellipse cx="200" cy="350" rx="45" ry="35" fill="url(#soilPattern)"/>
+        <ellipse cx="420" cy="400" rx="30" ry="25" fill="url(#soilPattern)"/>
+      </g>
+      
+      <!-- Individual grass blades -->
+      <g fill="#8ed160">
+        <!-- First row -->
+        <path d="M30,40 C35,25 40,20 45,10 C45,25 43,30 40,40 Z" />
+        <path d="M80,30 C85,15 90,10 92,5 C93,25 91,28 89,35 Z" />
+        <path d="M150,25 C155,10 158,5 162,0 C160,20 158,25 155,35 Z" />
+        <path d="M210,35 C215,20 220,15 225,5 C224,25 221,30 219,40 Z" />
+        <path d="M290,30 C295,15 300,10 303,0 C301,20 299,25 297,35 Z" />
+        <path d="M350,25 C355,10 360,5 363,0 C361,20 359,25 356,35 Z" />
+        <path d="M410,40 C415,25 420,20 425,10 C425,25 423,30 420,40 Z" />
+        <path d="M470,35 C475,15 480,10 483,0 C481,20 479,25 476,35 Z" />
+        
+        <!-- Second row -->
+        <path d="M50,120 C55,105 60,100 65,90 C65,105 63,110 60,120 Z" />
+        <path d="M110,130 C115,115 120,110 122,105 C123,125 121,128 119,135 Z" />
+        <path d="M170,125 C175,110 178,105 182,100 C180,120 178,125 175,135 Z" />
+        <path d="M250,135 C255,120 260,115 265,105 C264,125 261,130 259,140 Z" />
+        <path d="M320,130 C325,115 330,110 333,100 C331,120 329,125 327,135 Z" />
+        <path d="M380,125 C385,110 390,105 393,100 C391,120 389,125 386,135 Z" />
+        <path d="M440,140 C445,125 450,120 455,110 C455,125 453,130 450,140 Z" />
+        <path d="M490,135 C495,115 500,110 503,100 C501,120 499,125 496,135 Z" />
+        
+        <!-- Third row -->
+        <path d="M20,220 C25,205 30,200 35,190 C35,205 33,210 30,220 Z" />
+        <path d="M100,230 C105,215 110,210 112,205 C113,225 111,228 109,235 Z" />
+        <path d="M180,225 C185,210 188,205 192,200 C190,220 188,225 185,235 Z" />
+        <path d="M240,235 C245,220 250,215 255,205 C254,225 251,230 249,240 Z" />
+        <path d="M310,230 C315,215 320,210 323,200 C321,220 319,225 317,235 Z" />
+        <path d="M390,225 C395,210 400,205 403,200 C401,220 399,225 396,235 Z" />
+        <path d="M450,240 C455,225 460,220 465,210 C465,225 463,230 460,240 Z" />
+        <path d="M500,235 C505,215 510,210 513,200 C511,220 509,225 506,235 Z" />
+        
+        <!-- Fourth row -->
+        <path d="M60,320 C65,305 70,300 75,290 C75,305 73,310 70,320 Z" />
+        <path d="M130,330 C135,315 140,310 142,305 C143,325 141,328 139,335 Z" />
+        <path d="M190,325 C195,310 198,305 202,300 C200,320 198,325 195,335 Z" />
+        <path d="M260,335 C265,320 270,315 275,305 C274,325 271,330 269,340 Z" />
+        <path d="M330,330 C335,315 340,310 343,300 C341,320 339,325 337,335 Z" />
+        <path d="M400,325 C405,310 410,305 413,300 C411,320 409,325 406,335 Z" />
+        <path d="M460,340 C465,325 470,320 475,310 C475,325 473,330 470,340 Z" />
+        <path d="M510,335 C515,315 520,310 523,300 C521,320 519,325 516,335 Z" />
+        
+        <!-- Fifth row -->
+        <path d="M40,420 C45,405 50,400 55,390 C55,405 53,410 50,420 Z" />
+        <path d="M120,430 C125,415 130,410 132,405 C133,425 131,428 129,435 Z" />
+        <path d="M185,425 C190,410 193,405 197,400 C195,420 193,425 190,435 Z" />
+        <path d="M270,435 C275,420 280,415 285,405 C284,425 281,430 279,440 Z" />
+        <path d="M340,430 C345,415 350,410 353,400 C351,420 349,425 347,435 Z" />
+        <path d="M410,425 C415,410 420,405 423,400 C421,420 419,425 416,435 Z" />
+        <path d="M470,440 C475,425 480,420 485,410 C485,425 483,430 480,440 Z" />
+        <path d="M520,435 C525,415 530,410 533,400 C531,420 529,425 526,435 Z" />
+      </g>
+      
+      <!-- Small rocks/pebbles -->
+      <g fill="#c0c0c0" opacity="0.7">
+        <ellipse cx="50" cy="50" rx="3" ry="2" />
+        <ellipse cx="150" cy="80" rx="4" ry="3" />
+        <ellipse cx="250" cy="30" rx="3" ry="2" />
+        <ellipse cx="350" cy="70" rx="2" ry="1.5" />
+        <ellipse cx="450" cy="40" rx="3" ry="2" />
+        
+        <ellipse cx="100" cy="150" rx="3" ry="2" />
+        <ellipse cx="200" cy="180" rx="2" ry="1.5" />
+        <ellipse cx="300" cy="130" rx="4" ry="3" />
+        <ellipse cx="400" cy="170" rx="3" ry="2" />
+        <ellipse cx="480" cy="140" rx="2" ry="1.5" />
+        
+        <ellipse cx="75" cy="250" rx="3" ry="2" />
+        <ellipse cx="180" cy="280" rx="4" ry="3" />
+        <ellipse cx="280" cy="230" rx="2" ry="1.5" />
+        <ellipse cx="380" cy="270" rx="3" ry="2" />
+        <ellipse cx="470" cy="240" rx="3" ry="2" />
+        
+        <ellipse cx="60" cy="350" rx="2" ry="1.5" />
+        <ellipse cx="160" cy="380" rx="3" ry="2" />
+        <ellipse cx="260" cy="330" rx="4" ry="3" />
+        <ellipse cx="360" cy="370" rx="2" ry="1.5" />
+        <ellipse cx="460" cy="340" rx="3" ry="2" />
+        
+        <ellipse cx="90" cy="450" rx="3" ry="2" />
+        <ellipse cx="190" cy="480" rx="2" ry="1.5" />
+        <ellipse cx="290" cy="430" rx="3" ry="2" />
+        <ellipse cx="390" cy="470" rx="4" ry="3" />
+        <ellipse cx="490" cy="440" rx="2" ry="1.5" />
+      </g>
+      
+      <!-- Light variations for depth -->
+      <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" in="noise" result="noisealpha"/>
+        <feComposite operator="in" in="SourceGraphic" in2="noisealpha"/>
+      </filter>
+      
+      <rect width="512" height="512" fill="#ffffff" opacity="0.1" filter="url(#noise)"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main texture -->
+  <rect width="512" height="512" fill="url(#compositePattern)"/>
+</svg>
