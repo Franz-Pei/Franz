@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.apache.curator.framework.CuratorFrameworkFactory"/>
+    <fullyQualifiedTypeName name="org.apache.curator.RetryPolicy"/>
+    <fullyQualifiedTypeName name="org.apache.zookeeper.CreateMode"/>
+    <fullyQualifiedTypeName name="org.jboss.netty.handler.codec.frame.Delimiters"/>
+    <fullyQualifiedTypeName name="io.netty.util.AttributeKey"/>
+    <fullyQualifiedTypeName name="org.jboss.netty.handler.timeout.IdleStateEvent"/>
+    <fullyQualifiedTypeName name="com.dxfx.netty.client.DefaultFuture"/>
+    <fullyQualifiedTypeName name="com.dxfx.netty.handler.param.ServerRequest"/>
+    <fullyQualifiedTypeName name="com.dxfx.netty.client.Response"/>
+    <fullyQualifiedTypeName name="com.alibaba.fastjson.JSONObject"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="com.dxfx.netty.medium.Media"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+    <fullyQualifiedTypeName name="com.dxfx.user.bean.User"/>
+    <fullyQualifiedTypeName name="com.dxfx.netty.util.ResponseUtil"/>
+    <fullyQualifiedTypeName name="java.lang.annotation.RetentionPolicy"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
+    <fullyQualifiedTypeName name="com.dxfx.client.annotation.RemoteInvoke"/>
+    <fullyQualifiedTypeName name="com.dxfx.netty.client.TcpClient"/>
+    <fullyQualifiedTypeName name="com.dxfx.client.param.Response"/>
+    <fullyQualifiedTypeName name="com.dxfx.client.core.TcpClient"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.alibaba.fastjson2.JSONObject"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+    <fullyQualifiedTypeName name="com.dxfx.netty.util.Response"/>
+    <fullyQualifiedTypeName name="com.dxfx.user.model.User"/>
+    <fullyQualifiedTypeName name="com.dxfx.pro.basic.service.BasicService"/>
+    <fullyQualifiedTypeName name="com.dxfx.client.zk.ZookeeperFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.cglib.core.Constants"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="io.netty.channel.ChannelFuture"/>
+    <fullyQualifiedTypeName name="com.dxfx.client.handler.SimpleClientHandler"/>
+    <fullyQualifiedTypeName name="com.dxfx.client.constant.Constants"/>
+    <fullyQualifiedTypeName name="java.net.InetAddress"/>
+</qualifiedTypeNameHistroy>

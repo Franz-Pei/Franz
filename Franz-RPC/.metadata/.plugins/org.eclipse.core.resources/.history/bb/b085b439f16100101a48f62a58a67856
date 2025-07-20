@@ -1,0 +1,20 @@
+package com.dxfx.user.controller;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+
+import com.dxfx.user.bean.User;
+import com.dxfx.user.service.UserService;
+
+@Controller
+public class UserController {
+	
+	@Resource
+	private UserService userService;
+	public void saveUser(User user) {
+		
+		userService.save(user);
+		
+	}
+}

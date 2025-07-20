@@ -1,0 +1,5 @@
+package com.dxfx.client.proxy;
+
+public class InvokeProxy {
+
+}

@@ -1,0 +1,95 @@
+// 1. 改造NettyServer为Spring服务
+package com.dxfx.netty.server;
+
+import java.net.InetAddress;
+import java.util.concurrent.TimeUnit;
+
+import javax.annotation.PostConstruct;  // 新增：导入PostConstruct注解
+
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.zookeeper.CreateMode;
+import org.springframework.stereotype.Service;
+
+import com.dxfx.netty.constant.Constants;
+import com.dxfx.netty.factory.ZookeeperFactory;
+import com.dxfx.netty.handler.SimpleServerHandler;
+
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.Delimiters;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.timeout.IdleStateHandler;
+
+@Service // 添加Spring服务注解
+public class NettyServer {
+
+    // 新增：Bean创建后自动启动
+    @PostConstruct
+    public void autoStart() {
+        new Thread(() -> {
+            try {
+                System.out.println("NettyServer正在自动启动...");
+                start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    // 原来的main方法保留（向后兼容）
+    public static void main(String[] args) {
+        try {
+            NettyServer server = new NettyServer();
+            server.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 新增：实例方法，可以被Spring调用
+    public void start() throws Exception {
+        EventLoopGroup parentGroup = new NioEventLoopGroup();
+        EventLoopGroup childGroup = new NioEventLoopGroup();
+
+        try {
+            ServerBootstrap bootstrap = new ServerBootstrap();
+            bootstrap.group(parentGroup, childGroup)
+                    .option(ChannelOption.SO_BACKLOG, 128)
+                    .childOption(ChannelOption.SO_KEEPALIVE, false)
+                    .channel(NioServerSocketChannel.class)
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        public void initChannel(SocketChannel ch) throws Exception {
+                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(65535, Delimiters.lineDelimiter()));
+                            ch.pipeline().addLast(new StringDecoder());
+                            ch.pipeline().addLast(new IdleStateHandler(60, 45, 20, TimeUnit.SECONDS));
+                            ch.pipeline().addLast(new SimpleServerHandler());
+                            ch.pipeline().addLast(new StringEncoder());
+                        }
+                    });
+
+            ChannelFuture f = bootstrap.bind(8080).sync();
+            System.out.println("Netty服务器启动成功，端口：8080");
+
+            CuratorFramework client = ZookeeperFactory.create();
+            InetAddress netAddress = InetAddress.getLocalHost();
+            String serverPath = Constants.Server_PATH + "/" + netAddress.getHostAddress() + ":8080";
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(serverPath);
+            System.out.println("ZooKeeper连接建立成功");
+
+            f.channel().closeFuture().sync();
+
+        } finally {
+            parentGroup.shutdownGracefully();
+            childGroup.shutdownGracefully();
+        }
+    }
+}

@@ -1,0 +1,37 @@
+package com.dxfx.pro.basic.controller;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import com.dxfx.pro.basic.service.BasicService;
+
+
+@Configuration
+@ComponentScan("com.dxfx")
+public class BasicController 
+{
+	
+	public static void main(String[] args) 
+	{
+	    try 
+	    {
+	        // 启动Spring容器，NettyServer会自动启动
+	        ApplicationContext context = new AnnotationConfigApplicationContext(BasicController.class);
+	        System.out.println("Spring容器启动成功！");
+	        BasicService basicService = context.getBean(BasicService.class);
+	        basicService.testSaveUser();
+	        
+	        // 不需要这行了：nettyServer.start();
+	        // NettyServer的@PostConstruct方法会自动执行
+	        
+	    } catch (Exception e) 
+	    {
+	        System.err.println("服务器启动失败: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	}
+
+	
+}

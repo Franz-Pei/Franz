@@ -1,0 +1,129 @@
+package com.dxfx.netty.client;
+
+import com.alibaba.fastjson.JSONObject;
+import com.dxfx.netty.handler.param.ServerRequest;
+import com.dxfx.netty.handler.SimpleClientHandler;
+import com.dxfx.netty.client.ClientRequest;
+import com.dxfx.netty.util.Response;
+
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.Delimiters;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
+
+public class TcpClient {
+    
+    static final Bootstrap b = new Bootstrap();
+    static ChannelFuture f = null;
+    static {
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        b.group(workerGroup);
+        b.channel(NioSocketChannel.class);
+        b.option(ChannelOption.SO_KEEPALIVE, true);
+        b.handler(new ChannelInitializer<SocketChannel>() {
+            @Override
+            public void initChannel(SocketChannel ch) throws Exception {
+                ch.pipeline().addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE, Delimiters.lineDelimiter()[0]));
+                ch.pipeline().addLast(new StringDecoder());
+                ch.pipeline().addLast(new SimpleClientHandler());
+                ch.pipeline().addLast(new StringEncoder());
+            }
+        });
+        
+        // 移除ZooKeeper依赖，直接连接localhost
+        String host = "localhost";
+        int port = 8080;
+        
+        System.out.println("TcpClient尝试连接: " + host + ":" + port);
+        
+        try {
+            f = b.connect(host, port).sync();
+            System.out.println("TcpClient连接成功！");
+        } catch (Exception e) {
+            System.err.println("TcpClient连接失败: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    // 简化版本：直接发送，不使用DefaultFuture
+    public static Response send(ClientRequest request) {
+        try {
+            if (f == null || !f.channel().isActive()) {
+                System.err.println("连接未建立或已断开");
+                Response errorResp = new Response();
+                errorResp.setResult("连接失败");
+                errorResp.setStatus("500");
+                return errorResp;
+            }
+            
+            // 🔧 修复：直接使用ClientRequest，不需要转换
+            String requestJson = JSONObject.toJSONString(request);
+            System.out.println("TcpClient发送: " + requestJson);
+            
+            f.channel().writeAndFlush(requestJson);
+            f.channel().writeAndFlush("\r\n");
+            
+            // 临时返回成功响应
+            Response response = new Response();
+            response.setId(request.getId());
+            response.setResult("RPC调用成功");
+            response.setStatus("200");
+            return response;
+            
+        } catch (Exception e) {
+            System.err.println("发送ClientRequest异常: " + e.getMessage());
+            e.printStackTrace();
+            
+            Response errorResp = new Response();
+            errorResp.setResult("发送失败: " + e.getMessage());
+            errorResp.setStatus("500");
+            return errorResp;
+        }
+    }
+
+    // 简化版本：直接发送
+    public static Response send(ServerRequest request, String host, int port) {
+        try {
+            if (f == null || !f.channel().isActive()) {
+                System.err.println("连接未建立或已断开");
+                Response errorResp = new Response();
+                errorResp.setResult("连接失败");
+                errorResp.setStatus("500");
+                return errorResp;
+            }
+            
+            if (request.getId() == null) {
+                request.setId(System.currentTimeMillis());
+            }
+            
+            String requestJson = JSONObject.toJSONString(request);
+            System.out.println("TcpClient发送: " + requestJson);
+            
+            f.channel().writeAndFlush(requestJson);
+            f.channel().writeAndFlush("\r\n");
+            
+            // 临时返回成功响应
+            Response response = new Response();
+            response.setResult("发送成功");
+            response.setStatus("200");
+            return response;
+            
+        } catch (Exception e) {
+            System.err.println("发送ServerRequest异常: " + e.getMessage());
+            e.printStackTrace();
+            
+            Response errorResp = new Response();
+            errorResp.setResult("发送失败: " + e.getMessage());
+            errorResp.setStatus("500");
+            return errorResp;
+        }
+    }
+}

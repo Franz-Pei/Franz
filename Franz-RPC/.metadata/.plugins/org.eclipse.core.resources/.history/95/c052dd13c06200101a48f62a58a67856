@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>com.dxfx</groupId>
+<artifactId>pro-netty-consumer</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+
+<name>pro-netty-consumer</name>
+<url>http://www.example.com</url>
+
+<properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<maven.compiler.release>8</maven.compiler.release>
+<maven.compiler.target>8</maven.compiler.target>
+<spring.version>5.3.31</spring.version>
+</properties>
+
+<dependencies>
+<!-- JUnit 4 Testing -->
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.12</version>
+<scope>test</scope>
+</dependency>
+
+<!-- Spring Framework -->
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-context</artifactId>
+<version>${spring.version}</version>
+</dependency>
+
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-test</artifactId>
+<version>4.3.7.RELEASE</version>
+<scope>test</scope>
+</dependency>
+
+<!-- Netty -->
+<dependency>
+<groupId>io.netty</groupId>
+<artifactId>netty-all</artifactId>
+<version>4.1.6.Final</version>
+</dependency>
+
+<!-- FastJSON -->
+<dependency>
+<groupId>com.alibaba</groupId>
+<artifactId>fastjson</artifactId>
+<version>2.0.31</version>
+</dependency>
+
+<!-- Commons Lang -->
+<dependency>
+<groupId>commons-lang</groupId>
+<artifactId>commons-lang</artifactId>
+<version>2.6</version>
+</dependency>
+
+<!-- RPC Module - 临时注释，等RPC项目构建完成后再启用 -->
+<!--
+<dependency>
+<groupId>com.xtwy</groupId>
+<artifactId>pro.netty.rpc</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+</dependency>
+-->
+</dependencies>
+
+<build>
+<plugins>
+<!-- Maven Compiler Plugin -->
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>3.8.1</version>
+<configuration>
+<source>8</source>
+<target>8</target>
+<encoding>UTF-8</encoding>
+</configuration>
+</plugin>
+
+<!-- Maven Surefire Plugin -->
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>2.22.2</version>
+</plugin>
+</plugins>
+</build>
+</project>

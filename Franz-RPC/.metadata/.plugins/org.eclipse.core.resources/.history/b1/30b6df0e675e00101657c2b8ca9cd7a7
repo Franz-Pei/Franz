@@ -1,0 +1,7 @@
+package com.xtwy.nettty.server;
+
+import io.netty.channel.ChannelInboundHandlerAdapter;
+
+public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
+
+}

@@ -1,0 +1,6 @@
+package com.dxfx.client.constant;
+
+public class Constants {
+	// 修复：确保路径格式正确
+	public static final String SERVER_PATH = "/netty";
+	}

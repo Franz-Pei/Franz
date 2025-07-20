@@ -1,0 +1,13 @@
+package com.dxfx.netty.util;
+
+import com.dxfx.netty.client.Response;
+
+public class ResponseUtil {
+	
+	public static Response createSuccessResult() {
+		return new Response();
+		
+		
+	}
+
+}

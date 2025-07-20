@@ -1,0 +1,143 @@
+package com.dxfx.client.core;
+
+
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.zookeeper.Watcher;
+
+import com.alibaba.fastjson.JSONObject;
+import com.dxfx.client.constant.Constants;
+import com.dxfx.client.handler.ServerRequest;
+import com.dxfx.client.handler.SimpleClientHandler;
+import com.dxfx.client.param.ClientRequest;
+import com.dxfx.client.param.Response;
+import com.dxfx.client.zk.ZookeeperFactory;
+
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.Delimiters;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
+
+public class TcpClient {
+	
+	static final Bootstrap b = new Bootstrap();
+	static ChannelFuture f = null;
+	static {
+        EventLoopGroup workerGroup = new NioEventLoopGroup();b.group(workerGroup); // (2)
+        b.channel(NioSocketChannel.class); // (3)
+        b.option(ChannelOption.SO_KEEPALIVE, true); // (4)
+        b.handler(new ChannelInitializer<SocketChannel>() {
+            @Override
+            public void initChannel(SocketChannel ch) throws Exception {
+            	ch.pipeline().addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE, Delimiters.lineDelimiter()[0]));
+                ch.pipeline().addLast(new StringDecoder());
+            	ch.pipeline().addLast(new SimpleClientHandler());
+            	ch.pipeline().addLast(new StringEncoder());
+            }
+        });
+        
+        CuratorFramework client = ZookeeperFactory.create();
+		String host = "localhost";
+        int port = 8080;
+        try {
+        	List<String> serverPaths = client.getChildren().forPath(Constants.SERVER_PATH);
+        	
+        	//加上zk监听服务器的变化
+        	Watcher watcher = new ServerWather();
+			client.getChildren().usingWatcher(watcher).forPath(Constants.SERVER_PATH)
+        	
+        	Set<String> realServerPath = new HashSet<String>();
+        	for(String serverPath : serverPaths) {
+        		realServerPath.add(serverPath.split("#")[0]);
+        	}if(realServerPath.size() >0) {
+        		host=realServerPath.toArray()[0].toString();
+        	}
+        }catch(Exception e1) {
+        	e1.printStackTrace();
+        }
+        
+        try {
+			f = b.connect(host, port).sync();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // (5)
+
+	}
+	
+	// 方法1：接受ClientRequest参数
+	public static Response send(ClientRequest request) {
+	    try {
+	        // 将ClientRequest转换为ServerRequest
+	        ServerRequest serverRequest = new ServerRequest();
+	        serverRequest.setId(request.getId()); // 修复：使用long类型的id
+	        serverRequest.setContent(request.getContent());
+	        
+	        // 如果ClientRequest有command字段，也要复制
+	        if (request.getCommand() != null) {
+	            serverRequest.setCommand(request.getCommand());
+	        }
+	        
+	        // 发送JSON数据
+	        String requestJson = JSONObject.toJSONString(serverRequest);
+	        f.channel().writeAndFlush(requestJson);
+	        f.channel().writeAndFlush("\r\n");
+	        
+	        DefaultFuture df = new DefaultFuture(request);
+	        return df.get();
+	        
+	    } catch (Exception e) {
+	        System.err.println("发送ClientRequest异常: " + e.getMessage());
+	        e.printStackTrace();
+	        
+	        Response errorResp = new Response();
+	        errorResp.setResult("发送失败: " + e.getMessage());
+	        errorResp.setStatus("500");
+	        return errorResp;
+	    }
+	}
+
+	// 方法2：接受ServerRequest参数
+	public static Response send(ServerRequest request, String host, int port) {
+	    try {
+	        // 确保请求有ID
+	        if (request.getId() == null) {
+	            request.setId(System.currentTimeMillis());
+	        }
+	        
+	        // 发送JSON数据
+	        String requestJson = JSONObject.toJSONString(request);
+	        System.out.println("发送请求: " + requestJson);
+	        
+	        f.channel().writeAndFlush(requestJson);
+	        f.channel().writeAndFlush("\r\n");
+	        
+	        // 创建临时ClientRequest用于DefaultFuture
+	        ClientRequest clientRequest = new ClientRequest();
+	        
+	        DefaultFuture df = new DefaultFuture(clientRequest);
+	        return df.get();
+	        
+	    } catch (Exception e) {
+	        System.err.println("发送ServerRequest异常: " + e.getMessage());
+	        e.printStackTrace();
+	        
+	        Response errorResp = new Response();
+	        errorResp.setResult("发送失败: " + e.getMessage());
+	        errorResp.setStatus("500");
+	        return errorResp;
+	    }
+	}
+}

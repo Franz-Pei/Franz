@@ -1,0 +1,21 @@
+package com.dxfx.client.core;
+
+import java.util.concurrent.CopyOnWriteArrayList;
+import io.netty.channel.ChannelFuture;
+
+public class ChannelManager {
+	public static CopyOnWriteArrayList<ChannelFuture> channelFutures = new CopyOnWriteArrayList<>();
+	
+	public static void removeChannel(ChannelFuture channel) {
+		channelFutures.remove(channel);
+	}
+	
+	public static void add(ChannelFuture channel) {
+		channelFutures.add(channel);
+	}
+	
+	public static void clear() {
+		channelFutures.clear();
+	}
+	
+}

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\pzqfr\Documents\workspace-spring-tools-for-eclipse-4.31.0.RELEASE"/>
+			<item value="C:\Users\pzqfr\Documents\workspace-spring-tools-for-eclipse-4.31.0.RELEASE\pro-netty-consumer"/>
+			<item value="C:\Users\pzqfr\Documents\workspace-spring-tools-for-eclipse-4.31.0.RELEASE\pro.netty.rpc\src\test\java\com\xtwy\pro\netty\rpc\RemoteInvokingTest.java"/>
+			<item value="C:\Users\pzqfr\Documents\workspace-spring-tools-for-eclipse-4.31.0.RELEASE\pro.netty.rpc"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="internal"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="com.dxfx.pro.basic"/>
+			<item value="com.dxfx.pro.user.core"/>
+			<item value="com.dxfx.pro.user.api"/>
+			<item value="com.dxfx.pro.netty.consumer"/>
+		</list>
+		<list key="groupId">
+			<item value="com.dxfx"/>
+		</list>
+		<list key="artifactId">
+			<item value="pro.basic"/>
+			<item value="pro.user.core"/>
+			<item value="pro.user"/>
+			<item value="pro.netty.consumer"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="531"/>
+		<item key="x" value="613"/>
+		<item key="y" value="155"/>
+	</section>
+	<section name="MavenModuleWizardParentPage">
+		<list key="moduleName">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenPropertyDialog">
+		<item key="DIALOG_X_ORIGIN" value="194"/>
+		<item key="DIALOG_Y_ORIGIN" value="227"/>
+		<item key="DIALOG_WIDTH" value="386"/>
+		<item key="DIALOG_HEIGHT" value="179"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+</section>

@@ -1,0 +1,15 @@
+package com.dxfx.user.service;
+
+import org.springframework.stereotype.Service;
+
+import com.dxfx.user.bean.User;
+
+@Service
+public class UserService {
+
+	public void save(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,32 @@
+package com.xtwy.pro.netty.rpc;
+
+import org.junit.Test;
+
+import com.dxfx.netty.client.ClientRequest;
+import com.dxfx.netty.client.Response;
+import com.dxfx.netty.client.TcpClient;
+import com.dxfx.user.bean.User;
+
+
+public class TestTcp {
+	@Test
+	public void testGetResponse() {
+		ClientRequest request = new ClientRequest();
+		request.setContent("测试tcp长连接请求");
+		Response resp = TcpClient.send(request);
+		System.out.println(resp.getResult());
+	}
+	
+	@Test
+	public void testSaveUser() {
+		ClientRequest request = new ClientRequest();
+		User u = new User();
+		u.setId(1);
+		u.setName("张三");
+		request.setCommand("com.dxfx.user.controller.UserController.saveUser");
+		request.setContent(u);
+		Response resp = TcpClient.send(request);
+		System.out.println(resp.getResult());
+	}
+
+}

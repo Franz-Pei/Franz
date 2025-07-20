@@ -1,0 +1,87 @@
+package com.dxfx.client;
+
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import com.dxfx.netty.util.Response;
+
+
+
+public class DefaultFuture {
+	
+	public final static ConcurrentHashMap<Long,DefaultFuture>allDefaultFuture = new ConcurrentHashMap<Long,DefaultFuture>();
+	
+	final Lock lock = new ReentrantLock();
+	public Condition condition = lock.newCondition();
+	private Response response;
+	
+	
+	public DefaultFuture(ClientRequest request) {
+		// TODO Auto-generated constructor stub
+		allDefaultFuture.put(request.getId(),this);
+	}
+
+	//主线程获取信息
+	public Response get() {
+		lock.lock();
+		try {
+			while(!done()) {
+				condition.await();
+			}
+			condition.await();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			lock.unlock();
+		}
+		return this.response;
+	}
+	
+	public static void recive(Response response) {
+	    if (response == null || response.getId() == null) {
+	        System.err.println("响应或响应ID为null");
+	        return;
+	    }
+	    
+	    System.out.println("收到响应，ID: " + response.getId());
+	    DefaultFuture df = allDefaultFuture.get(response.getId());
+	    
+	    if(df != null) {
+	        Lock lock = df.lock;
+	        lock.lock();
+	        try {
+	            df.setResponse(response);
+	            df.condition.signal();
+	            // 🔧 关键修改：移除时使用response的ID
+	            allDefaultFuture.remove(response.getId());  // 修改这行！
+	            System.out.println("成功处理响应，ID: " + response.getId());
+	        } catch(Exception e) {
+	            e.printStackTrace();
+	        } finally {
+	            lock.unlock();
+	        }
+	    } else {
+	        System.err.println("找不到对应的DefaultFuture，ID: " + response.getId());
+	    }
+	}
+	
+	
+
+	public Response getResponse() {
+		return response;
+	}
+
+	public void setResponse(Response response) {
+		this.response = response;
+	}
+
+	private boolean done() {
+		// TODO Auto-generated method stub
+		if(this.response!=null) {
+			return true;
+		}
+		return false;
+	}
+}

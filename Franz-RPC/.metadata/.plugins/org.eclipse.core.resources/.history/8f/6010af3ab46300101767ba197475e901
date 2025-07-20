@@ -1,0 +1,31 @@
+// 2. SpringServer调用NettyServer服务
+package com.dxfx.server;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import com.dxfx.netty.server.NettyServer;
+
+@Configuration
+@ComponentScan("com.dxfx")
+public class SpringServer {
+
+    public static void main(String[] args) {
+        try {
+            // 启动Spring容器
+            ApplicationContext context = new AnnotationConfigApplicationContext(SpringServer.class);
+            System.out.println("Spring容器启动成功！");
+            
+            // 从Spring容器获取NettyServer服务并启动
+            NettyServer nettyServer = context.getBean(NettyServer.class);
+            System.out.println("正在启动Netty网络服务...");
+            nettyServer.start();
+            
+        } catch (Exception e) {
+            System.err.println("服务器启动失败: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}

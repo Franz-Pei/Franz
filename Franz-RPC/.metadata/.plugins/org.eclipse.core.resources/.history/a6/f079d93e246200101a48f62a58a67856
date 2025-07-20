@@ -1,0 +1,5 @@
+package com.dxfx.netty.annotation;
+
+public class Remote {
+
+}

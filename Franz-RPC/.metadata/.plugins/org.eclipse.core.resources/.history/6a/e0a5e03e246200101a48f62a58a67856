@@ -1,0 +1,5 @@
+package com.dxfx.user.remote;
+
+public class UserRemote {
+
+}

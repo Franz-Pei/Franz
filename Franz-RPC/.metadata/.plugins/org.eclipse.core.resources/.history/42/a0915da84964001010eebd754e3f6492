@@ -1,0 +1,14 @@
+package com.dxfx.client.core;
+
+import org.apache.curator.framework.api.CuratorWatcher;
+import org.apache.zookeeper.WatchedEvent;
+
+public class ServerWather implements CuratorWatcher {
+
+	@Override
+	public void process(WatchedEvent event) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.dxfx.user.service;
+
+public class UserService {
+
+}

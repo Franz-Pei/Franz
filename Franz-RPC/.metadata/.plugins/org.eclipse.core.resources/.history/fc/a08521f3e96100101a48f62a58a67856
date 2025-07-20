@@ -1,0 +1,13 @@
+package com.dxfx.netty.medium;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Media {
+
+	public static Map<String, BeanMethod>beanMap;
+	static {
+		beanMap = new HashMap<String,BeanMethod>();
+	}
+	
+}

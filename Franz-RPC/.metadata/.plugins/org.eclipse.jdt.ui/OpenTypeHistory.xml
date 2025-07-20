@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=pro.netty.consumer/C:\/Users\/pzqfr\/.m2\/repository\/org\/apache\/curator\/curator-framework\/2.4.2\/curator-framework-2.4.2.jar=/maven.pomderived=/true=/=/maven.groupId=/org.apache.curator=/=/maven.artifactId=/curator-framework=/=/maven.version=/2.4.2=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.apache.curator.framework.api(CuratorWatcher.class[CuratorWatcher" modifiers="1537" timestamp="1752308289562"/>
+    <typeInfo handle="=pro.netty.consumer/C:\/Users\/pzqfr\/.m2\/repository\/org\/apache\/curator\/curator-framework\/2.4.2\/curator-framework-2.4.2.jar=/maven.pomderived=/true=/=/maven.groupId=/org.apache.curator=/=/maven.artifactId=/curator-framework=/=/maven.version=/2.4.2=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.apache.curator.framework.api.transaction(CuratorTransactionBridge.class[CuratorTransactionBridge" modifiers="1537" timestamp="1752308289562"/>
+</typeInfoHistroy>

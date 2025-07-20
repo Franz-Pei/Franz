@@ -1,0 +1,9 @@
+package com.dxfx.client.proxy;
+
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
+
+@Component
+public class InvokeProxy implements BeanPostProcessor {
+
+}

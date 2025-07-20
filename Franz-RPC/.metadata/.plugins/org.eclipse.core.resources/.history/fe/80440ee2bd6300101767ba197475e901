@@ -1,0 +1,9 @@
+package com.dxfx.pro.basic.controller;
+
+public class BasicController {
+	
+	public static void main(String[] args){
+		
+	}
+
+}
