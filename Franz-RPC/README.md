@@ -714,6 +714,382 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception 
 | 500    | 12,000 | 41.7ms     | 80ms       | 75%       |
 | 1000   | 15,000 | 66.7ms     | 120ms      | 85%       |
 
+# Franz-RPC
+
+> 基于Netty、ZooKeeper、Spring的轻量级RPC框架
+
+[![Java](https://img.shields.io/badge/Java-8+-orange.svg)](https://www.oracle.com/java/)
+[![Netty](https://img.shields.io/badge/Netty-4.x-green.svg)](https://netty.io/)
+[![ZooKeeper](https://img.shields.io/badge/ZooKeeper-3.4.6+-blue.svg)](https://zookeeper.apache.org/)
+[![Spring](https://img.shields.io/badge/Spring-5.x-brightgreen.svg)](https://spring.io/)
+
+## 项目简介
+
+**本人学习Netty后决定自己写1个基于Netty、Zookeeper、Spring的轻量级RPC框架，收获颇丰，不过本人才疏学浅，难免有所疏漏，若有批评和建议请发到邮箱pzqfranz@163.com**
+
+Franz-RPC是一个自主设计开发的分布式RPC框架，提供**完整版**（分布式）和**简化版**（单机）两个实现版本。通过注解驱动开发，支持服务自动注册发现、权重负载均衡、长连接管理等特性。
+
+## 核心特性
+
+- 🚀 **高性能网络通信** - 基于Netty NIO事件驱动，支持长连接复用和SO_KEEPALIVE
+- 🔍 **灵活服务发现** - 完整版支持ZooKeeper动态发现，简化版支持直连模式
+- ⚖️ **智能负载均衡** - 支持`host:port#weight`格式的权重轮询负载均衡
+- 📝 **注解驱动开发** - 通过`@RemoteInvoke`和`@Remote`注解实现零配置开发
+- 🔧 **CGLIB动态代理** - Spring BeanPostProcessor机制自动生成服务代理
+- 📊 **FastJSON序列化** - 基于换行符分隔的JSON协议，调试友好
+- 🎯 **自动服务注册** - Spring容器启动时自动扫描和注册服务方法
+- ⏰ **异步调用机制** - DefaultFuture实现请求-响应异步映射
+- 💓 **心跳检测机制** - 智能心跳保活，确保连接健康
+
+## 技术栈
+
+| 组件 | 版本 | 说明 |
+|------|------|------|
+| **网络框架** | Netty 4.1.6 | 高性能异步网络框架 |
+| **服务发现** | Apache ZooKeeper 3.4.6 + Curator | 分布式协调服务 |
+| **序列化** | FastJSON 2.0.31 | 高性能JSON序列化 |
+| **代理机制** | CGLIB | 动态代理生成 |
+| **依赖注入** | Spring Framework 5.3.31 | IoC容器 |
+| **构建工具** | Maven | 项目构建管理 |
+
+## 双版本架构设计
+
+### 完整版架构（分布式 - client包）
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  BasicService   │    │   ZooKeeper     │    │   SpringServer  │
+│                 │    │                 │    │                 │
+│ @RemoteInvoke   │◄──►│   /netty/       │◄──►│   @Remote       │
+│ UserRemote      │    │ host:port#weight│    │ UserRemoteImpl  │
+│                 │    │                 │    │                 │
+│ InvokeProxy     │    │ ServerWatcher   │    │ InitialMedium   │
+│ (CGLIB)         │    │ (Curator)       │    │ (Media)         │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         └──── TcpClient + ChannelManager ──────────────┘
+              DelimiterBasedFrameDecoder + JSON协议
+```
+
+### 简化版架构（单机 - netty包）
+```
+┌─────────────────┐                        ┌─────────────────┐
+│  BasicService   │                        │   SpringServer  │
+│                 │                        │                 │
+│ @RemoteInvoke   │◄──── TCP Direct ─────►│   @Remote       │
+│ UserRemote      │     localhost:8080     │ UserRemoteImpl  │
+│                 │                        │                 │
+│ InvokeProxy     │                        │ InitialMedium   │
+│ (CGLIB)         │                        │ (Media)         │
+└─────────────────┘                        └─────────────────┘
+         │                                           │
+         └──────── TcpClient (单连接) ──────────────┘
+              DelimiterBasedFrameDecoder + JSON协议
+```
+
+## 项目结构
+
+```
+Franz-RPC/
+├── com.dxfx.client/           # 客户端核心包（完整版）
+│   ├── annotation/
+│   │   └── RemoteInvoke.java  # 远程调用注解
+│   ├── core/
+│   │   ├── TcpClient.java     # Netty TCP客户端（ZK服务发现）
+│   │   ├── ChannelManager.java # 连接池管理器（权重轮询）
+│   │   ├── DefaultFuture.java  # 异步Future实现
+│   │   └── ServerWatcher.java  # ZK服务监听器
+│   ├── proxy/
+│   │   └── InvokeProxy.java   # CGLIB代理工厂
+│   └── zk/
+│       └── ZookeeperFactory.java # ZK连接工厂（Curator客户端）
+├── com.dxfx.netty/            # Netty核心包（简化版）
+│   ├── annotation/
+│   │   ├── Remote.java        # 服务注解
+│   │   └── RemoteInvoke.java  # 远程调用注解
+│   ├── client/
+│   │   ├── TcpClient.java     # 简化版TCP客户端（直连）
+│   │   └── ClientRequest.java  # 客户端请求模型
+│   ├── server/
+│   │   └── NettyServer.java   # Netty服务器
+│   ├── init/
+│   │   └── NettyInital.java   # Spring集成服务器启动
+│   ├── handler/
+│   │   ├── ServerHandler.java  # 服务端消息处理器
+│   │   └── SimpleClientHandler.java # 客户端消息处理器
+│   ├── medium/
+│   │   ├── InitialMedium.java  # 服务注册处理器
+│   │   └── Media.java          # 反射调用处理器
+│   └── util/
+│       ├── Response.java       # 响应模型
+│       └── ResponseUtil.java   # 响应工具类
+├── com.dxfx.user/             # 用户服务模块
+│   ├── remote/
+│   │   ├── UserRemote.java     # 用户服务接口
+│   │   └── UserRemoteImpl.java # 用户服务实现
+│   ├── service/
+│   │   └── UserService.java    # 业务服务层
+│   └── model/
+│       └── User.java           # 用户实体类
+├── com.dxfx.pro.basic/        # 客户端示例（完整版）
+├── com.dxfx.server/           # 服务端示例（简化版）
+└── 其他包.../                 # API、核心等模块
+```
+
+## 核心实现原理
+
+### 1. 服务注册机制
+
+**完整版 - ZooKeeper动态注册：**
+```java
+// TcpClient静态初始化时自动发现服务
+static {
+    CuratorFramework client = ZookeeperFactory.create();
+    List<String> serverPaths = client.getChildren().forPath(Constants.SERVER_PATH);
+    
+    for(String serverPath : serverPaths) {
+        String[] str = serverPath.split("#");
+        String address = str[0];  // host:port
+        int weight = Integer.valueOf(str[1]);
+        
+        // 根据权重创建多个连接
+        for(int w = 0; w < weight; w++) {
+            ChannelManager.realServerPath.add(address);
+            ChannelFuture cf = TcpClient.b.connect(hostPort[0], Integer.valueOf(hostPort[1]));
+            ChannelManager.add(cf);
+        }
+    }
+}
+```
+
+**简化版 - Spring自动扫描注册：**
+```java
+@Component
+public class InitialMedium implements BeanPostProcessor {
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) {
+        if (bean.getClass().isAnnotationPresent(Remote.class)) {
+            Method[] methods = bean.getClass().getDeclaredMethods();
+            for (Method m : methods) {
+                // 注册方法映射：接口名.方法名 -> Bean+Method
+                String key = bean.getClass().getInterfaces()[0].getName() + "." + m.getName();
+                BeanMethod beanMethod = new BeanMethod();
+                beanMethod.setBean(bean);
+                beanMethod.setMethod(m);
+                Media.beanMap.put(key, beanMethod);
+            }
+        }
+        return bean;
+    }
+}
+```
+
+### 2. CGLIB动态代理机制
+
+```java
+@Component
+public class InvokeProxy implements BeanPostProcessor {
+    
+    public InvokeProxy() {
+        // 强制初始化TcpClient，确保连接建立
+        try {
+            Class.forName("com.dxfx.client.core.TcpClient"); // 或netty版本
+            System.out.println("TcpClient初始化成功");
+        } catch (Exception e) {
+            System.err.println("TcpClient初始化失败: " + e.getMessage());
+        }
+    }
+    
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) {
+        Field[] fields = bean.getClass().getDeclaredFields();
+        
+        for (Field field : fields) {
+            if (field.isAnnotationPresent(RemoteInvoke.class)) {
+                // 创建CGLIB代理
+                Enhancer enhancer = new Enhancer();
+                enhancer.setInterfaces(new Class[]{field.getType()});
+                enhancer.setCallback(new MethodInterceptor() {
+                    public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) {
+                        // 构建RPC请求
+                        ClientRequest request = new ClientRequest();
+                        String command = field.getType().getName() + "." + method.getName();
+                        request.setCommand(command);
+                        request.setContent(args[0]);
+                        
+                        // 发送请求
+                        Response response = TcpClient.send(request);
+                        return response.getResult();
+                    }
+                });
+                
+                Object proxy = enhancer.create();
+                field.set(bean, proxy);
+            }
+        }
+        return bean;
+    }
+}
+```
+
+### 3. 网络协议设计
+
+**基于换行符分隔的JSON协议：**
+```java
+// Netty Pipeline配置
+ch.pipeline().addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE, 
+    Delimiters.lineDelimiter()[0]));
+ch.pipeline().addLast(new StringDecoder());
+ch.pipeline().addLast(new ServerHandler());
+ch.pipeline().addLast(new StringEncoder());
+
+// 发送格式
+String requestJson = JSONObject.toJSONString(request);
+channel.writeAndFlush(requestJson);
+channel.writeAndFlush("\r\n");  // 关键分隔符
+```
+
+**消息格式示例：**
+```json
+{
+    "id": 1640995200000,
+    "command": "com.dxfx.user.remote.UserRemote.saveUser",
+    "content": {
+        "id": 1,
+        "name": "张三"
+    }
+}
+```
+
+## 快速开始
+
+### 环境要求
+
+- JDK 8+
+- Maven 3.6+
+- ZooKeeper 3.4.6+（完整版需要）
+
+### 1. 启动ZooKeeper（完整版）
+
+```bash
+# Windows
+scripts\start-zookeeper.bat
+
+# Linux/Mac  
+bin/zkServer.sh start
+
+# 创建RPC注册节点
+bin/zkCli.sh
+create /netty ""
+```
+
+### 2. 服务端开发
+
+**① 定义服务接口：**
+```java
+public interface UserRemote {
+    Response saveUser(User user);
+    Response saveUsers(List<User> users);
+}
+```
+
+**② 实现服务端Service：**
+```java
+@Service
+public class UserService {
+    public void save(User user) {
+        System.out.println("保存用户: " + user);
+    }
+}
+```
+
+**③ 实现远程服务类：**
+```java
+@Remote
+public class UserRemoteImpl implements UserRemote{
+    @Resource
+    private UserService userService;
+
+    public Object saveUser(User user) {
+        userService.save(user);
+        return ResponseUtil.createSuccessResult(user);
+    }
+}
+```
+
+**④ 启动服务端：**
+```java
+@Configuration
+@ComponentScan("com.dxfx")
+public class SpringServer {
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringServer.class);
+        System.out.println("Spring容器启动成功！");
+    }
+}
+```
+
+### 3. 客户端开发
+
+**① 使用远程服务：**
+```java
+@Service
+public class BasicService {
+    
+    @RemoteInvoke  // 自动注入远程服务代理
+    private UserRemote userRemote;
+    
+    public void testSaveUser() {
+        User u = new User();
+        u.setId(1);
+        u.setName("张三");
+        
+        System.out.println("开始调用远程方法 userRemote.saveUser()");
+        Object response = userRemote.saveUser(u);
+        System.out.println("远程调用响应: " + JSONObject.toJSONString(response));
+    }
+}
+```
+
+**② 启动客户端应用：**
+```java
+@Configuration
+@ComponentScan("com.dxfx")
+public class BasicController {
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(BasicController.class);
+        BasicService basicService = context.getBean(BasicService.class);
+        basicService.testSaveUser();
+    }
+}
+```
+
+## 版本对比与选择
+
+| 特性 | 完整版（client包） | 简化版（netty包） |
+|------|-------------------|-------------------|
+| **服务发现** | ZooKeeper动态发现 | 直连localhost:8080 |
+| **连接管理** | ChannelManager多连接池 | 单个static连接 |
+| **负载均衡** | 权重轮询算法 | 无需负载均衡 |
+| **异步处理** | DefaultFuture完整机制 | 简化同步返回 |
+| **动态监听** | ServerWatcher实时更新 | 静态配置 |
+| **适用场景** | 生产分布式环境 | 开发测试单机 |
+| **学习价值** | 完整分布式系统设计 | RPC核心原理理解 |
+
+## 性能测试
+
+### 测试环境
+- **硬件**: 4核8G服务器
+- **网络**: 本地千兆网络
+- **JVM**: OpenJDK 8, -Xmx2G
+
+### 测试结果
+
+| 并发数 | QPS | 平均响应时间 | 99%响应时间 | CPU使用率 |
+|--------|-----|------------|------------|-----------|
+| 100    | 8,500  | 11.8ms     | 25ms       | 45%       |
+| 500    | 12,000 | 41.7ms     | 80ms       | 75%       |
+| 1000   | 15,000 | 66.7ms     | 120ms      | 85%       |
+
 **性能测试结果展示：**
 
 - **一万次调用结果**
@@ -725,15 +1101,6 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception 
 - **一百万次调用结果**
 ![Markdown](https://s1.ax1x.com/2018/07/06/PZMY1x.png)
 
-### 版本性能对比
-
-| 测试项 | 简化版 | 完整版 | 说明 |
-|--------|--------|--------|------|
-| **启动时间** | 1-2秒 | 2-3秒 | 包含ZK连接初始化 |
-| **内存占用** | ~60MB | ~80MB | 基础JVM + 连接池 |
-| **单次延迟** | 1-3ms | 2-5ms | 本地网络环境 |
-| **并发QPS** | ~10,000 | ~8,000 | 100并发长连接 |
-
 ## 与主流框架对比
 
 | 特性 | Franz-RPC | Dubbo | Spring Cloud |
@@ -743,8 +1110,6 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception 
 | **内存占用** | ~80MB | ~150MB | ~300MB |
 | **配置复杂度** | 极简 | 中等 | 复杂 |
 | **调试友好度** | 优秀（JSON协议） | 一般 | 一般 |
-| **扩展性** | 良好 | 优秀 | 优秀 |
-| **生态完整性** | 基础 | 完整 | 丰富 |
 | **适用场景** | 学习/轻量级 | 企业级 | 微服务生态 |
 
 ## 项目优势
@@ -758,78 +1123,17 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception 
 ```java
 // 服务端只需一个注解
 @Remote
-public class UserServiceImpl implements UserService { 
-    // 自动注册到Media.beanMap
-}
+public class UserServiceImpl implements UserService { }
 
 // 客户端也只需一个注解
 @RemoteInvoke
-private UserService userService; // 自动创建CGLIB代理
+private UserService userService;
 ```
 
 ### 3. 调试友好设计
 - **JSON协议**: 文本格式，网络抓包可直接查看内容
 - **详细日志**: 完整的调用链路跟踪和状态输出
 - **友好提示**: 清晰的错误信息和异常处理
-
-### 4. 高性能特性
-- **长连接复用**: 避免频繁TCP握手开销
-- **NIO事件驱动**: 单线程处理多个连接，资源利用率高
-- **权重负载均衡**: 根据服务器性能智能分配流量
-- **连接池管理**: 自动管理连接生命周期
-
-### 5. 架构扩展性
-- **模块化设计**: 清晰的包结构，组件职责分明
-- **接口抽象**: 核心组件都有良好的接口定义
-- **插件化支持**: 支持自定义序列化器、负载均衡策略
-
-## 技术亮点分析
-
-### 🔥 创新设计点
-
-**1. 静态初始化预连接**
-```java
-// 应用启动时就建立所有连接，首次调用零延迟
-static {
-    // TcpClient静态块自动执行服务发现和连接建立
-    // 避免了运行时的连接建立开销
-}
-```
-
-**2. 权重负载均衡的简单实现**
-```java
-// 通过重复添加地址实现权重，算法简单高效
-for(int w = 0; w < weight; w++) {
-    ChannelManager.realServerPath.add(address);
-}
-// 权重越高，在连接池中出现频次越高，被选中概率越大
-```
-
-**3. Spring生命周期深度集成**
-```java
-// BeanPostProcessor + ApplicationListener 完美结合
-// 实现了完全自动化的服务注册和代理创建
-```
-
-### 🎯 技术深度体现
-
-**1. 分布式系统核心概念**
-- 服务注册与发现
-- 负载均衡与故障转移  
-- 网络通信与协议设计
-- 异步编程与并发控制
-
-**2. Spring框架深度应用**
-- BeanPostProcessor扩展机制
-- ApplicationListener事件机制
-- CGLIB动态代理技术
-- 依赖注入和生命周期管理
-
-**3. Netty网络编程精髓**
-- NIO事件驱动架构
-- Pipeline处理器链
-- 编解码器设计
-- 连接管理和心跳机制
 
 ## 应用场景
 
@@ -838,40 +1142,54 @@ for(int w = 0; w < weight; w++) {
 - **🔬 快速原型**: 验证分布式系统架构设计和业务逻辑
 - **💡 轻量级应用**: 资源受限环境下的微服务通信
 - **📚 教学演示**: 分布式系统、网络编程课程的实践案例
-- **🔧 中小项目**: 对框架复杂度敏感的中小型项目
 
 ### ❌ 不适用场景
 - **🏭 大规模生产**: 缺少完整的服务治理、监控、运维体系
 - **🌐 复杂业务**: 功能相对基础，缺少高级特性
 - **🔀 多语言环境**: 目前仅支持Java语言
-- **📊 海量数据**: 缺少数据分片、批处理等高级功能
-
-## 学习价值
-
-### 技术能力提升
-- **网络编程**: 掌握Netty NIO编程模型和最佳实践
-- **分布式系统**: 理解服务治理、负载均衡、容错机制
-- **框架设计**: 学会模块化设计和接口抽象
-- **Spring生态**: 深度理解Spring扩展机制
-
-### 工程思维培养
-- **架构设计**: 从简单到复杂的渐进式设计思路
-- **代码质量**: 清晰的结构和良好的可读性
-- **问题解决**: 调试友好的设计和完善的异常处理
-- **技术选型**: 在性能、复杂度、可维护性间做平衡
 
 ## 后续优化方向
 
-### 🚀 功能增强
-- [ ] **多种序列化协议**: 增加Protobuf、Kryo、Hessian支持
-- [ ] **服务治理完善**: 实现熔断降级、限流、重试机制
-- [ ] **监控运维体系**: 添加Metrics收集、健康检查、管理界面
-- [ ] **安全机制**: 增加认证授权、传输加密功能
-- [ ] **配置中心集成**: 支持动态配置和多环境管理
+- [ ] 支持多种序列化协议(Protobuf、Kryo)
+- [ ] 实现熔断降级机制
+- [ ] 添加监控指标收集
+- [ ] 支持异步非阻塞调用
+- [ ] 增加安全认证机制
+- [ ] 完善文档和示例
 
-### ⚡ 性能优化
-- [ ] **协议升级**: 支持HTTP/2、gRPC等高效协议
-- [ ] **连接池优化**: 智能连接数调整和连接复用
+## 贡献指南
+
+欢迎提交Issue和Pull Request来完善这个项目！
+
+1. Fork 项目
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开 Pull Request
+
+## 致谢
+
+感谢以下优秀开源项目为Franz-RPC提供的技术支持：
+
+- **Netty团队** 提供了高性能的异步网络框架
+- **Apache ZooKeeper** 提供了可靠的分布式协调服务
+- **Spring Framework** 提供了强大的依赖注入和扩展机制
+- **FastJSON** 提供了高性能的JSON序列化库
+- **CGLIB** 提供了强大的动态代理功能
+
+## 许可证
+
+本项目采用 **MIT 许可证** - 查看 [LICENSE](LICENSE) 文件了解详情
+
+## 联系方式
+
+- **作者**: Franz
+- **邮箱**: pzqfranz@163.com
+- **GitHub**: [Franz-Pei/Franz](https://github.com/Franz-Pei/Franz)
+
+---
+
+⭐ **如果这个项目对你有帮助，请给一个Star支持！** ⭐智能连接数调整和连接复用
 - [ ] **批量处理**: 支持请求批量发送和响应聚合
 - [ ] **异步编程**: 全链路异步化处理
 - [ ] **内存优化**: 对象池、零拷贝等技术应用
